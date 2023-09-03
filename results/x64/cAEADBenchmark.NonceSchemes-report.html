@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>cAEADBenchmark.NonceSchemes-20230729-140944</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.6, Windows 11 (10.0.22621.1992/22H2/2022Update/SunValley2)
+Intel Core i5-9600K CPU 3.70GHz (Coffee Lake), 1 CPU, 6 logical and 6 physical cores
+.NET SDK 7.0.306
+  [Host]     : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>            Method</th><th>Categories</th><th>PlaintextSize</th><th>AssociatedDataSize</th><th>      Mean</th><th>    Error</th><th>   StdDev</th><th>    Median</th><th> Ratio</th><th>RatioSD</th>
+</tr>
+</thead><tbody><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>204.5 ns</td><td>0.02 ns</td><td>0.02 ns</td><td>204.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>381.9 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>381.8 ns</td><td>1.87x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>546.9 ns</td><td>2.55 ns</td><td>2.38 ns</td><td>548.1 ns</td><td>2.67x slower</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>249.7 ns</td><td>0.85 ns</td><td>0.79 ns</td><td>249.3 ns</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>373.1 ns</td><td>0.38 ns</td><td>0.30 ns</td><td>373.1 ns</td><td>1.82x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>226.5 ns</td><td>0.01 ns</td><td>0.01 ns</td><td>226.5 ns</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>245.4 ns</td><td>0.82 ns</td><td>0.77 ns</td><td>244.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>427.6 ns</td><td>0.37 ns</td><td>0.35 ns</td><td>427.6 ns</td><td>1.74x slower</td><td>0.01x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>547.9 ns</td><td>0.26 ns</td><td>0.22 ns</td><td>548.0 ns</td><td>2.23x slower</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>295.0 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>295.0 ns</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>374.3 ns</td><td>0.41 ns</td><td>0.32 ns</td><td>374.3 ns</td><td>1.53x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>532.3 ns</td><td>0.23 ns</td><td>0.22 ns</td><td>532.2 ns</td><td>2.17x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>1,293.4 ns</td><td>0.17 ns</td><td>0.14 ns</td><td>1,293.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>1,516.8 ns</td><td>0.39 ns</td><td>0.31 ns</td><td>1,516.8 ns</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>1,518.7 ns</td><td>0.65 ns</td><td>0.54 ns</td><td>1,518.8 ns</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>1,411.4 ns</td><td>0.41 ns</td><td>0.39 ns</td><td>1,411.3 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>1,344.9 ns</td><td>0.53 ns</td><td>0.44 ns</td><td>1,344.7 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>6,681.4 ns</td><td>9.16 ns</td><td>8.57 ns</td><td>6,684.9 ns</td><td>5.17x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>11,859.0 ns</td><td>2.79 ns</td><td>2.47 ns</td><td>11,858.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>6,051.0 ns</td><td>1.46 ns</td><td>1.14 ns</td><td>6,050.6 ns</td><td>1.96x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>10,792.2 ns</td><td>4.42 ns</td><td>3.91 ns</td><td>10,792.0 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>3,666.6 ns</td><td>4.36 ns</td><td>4.08 ns</td><td>3,669.1 ns</td><td>3.23x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>10,616.1 ns</td><td>6.03 ns</td><td>5.35 ns</td><td>10,616.1 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>68,606.9 ns</td><td>27.89 ns</td><td>21.77 ns</td><td>68,604.1 ns</td><td>5.79x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>313.4 ns</td><td>0.04 ns</td><td>0.04 ns</td><td>313.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>475.6 ns</td><td>0.15 ns</td><td>0.14 ns</td><td>475.6 ns</td><td>1.52x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>727.2 ns</td><td>0.24 ns</td><td>0.18 ns</td><td>727.2 ns</td><td>2.32x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>338.9 ns</td><td>0.96 ns</td><td>0.90 ns</td><td>338.3 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>469.9 ns</td><td>0.42 ns</td><td>0.35 ns</td><td>469.8 ns</td><td>1.50x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>292.3 ns</td><td>0.11 ns</td><td>0.11 ns</td><td>292.3 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>351.6 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>351.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>528.2 ns</td><td>0.21 ns</td><td>0.19 ns</td><td>528.3 ns</td><td>1.50x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>728.1 ns</td><td>0.87 ns</td><td>0.68 ns</td><td>728.0 ns</td><td>2.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>387.2 ns</td><td>0.04 ns</td><td>0.03 ns</td><td>387.2 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>471.1 ns</td><td>0.24 ns</td><td>0.22 ns</td><td>471.1 ns</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>600.8 ns</td><td>2.24 ns</td><td>2.09 ns</td><td>599.2 ns</td><td>1.71x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>1,403.5 ns</td><td>0.16 ns</td><td>0.13 ns</td><td>1,403.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>1,617.7 ns</td><td>0.11 ns</td><td>0.09 ns</td><td>1,617.7 ns</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>1,694.8 ns</td><td>0.55 ns</td><td>0.49 ns</td><td>1,694.7 ns</td><td>1.21x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>1,467.9 ns</td><td>0.17 ns</td><td>0.15 ns</td><td>1,467.8 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>1,439.2 ns</td><td>0.42 ns</td><td>0.37 ns</td><td>1,439.2 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>6,760.2 ns</td><td>6.89 ns</td><td>6.45 ns</td><td>6,762.0 ns</td><td>4.82x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>11,961.3 ns</td><td>4.57 ns</td><td>3.57 ns</td><td>11,960.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>6,121.2 ns</td><td>0.68 ns</td><td>0.60 ns</td><td>6,121.2 ns</td><td>1.95x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>10,972.2 ns</td><td>10.06 ns</td><td>7.85 ns</td><td>10,971.1 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>3,754.7 ns</td><td>9.42 ns</td><td>8.81 ns</td><td>3,755.2 ns</td><td>3.19x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>10,855.1 ns</td><td>4.75 ns</td><td>3.96 ns</td><td>10,854.5 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>68,787.5 ns</td><td>85.85 ns</td><td>80.31 ns</td><td>68,825.3 ns</td><td>5.75x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>323.4 ns</td><td>0.13 ns</td><td>0.11 ns</td><td>323.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>496.1 ns</td><td>0.31 ns</td><td>0.27 ns</td><td>495.9 ns</td><td>1.53x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>722.0 ns</td><td>0.40 ns</td><td>0.36 ns</td><td>722.0 ns</td><td>2.23x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>342.7 ns</td><td>0.29 ns</td><td>0.27 ns</td><td>342.7 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>472.5 ns</td><td>0.25 ns</td><td>0.22 ns</td><td>472.5 ns</td><td>1.46x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>359.9 ns</td><td>0.04 ns</td><td>0.03 ns</td><td>359.9 ns</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>368.2 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>368.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>537.7 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>537.7 ns</td><td>1.46x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>734.2 ns</td><td>0.45 ns</td><td>0.40 ns</td><td>734.1 ns</td><td>1.99x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>390.0 ns</td><td>0.20 ns</td><td>0.18 ns</td><td>390.0 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>472.5 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>472.5 ns</td><td>1.28x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>666.3 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>666.3 ns</td><td>1.81x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>1,423.0 ns</td><td>0.41 ns</td><td>0.34 ns</td><td>1,422.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>1,626.6 ns</td><td>0.51 ns</td><td>0.47 ns</td><td>1,626.5 ns</td><td>1.14x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>1,695.4 ns</td><td>0.58 ns</td><td>0.52 ns</td><td>1,695.4 ns</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>1,476.7 ns</td><td>0.34 ns</td><td>0.32 ns</td><td>1,476.8 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>1,441.8 ns</td><td>0.20 ns</td><td>0.17 ns</td><td>1,441.8 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>6,828.9 ns</td><td>5.66 ns</td><td>5.29 ns</td><td>6,829.4 ns</td><td>4.80x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>11,979.1 ns</td><td>3.73 ns</td><td>3.48 ns</td><td>11,980.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>6,118.5 ns</td><td>1.50 ns</td><td>1.33 ns</td><td>6,118.2 ns</td><td>1.96x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>10,961.5 ns</td><td>2.64 ns</td><td>2.34 ns</td><td>10,961.9 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>3,750.3 ns</td><td>1.15 ns</td><td>0.90 ns</td><td>3,750.2 ns</td><td>3.19x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>10,735.1 ns</td><td>10.81 ns</td><td>10.11 ns</td><td>10,732.6 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>68,843.8 ns</td><td>81.41 ns</td><td>76.15 ns</td><td>68,887.9 ns</td><td>5.75x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>330.2 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>330.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>472.2 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>472.2 ns</td><td>1.43x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>710.2 ns</td><td>0.37 ns</td><td>0.33 ns</td><td>710.3 ns</td><td>2.15x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>374.7 ns</td><td>0.28 ns</td><td>0.25 ns</td><td>374.7 ns</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>456.1 ns</td><td>0.34 ns</td><td>0.30 ns</td><td>456.0 ns</td><td>1.38x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>493.3 ns</td><td>0.11 ns</td><td>0.10 ns</td><td>493.3 ns</td><td>1.49x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>371.7 ns</td><td>0.04 ns</td><td>0.03 ns</td><td>371.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>522.1 ns</td><td>0.09 ns</td><td>0.08 ns</td><td>522.1 ns</td><td>1.40x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>718.2 ns</td><td>0.64 ns</td><td>0.60 ns</td><td>718.2 ns</td><td>1.93x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>430.7 ns</td><td>0.09 ns</td><td>0.07 ns</td><td>430.7 ns</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>542.8 ns</td><td>1.02 ns</td><td>0.95 ns</td><td>542.2 ns</td><td>1.46x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>799.6 ns</td><td>0.36 ns</td><td>0.32 ns</td><td>799.7 ns</td><td>2.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>1,421.8 ns</td><td>0.13 ns</td><td>0.11 ns</td><td>1,421.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>1,610.1 ns</td><td>0.24 ns</td><td>0.22 ns</td><td>1,610.0 ns</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>1,679.6 ns</td><td>0.63 ns</td><td>0.53 ns</td><td>1,679.8 ns</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>1,511.6 ns</td><td>0.17 ns</td><td>0.14 ns</td><td>1,511.6 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>1,430.3 ns</td><td>0.35 ns</td><td>0.31 ns</td><td>1,430.3 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>6,958.2 ns</td><td>9.41 ns</td><td>8.35 ns</td><td>6,961.0 ns</td><td>4.89x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>11,975.4 ns</td><td>2.00 ns</td><td>1.67 ns</td><td>11,975.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>6,102.8 ns</td><td>1.15 ns</td><td>1.08 ns</td><td>6,102.4 ns</td><td>1.96x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>11,143.2 ns</td><td>2.69 ns</td><td>2.38 ns</td><td>11,142.8 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>3,796.8 ns</td><td>3.47 ns</td><td>3.25 ns</td><td>3,797.9 ns</td><td>3.15x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>10,687.7 ns</td><td>2.98 ns</td><td>2.64 ns</td><td>10,687.2 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>68,995.2 ns</td><td>87.04 ns</td><td>81.42 ns</td><td>69,036.5 ns</td><td>5.76x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>445.2 ns</td><td>0.03 ns</td><td>0.02 ns</td><td>445.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>575.8 ns</td><td>0.07 ns</td><td>0.06 ns</td><td>575.8 ns</td><td>1.29x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>782.0 ns</td><td>1.76 ns</td><td>1.56 ns</td><td>781.5 ns</td><td>1.76x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>488.1 ns</td><td>0.46 ns</td><td>0.43 ns</td><td>488.1 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>607.2 ns</td><td>0.18 ns</td><td>0.15 ns</td><td>607.2 ns</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>775.2 ns</td><td>0.67 ns</td><td>0.62 ns</td><td>775.2 ns</td><td>1.74x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>489.8 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>489.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>625.6 ns</td><td>0.18 ns</td><td>0.17 ns</td><td>625.6 ns</td><td>1.28x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>785.7 ns</td><td>0.60 ns</td><td>0.51 ns</td><td>785.6 ns</td><td>1.60x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>538.7 ns</td><td>0.07 ns</td><td>0.07 ns</td><td>538.7 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>610.7 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>610.7 ns</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>1,079.7 ns</td><td>0.83 ns</td><td>0.78 ns</td><td>1,079.9 ns</td><td>2.20x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>1,542.3 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>1,542.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>1,733.0 ns</td><td>0.44 ns</td><td>0.39 ns</td><td>1,732.9 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>1,753.3 ns</td><td>0.47 ns</td><td>0.39 ns</td><td>1,753.3 ns</td><td>1.14x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>1,620.7 ns</td><td>0.36 ns</td><td>0.33 ns</td><td>1,620.6 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>1,576.4 ns</td><td>1.97 ns</td><td>1.84 ns</td><td>1,575.5 ns</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>7,224.2 ns</td><td>5.34 ns</td><td>4.99 ns</td><td>7,226.5 ns</td><td>4.68x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>12,100.8 ns</td><td>1.95 ns</td><td>1.73 ns</td><td>12,101.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>6,212.2 ns</td><td>0.74 ns</td><td>0.62 ns</td><td>6,212.2 ns</td><td>1.95x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>11,015.2 ns</td><td>4.59 ns</td><td>3.58 ns</td><td>11,016.4 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>3,903.0 ns</td><td>4.11 ns</td><td>3.84 ns</td><td>3,901.2 ns</td><td>3.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>10,991.9 ns</td><td>4.58 ns</td><td>4.06 ns</td><td>10,991.9 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>69,260.6 ns</td><td>135.06 ns</td><td>126.34 ns</td><td>69,191.6 ns</td><td>5.72x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>556.1 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>556.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>691.7 ns</td><td>0.30 ns</td><td>0.28 ns</td><td>691.5 ns</td><td>1.24x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>886.8 ns</td><td>0.75 ns</td><td>0.66 ns</td><td>887.0 ns</td><td>1.59x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>601.8 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>601.9 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>705.6 ns</td><td>0.26 ns</td><td>0.20 ns</td><td>705.6 ns</td><td>1.27x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>1,308.0 ns</td><td>0.33 ns</td><td>0.29 ns</td><td>1,308.1 ns</td><td>2.35x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>598.7 ns</td><td>0.11 ns</td><td>0.10 ns</td><td>598.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>743.7 ns</td><td>0.18 ns</td><td>0.17 ns</td><td>743.7 ns</td><td>1.24x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>884.8 ns</td><td>0.66 ns</td><td>0.56 ns</td><td>884.6 ns</td><td>1.48x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>647.6 ns</td><td>0.52 ns</td><td>0.43 ns</td><td>647.4 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>706.6 ns</td><td>0.37 ns</td><td>0.33 ns</td><td>706.8 ns</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>1,611.3 ns</td><td>1.18 ns</td><td>0.92 ns</td><td>1,611.6 ns</td><td>2.69x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>1,649.3 ns</td><td>0.16 ns</td><td>0.14 ns</td><td>1,649.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>1,832.6 ns</td><td>0.50 ns</td><td>0.44 ns</td><td>1,832.7 ns</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>1,857.0 ns</td><td>0.47 ns</td><td>0.42 ns</td><td>1,856.9 ns</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>1,741.4 ns</td><td>1.66 ns</td><td>1.55 ns</td><td>1,740.3 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>1,672.4 ns</td><td>0.40 ns</td><td>0.31 ns</td><td>1,672.4 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>7,756.5 ns</td><td>7.34 ns</td><td>6.86 ns</td><td>7,759.0 ns</td><td>4.70x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>12,221.3 ns</td><td>8.89 ns</td><td>7.89 ns</td><td>12,220.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>6,322.8 ns</td><td>1.05 ns</td><td>0.88 ns</td><td>6,322.8 ns</td><td>1.93x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>11,118.0 ns</td><td>4.92 ns</td><td>4.36 ns</td><td>11,117.0 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>4,021.0 ns</td><td>4.43 ns</td><td>4.14 ns</td><td>4,023.1 ns</td><td>3.04x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>10,934.6 ns</td><td>4.07 ns</td><td>3.60 ns</td><td>10,935.0 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>69,747.0 ns</td><td>81.58 ns</td><td>76.31 ns</td><td>69,712.1 ns</td><td>5.71x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>721.5 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>721.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>861.9 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>861.8 ns</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>1,025.4 ns</td><td>0.90 ns</td><td>0.80 ns</td><td>1,025.4 ns</td><td>1.42x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>755.2 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>755.2 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>850.3 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>850.3 ns</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>2,373.6 ns</td><td>0.99 ns</td><td>0.92 ns</td><td>2,374.0 ns</td><td>3.29x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>763.3 ns</td><td>0.65 ns</td><td>0.61 ns</td><td>763.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>896.1 ns</td><td>0.19 ns</td><td>0.18 ns</td><td>896.1 ns</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>1,031.3 ns</td><td>1.62 ns</td><td>1.52 ns</td><td>1,032.0 ns</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>808.3 ns</td><td>0.04 ns</td><td>0.04 ns</td><td>808.3 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>858.3 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>858.3 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>2,677.2 ns</td><td>2.15 ns</td><td>2.01 ns</td><td>2,678.2 ns</td><td>3.51x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>1,831.6 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>1,831.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>1,992.8 ns</td><td>0.69 ns</td><td>0.65 ns</td><td>1,992.6 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>1,992.4 ns</td><td>0.48 ns</td><td>0.40 ns</td><td>1,992.4 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>1,951.2 ns</td><td>0.22 ns</td><td>0.17 ns</td><td>1,951.2 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>1,844.3 ns</td><td>0.30 ns</td><td>0.26 ns</td><td>1,844.3 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>8,822.1 ns</td><td>4.84 ns</td><td>4.53 ns</td><td>8,823.4 ns</td><td>4.82x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>12,401.3 ns</td><td>11.60 ns</td><td>10.85 ns</td><td>12,394.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>6,500.2 ns</td><td>1.01 ns</td><td>0.94 ns</td><td>6,500.2 ns</td><td>1.91x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>11,379.9 ns</td><td>6.50 ns</td><td>5.76 ns</td><td>11,378.6 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>4,178.6 ns</td><td>4.00 ns</td><td>3.74 ns</td><td>4,177.1 ns</td><td>2.97x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>11,082.5 ns</td><td>5.23 ns</td><td>4.63 ns</td><td>11,082.1 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>70,763.7 ns</td><td>43.10 ns</td><td>35.99 ns</td><td>70,753.7 ns</td><td>5.71x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>1,227.6 ns</td><td>0.08 ns</td><td>0.08 ns</td><td>1,227.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>1,350.3 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>1,350.3 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>1,492.0 ns</td><td>0.44 ns</td><td>0.39 ns</td><td>1,492.2 ns</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>1,314.6 ns</td><td>0.18 ns</td><td>0.15 ns</td><td>1,314.6 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>1,305.2 ns</td><td>0.34 ns</td><td>0.30 ns</td><td>1,305.2 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>4,511.8 ns</td><td>4.02 ns</td><td>3.76 ns</td><td>4,513.5 ns</td><td>3.68x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>1,260.3 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>1,260.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>1,413.7 ns</td><td>1.15 ns</td><td>1.07 ns</td><td>1,413.0 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>1,480.4 ns</td><td>0.33 ns</td><td>0.26 ns</td><td>1,480.5 ns</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>1,365.3 ns</td><td>0.20 ns</td><td>0.18 ns</td><td>1,365.4 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>1,310.9 ns</td><td>0.21 ns</td><td>0.18 ns</td><td>1,310.9 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>4,819.3 ns</td><td>4.97 ns</td><td>4.65 ns</td><td>4,820.8 ns</td><td>3.82x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>2,329.8 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>2,329.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>2,478.7 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>2,478.7 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>2,452.9 ns</td><td>3.46 ns</td><td>3.24 ns</td><td>2,450.7 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>2,443.4 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>2,443.4 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>2,304.0 ns</td><td>0.48 ns</td><td>0.40 ns</td><td>2,304.0 ns</td><td>1.01x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>10,953.2 ns</td><td>14.53 ns</td><td>13.59 ns</td><td>10,960.9 ns</td><td>4.70x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>12,896.5 ns</td><td>3.90 ns</td><td>3.64 ns</td><td>12,896.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>6,992.3 ns</td><td>1.37 ns</td><td>1.28 ns</td><td>6,991.8 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>11,716.3 ns</td><td>10.06 ns</td><td>8.92 ns</td><td>11,714.2 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>4,739.5 ns</td><td>5.30 ns</td><td>4.96 ns</td><td>4,736.4 ns</td><td>2.72x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>11,549.3 ns</td><td>3.60 ns</td><td>3.19 ns</td><td>11,549.0 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>73,010.8 ns</td><td>91.02 ns</td><td>85.14 ns</td><td>73,055.7 ns</td><td>5.66x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1,734.0 ns</td><td>0.15 ns</td><td>0.14 ns</td><td>1,734.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1,894.0 ns</td><td>0.16 ns</td><td>0.15 ns</td><td>1,894.0 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1,941.9 ns</td><td>1.13 ns</td><td>0.94 ns</td><td>1,941.4 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1,803.9 ns</td><td>0.13 ns</td><td>0.11 ns</td><td>1,803.9 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1,774.9 ns</td><td>0.50 ns</td><td>0.44 ns</td><td>1,774.8 ns</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>6,659.2 ns</td><td>8.15 ns</td><td>7.63 ns</td><td>6,663.0 ns</td><td>3.84x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1,776.6 ns</td><td>1.16 ns</td><td>1.08 ns</td><td>1,777.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1,953.1 ns</td><td>0.18 ns</td><td>0.16 ns</td><td>1,953.1 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1,944.8 ns</td><td>1.08 ns</td><td>0.96 ns</td><td>1,944.8 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1,865.8 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>1,865.8 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1,784.8 ns</td><td>1.90 ns</td><td>1.68 ns</td><td>1,784.0 ns</td><td>1.00x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>6,972.1 ns</td><td>3.45 ns</td><td>3.23 ns</td><td>6,973.1 ns</td><td>3.92x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2,827.1 ns</td><td>0.22 ns</td><td>0.20 ns</td><td>2,827.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3,027.2 ns</td><td>0.14 ns</td><td>0.11 ns</td><td>3,027.2 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2,917.8 ns</td><td>3.30 ns</td><td>3.08 ns</td><td>2,919.5 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2,988.9 ns</td><td>0.33 ns</td><td>0.30 ns</td><td>2,988.8 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2,738.5 ns</td><td>2.45 ns</td><td>2.04 ns</td><td>2,737.4 ns</td><td>1.03x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>13,100.6 ns</td><td>11.06 ns</td><td>10.35 ns</td><td>13,104.5 ns</td><td>4.63x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13,393.5 ns</td><td>4.23 ns</td><td>3.96 ns</td><td>13,391.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>7,528.4 ns</td><td>0.33 ns</td><td>0.29 ns</td><td>7,528.4 ns</td><td>1.78x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>12,185.1 ns</td><td>4.37 ns</td><td>3.65 ns</td><td>12,185.1 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>5,227.1 ns</td><td>5.00 ns</td><td>4.68 ns</td><td>5,225.2 ns</td><td>2.56x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>11,991.5 ns</td><td>3.68 ns</td><td>3.26 ns</td><td>11,992.0 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>75,131.6 ns</td><td>93.00 ns</td><td>86.99 ns</td><td>75,079.6 ns</td><td>5.61x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>2,229.8 ns</td><td>0.17 ns</td><td>0.15 ns</td><td>2,229.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>1,679.2 ns</td><td>0.10 ns</td><td>0.09 ns</td><td>1,679.2 ns</td><td>1.33x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>2,394.5 ns</td><td>2.60 ns</td><td>2.43 ns</td><td>2,393.2 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>2,353.0 ns</td><td>0.23 ns</td><td>0.21 ns</td><td>2,353.0 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>2,215.6 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>2,215.6 ns</td><td>1.01x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>8,786.6 ns</td><td>9.00 ns</td><td>8.42 ns</td><td>8,790.2 ns</td><td>3.94x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>2,276.5 ns</td><td>0.32 ns</td><td>0.30 ns</td><td>2,276.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>1,743.3 ns</td><td>0.36 ns</td><td>0.34 ns</td><td>1,743.1 ns</td><td>1.31x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>2,407.6 ns</td><td>2.45 ns</td><td>2.29 ns</td><td>2,406.5 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>2,399.5 ns</td><td>0.56 ns</td><td>0.44 ns</td><td>2,399.5 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>2,217.2 ns</td><td>0.44 ns</td><td>0.39 ns</td><td>2,217.0 ns</td><td>1.03x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>9,094.6 ns</td><td>12.74 ns</td><td>11.92 ns</td><td>9,098.3 ns</td><td>3.99x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>3,326.6 ns</td><td>2.49 ns</td><td>2.33 ns</td><td>3,325.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>2,820.8 ns</td><td>0.38 ns</td><td>0.33 ns</td><td>2,820.8 ns</td><td>1.18x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>3,369.3 ns</td><td>0.90 ns</td><td>0.70 ns</td><td>3,369.2 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>3,480.3 ns</td><td>0.13 ns</td><td>0.12 ns</td><td>3,480.3 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>3,189.6 ns</td><td>3.06 ns</td><td>2.87 ns</td><td>3,188.0 ns</td><td>1.04x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>15,246.1 ns</td><td>6.14 ns</td><td>5.74 ns</td><td>15,248.3 ns</td><td>4.58x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>13,900.9 ns</td><td>9.30 ns</td><td>8.70 ns</td><td>13,903.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>7,312.3 ns</td><td>0.50 ns</td><td>0.44 ns</td><td>7,312.3 ns</td><td>1.90x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>12,652.3 ns</td><td>12.78 ns</td><td>11.96 ns</td><td>12,654.6 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>5,775.5 ns</td><td>4.47 ns</td><td>4.18 ns</td><td>5,778.0 ns</td><td>2.41x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>12,437.4 ns</td><td>4.35 ns</td><td>3.86 ns</td><td>12,437.0 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>77,279.5 ns</td><td>94.00 ns</td><td>87.93 ns</td><td>77,209.8 ns</td><td>5.56x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>16,255.7 ns</td><td>3.63 ns</td><td>3.39 ns</td><td>16,254.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>17,910.9 ns</td><td>29.58 ns</td><td>27.67 ns</td><td>17,914.6 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>15,162.7 ns</td><td>14.29 ns</td><td>13.37 ns</td><td>15,155.7 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>10,271.2 ns</td><td>1.89 ns</td><td>1.77 ns</td><td>10,271.5 ns</td><td>1.58x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>14,967.3 ns</td><td>2.48 ns</td><td>2.07 ns</td><td>14,966.7 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>68,799.6 ns</td><td>54.52 ns</td><td>51.00 ns</td><td>68,810.5 ns</td><td>4.23x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>16,277.9 ns</td><td>4.03 ns</td><td>3.77 ns</td><td>16,276.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>17,943.3 ns</td><td>25.11 ns</td><td>23.48 ns</td><td>17,944.3 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>15,186.6 ns</td><td>14.01 ns</td><td>13.10 ns</td><td>15,182.1 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>10,309.4 ns</td><td>3.41 ns</td><td>3.03 ns</td><td>10,310.1 ns</td><td>1.58x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>14,952.9 ns</td><td>3.55 ns</td><td>3.15 ns</td><td>14,952.4 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>69,111.5 ns</td><td>17.79 ns</td><td>16.64 ns</td><td>69,113.7 ns</td><td>4.25x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>17,307.4 ns</td><td>3.56 ns</td><td>3.33 ns</td><td>17,307.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>19,470.3 ns</td><td>26.31 ns</td><td>24.61 ns</td><td>19,470.6 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>16,166.8 ns</td><td>12.79 ns</td><td>10.68 ns</td><td>16,163.5 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>11,425.0 ns</td><td>2.55 ns</td><td>2.26 ns</td><td>11,425.9 ns</td><td>1.51x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>16,005.0 ns</td><td>13.68 ns</td><td>12.13 ns</td><td>16,009.9 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>75,332.3 ns</td><td>17.46 ns</td><td>16.33 ns</td><td>75,331.0 ns</td><td>4.35x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>27,878.2 ns</td><td>3.02 ns</td><td>2.52 ns</td><td>27,879.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>25,046.5 ns</td><td>41.12 ns</td><td>38.46 ns</td><td>25,039.4 ns</td><td>1.11x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>25,462.4 ns</td><td>8.83 ns</td><td>7.83 ns</td><td>25,462.3 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>13,724.3 ns</td><td>10.01 ns</td><td>9.37 ns</td><td>13,722.8 ns</td><td>2.03x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>25,238.3 ns</td><td>7.12 ns</td><td>6.31 ns</td><td>25,238.5 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>137,507.3 ns</td><td>119.16 ns</td><td>111.46 ns</td><td>137,468.6 ns</td><td>4.93x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>32,304.9 ns</td><td>15.54 ns</td><td>14.54 ns</td><td>32,300.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>21,619.1 ns</td><td>38.99 ns</td><td>36.47 ns</td><td>21,621.5 ns</td><td>1.49x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>29,868.5 ns</td><td>3.54 ns</td><td>2.77 ns</td><td>29,869.2 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>33,085.4 ns</td><td>26.41 ns</td><td>24.70 ns</td><td>33,084.4 ns</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>29,754.8 ns</td><td>1.43 ns</td><td>1.20 ns</td><td>29,754.7 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>137,555.6 ns</td><td>24.03 ns</td><td>21.30 ns</td><td>137,554.5 ns</td><td>4.26x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>32,326.8 ns</td><td>13.58 ns</td><td>12.71 ns</td><td>32,322.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>21,673.2 ns</td><td>40.87 ns</td><td>38.23 ns</td><td>21,678.0 ns</td><td>1.49x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>29,861.5 ns</td><td>3.85 ns</td><td>3.42 ns</td><td>29,860.6 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>33,356.9 ns</td><td>47.00 ns</td><td>43.96 ns</td><td>33,339.1 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>29,682.9 ns</td><td>5.28 ns</td><td>4.68 ns</td><td>29,681.4 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>137,904.6 ns</td><td>30.27 ns</td><td>28.31 ns</td><td>137,908.3 ns</td><td>4.27x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>33,350.1 ns</td><td>13.54 ns</td><td>12.66 ns</td><td>33,347.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>23,419.3 ns</td><td>31.04 ns</td><td>29.03 ns</td><td>23,418.9 ns</td><td>1.42x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>30,898.1 ns</td><td>3.82 ns</td><td>3.39 ns</td><td>30,897.2 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>35,158.2 ns</td><td>28.99 ns</td><td>27.11 ns</td><td>35,157.5 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>30,699.8 ns</td><td>3.17 ns</td><td>2.81 ns</td><td>30,698.6 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>144,039.3 ns</td><td>35.92 ns</td><td>33.60 ns</td><td>144,044.4 ns</td><td>4.32x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>43,929.6 ns</td><td>14.80 ns</td><td>13.84 ns</td><td>43,922.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>32,758.9 ns</td><td>27.83 ns</td><td>26.03 ns</td><td>32,769.0 ns</td><td>1.34x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>40,219.9 ns</td><td>34.16 ns</td><td>26.67 ns</td><td>40,213.6 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>38,773.4 ns</td><td>40.10 ns</td><td>37.50 ns</td><td>38,775.5 ns</td><td>1.13x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>39,881.3 ns</td><td>6.06 ns</td><td>5.06 ns</td><td>39,881.8 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>206,196.5 ns</td><td>101.55 ns</td><td>94.99 ns</td><td>206,153.2 ns</td><td>4.69x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>64,392.7 ns</td><td>11.60 ns</td><td>10.85 ns</td><td>64,393.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>38,866.5 ns</td><td>40.68 ns</td><td>36.06 ns</td><td>38,867.8 ns</td><td>1.66x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>59,047.5 ns</td><td>9.70 ns</td><td>8.59 ns</td><td>59,047.0 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>54,880.7 ns</td><td>40.34 ns</td><td>37.73 ns</td><td>54,885.8 ns</td><td>1.17x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>58,758.3 ns</td><td>13.21 ns</td><td>11.71 ns</td><td>58,755.5 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>275,395.0 ns</td><td>37.99 ns</td><td>33.67 ns</td><td>275,388.5 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>64,448.4 ns</td><td>24.84 ns</td><td>23.24 ns</td><td>64,454.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>38,859.8 ns</td><td>60.41 ns</td><td>56.50 ns</td><td>38,862.7 ns</td><td>1.66x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>59,075.0 ns</td><td>15.19 ns</td><td>12.68 ns</td><td>59,079.5 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>55,011.0 ns</td><td>177.83 ns</td><td>166.34 ns</td><td>55,050.4 ns</td><td>1.17x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>58,871.9 ns</td><td>141.29 ns</td><td>132.16 ns</td><td>58,798.3 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>275,717.0 ns</td><td>30.48 ns</td><td>25.45 ns</td><td>275,719.2 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>65,475.1 ns</td><td>20.49 ns</td><td>17.11 ns</td><td>65,484.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>40,436.9 ns</td><td>55.25 ns</td><td>51.68 ns</td><td>40,430.2 ns</td><td>1.62x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>60,080.4 ns</td><td>10.70 ns</td><td>9.48 ns</td><td>60,083.4 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>56,788.7 ns</td><td>44.52 ns</td><td>39.46 ns</td><td>56,791.7 ns</td><td>1.15x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>60,111.5 ns</td><td>166.35 ns</td><td>155.61 ns</td><td>60,005.8 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>281,889.4 ns</td><td>31.60 ns</td><td>29.56 ns</td><td>281,878.3 ns</td><td>4.31x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>76,106.3 ns</td><td>25.48 ns</td><td>22.59 ns</td><td>76,099.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>46,505.3 ns</td><td>59.72 ns</td><td>55.86 ns</td><td>46,507.2 ns</td><td>1.64x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>69,629.1 ns</td><td>17.46 ns</td><td>13.63 ns</td><td>69,631.7 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>61,678.0 ns</td><td>65.32 ns</td><td>54.55 ns</td><td>61,673.3 ns</td><td>1.23x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>69,202.2 ns</td><td>24.68 ns</td><td>21.88 ns</td><td>69,197.7 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>344,119.6 ns</td><td>174.21 ns</td><td>145.47 ns</td><td>344,154.3 ns</td><td>4.52x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>129,188.5 ns</td><td>362.54 ns</td><td>339.12 ns</td><td>128,981.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>67,490.0 ns</td><td>46.36 ns</td><td>43.37 ns</td><td>67,508.4 ns</td><td>1.91x faster</td><td>0.01x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>119,492.9 ns</td><td>37.25 ns</td><td>33.02 ns</td><td>119,494.3 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>91,247.6 ns</td><td>86.15 ns</td><td>80.58 ns</td><td>91,235.9 ns</td><td>1.42x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>117,830.7 ns</td><td>355.89 ns</td><td>332.90 ns</td><td>117,625.7 ns</td><td>1.10x faster</td><td>0.01x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>551,639.6 ns</td><td>1,633.70 ns</td><td>1,528.16 ns</td><td>550,806.6 ns</td><td>4.27x slower</td><td>0.02x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>129,099.2 ns</td><td>31.61 ns</td><td>29.57 ns</td><td>129,096.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>67,205.4 ns</td><td>54.12 ns</td><td>50.62 ns</td><td>67,215.7 ns</td><td>1.92x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>119,217.4 ns</td><td>83.40 ns</td><td>78.02 ns</td><td>119,260.6 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>91,009.0 ns</td><td>100.39 ns</td><td>88.99 ns</td><td>91,009.1 ns</td><td>1.42x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>117,594.5 ns</td><td>77.46 ns</td><td>60.48 ns</td><td>117,564.8 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>550,990.0 ns</td><td>140.93 ns</td><td>117.68 ns</td><td>550,990.5 ns</td><td>4.27x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>130,076.1 ns</td><td>36.31 ns</td><td>32.19 ns</td><td>130,072.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>68,745.6 ns</td><td>49.98 ns</td><td>46.75 ns</td><td>68,742.6 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>119,113.4 ns</td><td>50.79 ns</td><td>42.42 ns</td><td>119,096.1 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>92,771.5 ns</td><td>130.25 ns</td><td>121.83 ns</td><td>92,775.9 ns</td><td>1.40x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>118,580.0 ns</td><td>42.15 ns</td><td>37.36 ns</td><td>118,580.7 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>557,149.9 ns</td><td>89.84 ns</td><td>84.04 ns</td><td>557,154.3 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>140,659.3 ns</td><td>54.46 ns</td><td>48.28 ns</td><td>140,665.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>73,746.9 ns</td><td>53.99 ns</td><td>50.51 ns</td><td>73,743.7 ns</td><td>1.91x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>128,913.7 ns</td><td>501.72 ns</td><td>469.31 ns</td><td>128,582.2 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>93,614.5 ns</td><td>86.35 ns</td><td>76.55 ns</td><td>93,600.3 ns</td><td>1.50x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>128,559.0 ns</td><td>19.86 ns</td><td>16.58 ns</td><td>128,552.1 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>619,234.0 ns</td><td>96.94 ns</td><td>90.68 ns</td><td>619,250.2 ns</td><td>4.40x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>516,335.8 ns</td><td>102.59 ns</td><td>90.95 ns</td><td>516,357.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>192,391.3 ns</td><td>81.42 ns</td><td>76.16 ns</td><td>192,409.0 ns</td><td>2.68x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>468,841.3 ns</td><td>54.76 ns</td><td>48.54 ns</td><td>468,849.4 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>235,945.8 ns</td><td>98.24 ns</td><td>91.89 ns</td><td>235,914.5 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>470,805.4 ns</td><td>264.72 ns</td><td>206.67 ns</td><td>470,764.4 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>2,200,588.9 ns</td><td>1,572.22 ns</td><td>1,470.65 ns</td><td>2,201,289.8 ns</td><td>4.26x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>515,133.6 ns</td><td>26.39 ns</td><td>24.68 ns</td><td>515,134.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>192,312.9 ns</td><td>84.92 ns</td><td>79.43 ns</td><td>192,314.0 ns</td><td>2.68x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>470,681.2 ns</td><td>211.32 ns</td><td>197.67 ns</td><td>470,798.6 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>236,301.9 ns</td><td>54.59 ns</td><td>45.58 ns</td><td>236,302.5 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>470,683.3 ns</td><td>31.12 ns</td><td>27.58 ns</td><td>470,675.3 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>2,203,311.2 ns</td><td>1,842.63 ns</td><td>1,723.59 ns</td><td>2,201,948.8 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>516,561.1 ns</td><td>82.54 ns</td><td>77.21 ns</td><td>516,590.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>193,692.6 ns</td><td>77.87 ns</td><td>69.03 ns</td><td>193,680.9 ns</td><td>2.67x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>470,286.9 ns</td><td>163.85 ns</td><td>145.25 ns</td><td>470,327.5 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>236,857.3 ns</td><td>88.79 ns</td><td>78.71 ns</td><td>236,866.7 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>478,755.4 ns</td><td>170.44 ns</td><td>159.43 ns</td><td>478,834.7 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>2,207,870.6 ns</td><td>289.90 ns</td><td>256.99 ns</td><td>2,207,912.3 ns</td><td>4.27x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>526,880.9 ns</td><td>176.95 ns</td><td>165.52 ns</td><td>526,937.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>199,138.5 ns</td><td>66.71 ns</td><td>62.40 ns</td><td>199,120.3 ns</td><td>2.65x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>481,026.8 ns</td><td>201.32 ns</td><td>178.47 ns</td><td>480,996.2 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>237,722.0 ns</td><td>102.20 ns</td><td>90.60 ns</td><td>237,730.1 ns</td><td>2.22x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>481,967.5 ns</td><td>302.60 ns</td><td>268.25 ns</td><td>482,042.9 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>2,270,047.8 ns</td><td>184.85 ns</td><td>163.86 ns</td><td>2,270,049.8 ns</td><td>4.31x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>1,029,835.6 ns</td><td>420.45 ns</td><td>372.72 ns</td><td>1,030,020.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>357,261.9 ns</td><td>141.23 ns</td><td>132.11 ns</td><td>357,254.9 ns</td><td>2.88x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>939,489.0 ns</td><td>335.93 ns</td><td>314.23 ns</td><td>939,633.9 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>409,942.5 ns</td><td>157.10 ns</td><td>146.95 ns</td><td>409,967.3 ns</td><td>2.51x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>940,084.4 ns</td><td>455.01 ns</td><td>403.36 ns</td><td>940,279.6 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>4,401,294.2 ns</td><td>5,764.17 ns</td><td>5,391.81 ns</td><td>4,402,475.8 ns</td><td>4.27x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>1,029,462.3 ns</td><td>390.16 ns</td><td>364.96 ns</td><td>1,029,635.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>355,375.1 ns</td><td>116.81 ns</td><td>103.55 ns</td><td>355,354.4 ns</td><td>2.90x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>954,762.2 ns</td><td>319.66 ns</td><td>299.01 ns</td><td>954,902.8 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>409,649.2 ns</td><td>117.53 ns</td><td>109.93 ns</td><td>409,681.8 ns</td><td>2.51x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>938,371.0 ns</td><td>488.99 ns</td><td>433.47 ns</td><td>938,598.6 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>4,403,074.5 ns</td><td>4,087.54 ns</td><td>3,823.49 ns</td><td>4,404,625.8 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>1,031,266.4 ns</td><td>363.65 ns</td><td>322.37 ns</td><td>1,031,241.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>358,389.6 ns</td><td>158.91 ns</td><td>140.87 ns</td><td>358,421.7 ns</td><td>2.88x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>941,197.0 ns</td><td>407.15 ns</td><td>360.93 ns</td><td>941,359.8 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>412,202.3 ns</td><td>1,264.71 ns</td><td>987.40 ns</td><td>411,729.3 ns</td><td>2.50x faster</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>960,182.2 ns</td><td>116.06 ns</td><td>96.92 ns</td><td>960,212.4 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>4,408,437.7 ns</td><td>6,809.18 ns</td><td>6,369.31 ns</td><td>4,411,939.8 ns</td><td>4.28x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>1,045,634.0 ns</td><td>4,279.38 ns</td><td>4,002.93 ns</td><td>1,042,717.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>361,731.9 ns</td><td>254.90 ns</td><td>238.44 ns</td><td>361,741.1 ns</td><td>2.89x faster</td><td>0.01x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>949,347.4 ns</td><td>443.68 ns</td><td>415.02 ns</td><td>949,019.8 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>417,347.8 ns</td><td>419.15 ns</td><td>392.07 ns</td><td>417,384.1 ns</td><td>2.51x faster</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>953,139.5 ns</td><td>441.32 ns</td><td>391.22 ns</td><td>953,338.2 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>4,472,031.8 ns</td><td>2,693.40 ns</td><td>2,519.41 ns</td><td>4,472,491.4 ns</td><td>4.28x slower</td><td>0.02x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>10,670,049.0 ns</td><td>4,334.11 ns</td><td>3,619.18 ns</td><td>10,670,148.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>3,522,081.4 ns</td><td>4,270.91 ns</td><td>3,995.01 ns</td><td>3,521,771.5 ns</td><td>3.03x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>9,781,596.4 ns</td><td>5,630.49 ns</td><td>4,991.28 ns</td><td>9,780,453.1 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>3,633,692.8 ns</td><td>7,932.53 ns</td><td>7,420.09 ns</td><td>3,634,401.2 ns</td><td>2.94x faster</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>9,800,541.8 ns</td><td>5,470.18 ns</td><td>4,567.85 ns</td><td>9,800,517.2 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>44,246,990.5 ns</td><td>6,667.90 ns</td><td>5,910.92 ns</td><td>44,248,229.2 ns</td><td>4.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>10,656,213.7 ns</td><td>6,133.72 ns</td><td>5,121.94 ns</td><td>10,653,756.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>3,529,544.1 ns</td><td>4,571.32 ns</td><td>4,276.01 ns</td><td>3,528,462.1 ns</td><td>3.02x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>9,857,714.6 ns</td><td>11,354.28 ns</td><td>10,065.28 ns</td><td>9,856,600.8 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>3,620,834.8 ns</td><td>4,299.91 ns</td><td>4,022.14 ns</td><td>3,620,710.9 ns</td><td>2.94x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>9,795,942.2 ns</td><td>12,061.53 ns</td><td>9,416.85 ns</td><td>9,794,391.4 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>44,239,120.8 ns</td><td>19,977.31 ns</td><td>17,709.36 ns</td><td>44,243,862.5 ns</td><td>4.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>10,663,310.8 ns</td><td>3,042.36 ns</td><td>2,845.82 ns</td><td>10,662,607.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>3,517,131.9 ns</td><td>4,839.78 ns</td><td>4,527.13 ns</td><td>3,517,341.0 ns</td><td>3.03x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>9,888,496.3 ns</td><td>28,442.86 ns</td><td>25,213.85 ns</td><td>9,876,532.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>3,639,322.8 ns</td><td>5,229.92 ns</td><td>4,892.07 ns</td><td>3,640,558.6 ns</td><td>2.93x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>9,831,229.3 ns</td><td>3,030.15 ns</td><td>2,530.31 ns</td><td>9,831,743.8 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>44,250,877.8 ns</td><td>12,961.45 ns</td><td>12,124.15 ns</td><td>44,254,508.3 ns</td><td>4.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>10,668,244.0 ns</td><td>4,427.66 ns</td><td>3,925.01 ns</td><td>10,667,122.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>3,523,435.7 ns</td><td>3,231.37 ns</td><td>2,864.53 ns</td><td>3,523,773.4 ns</td><td>3.03x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>9,865,348.0 ns</td><td>6,773.98 ns</td><td>6,004.96 ns</td><td>9,863,973.4 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>3,624,447.1 ns</td><td>4,589.09 ns</td><td>4,292.64 ns</td><td>3,625,245.3 ns</td><td>2.94x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>9,830,193.0 ns</td><td>8,735.48 ns</td><td>6,820.09 ns</td><td>9,829,848.4 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>44,323,141.1 ns</td><td>5,184.92 ns</td><td>4,849.97 ns</td><td>44,322,950.0 ns</td><td>4.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>53,883,721.5 ns</td><td>6,331.41 ns</td><td>5,287.02 ns</td><td>53,882,540.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>18,045,721.4 ns</td><td>17,923.16 ns</td><td>13,993.23 ns</td><td>18,050,100.0 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>50,069,769.2 ns</td><td>112,371.50 ns</td><td>93,835.29 ns</td><td>50,055,736.4 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>18,140,344.2 ns</td><td>31,367.10 ns</td><td>26,192.95 ns</td><td>18,143,531.2 ns</td><td>2.97x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>49,794,973.9 ns</td><td>158,141.35 ns</td><td>147,925.52 ns</td><td>49,687,309.1 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>221,111,071.4 ns</td><td>46,472.38 ns</td><td>41,196.55 ns</td><td>221,120,866.7 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>53,918,398.0 ns</td><td>18,870.78 ns</td><td>17,651.74 ns</td><td>53,912,080.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>18,055,076.0 ns</td><td>28,709.19 ns</td><td>26,854.60 ns</td><td>18,056,437.5 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>50,105,119.4 ns</td><td>29,559.42 ns</td><td>27,649.90 ns</td><td>50,105,909.1 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>18,322,036.2 ns</td><td>20,873.47 ns</td><td>19,525.06 ns</td><td>18,323,559.4 ns</td><td>2.94x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>49,840,108.3 ns</td><td>16,447.26 ns</td><td>12,840.93 ns</td><td>49,836,531.8 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>221,153,188.9 ns</td><td>57,078.20 ns</td><td>44,562.90 ns</td><td>221,163,166.7 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>53,931,338.0 ns</td><td>7,755.45 ns</td><td>7,254.45 ns</td><td>53,932,840.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>18,058,123.2 ns</td><td>23,130.29 ns</td><td>20,504.40 ns</td><td>18,058,003.1 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>50,018,099.4 ns</td><td>21,192.13 ns</td><td>18,786.27 ns</td><td>50,025,450.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>18,206,944.6 ns</td><td>18,925.68 ns</td><td>17,703.09 ns</td><td>18,209,953.1 ns</td><td>2.96x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>49,877,706.7 ns</td><td>8,394.64 ns</td><td>6,553.98 ns</td><td>49,878,725.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>221,175,502.4 ns</td><td>51,308.09 ns</td><td>45,483.29 ns</td><td>221,186,350.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>53,964,408.6 ns</td><td>6,175.76 ns</td><td>5,474.65 ns</td><td>53,963,580.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>17,937,728.4 ns</td><td>8,998.84 ns</td><td>7,514.44 ns</td><td>17,937,850.0 ns</td><td>3.01x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>50,091,375.8 ns</td><td>8,392.09 ns</td><td>6,551.99 ns</td><td>50,093,486.4 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>18,051,943.5 ns</td><td>13,232.28 ns</td><td>12,377.48 ns</td><td>18,054,531.2 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>49,736,504.5 ns</td><td>6,157.12 ns</td><td>4,807.08 ns</td><td>49,736,613.6 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>221,202,160.0 ns</td><td>35,733.91 ns</td><td>33,425.53 ns</td><td>221,206,800.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>107,827,707.1 ns</td><td>11,298.96 ns</td><td>10,016.23 ns</td><td>107,825,670.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>36,021,098.6 ns</td><td>36,125.62 ns</td><td>33,791.92 ns</td><td>36,021,064.3 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>100,031,825.0 ns</td><td>120,049.34 ns</td><td>93,726.62 ns</td><td>100,040,483.3 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>36,328,839.8 ns</td><td>44,017.53 ns</td><td>39,020.40 ns</td><td>36,333,392.9 ns</td><td>2.97x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>99,843,894.4 ns</td><td>42,066.50 ns</td><td>39,349.03 ns</td><td>99,825,400.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>442,210,486.7 ns</td><td>108,981.28 ns</td><td>101,941.16 ns</td><td>442,245,300.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>107,951,629.3 ns</td><td>141,540.55 ns</td><td>132,397.12 ns</td><td>107,879,280.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>35,874,122.4 ns</td><td>43,934.02 ns</td><td>41,095.91 ns</td><td>35,872,907.1 ns</td><td>3.01x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>99,390,481.9 ns</td><td>63,751.28 ns</td><td>49,772.81 ns</td><td>99,373,966.7 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>36,089,731.9 ns</td><td>57,935.67 ns</td><td>54,193.06 ns</td><td>36,086,164.3 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>99,666,253.6 ns</td><td>9,767.62 ns</td><td>8,658.74 ns</td><td>99,666,091.7 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>442,119,400.0 ns</td><td>112,977.66 ns</td><td>105,679.37 ns</td><td>442,113,100.0 ns</td><td>4.10x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>107,798,285.3 ns</td><td>14,386.16 ns</td><td>13,456.83 ns</td><td>107,796,140.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>36,049,849.0 ns</td><td>34,721.57 ns</td><td>30,779.76 ns</td><td>36,051,585.7 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>99,905,275.6 ns</td><td>95,564.92 ns</td><td>89,391.49 ns</td><td>99,853,750.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>36,320,900.5 ns</td><td>107,418.29 ns</td><td>100,479.13 ns</td><td>36,289,614.3 ns</td><td>2.97x faster</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>99,651,361.4 ns</td><td>6,822.09 ns</td><td>6,047.61 ns</td><td>99,649,920.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>442,199,857.1 ns</td><td>174,359.60 ns</td><td>154,565.24 ns</td><td>442,257,600.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>107,900,924.3 ns</td><td>9,044.29 ns</td><td>8,017.53 ns</td><td>107,900,200.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>35,997,267.6 ns</td><td>69,199.84 ns</td><td>64,729.57 ns</td><td>35,979,142.9 ns</td><td>3.00x faster</td><td>0.01x</td>
+</tr><tr><td>cEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>99,465,200.0 ns</td><td>10,925.17 ns</td><td>8,529.66 ns</td><td>99,465,040.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>36,240,233.7 ns</td><td>45,822.06 ns</td><td>40,620.06 ns</td><td>36,237,882.1 ns</td><td>2.98x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>99,824,859.5 ns</td><td>23,977.55 ns</td><td>21,255.47 ns</td><td>99,831,525.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>442,439,516.7 ns</td><td>137,034.31 ns</td><td>106,987.37 ns</td><td>442,476,800.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>185.8 ns</td><td>0.01 ns</td><td>0.01 ns</td><td>185.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>340.5 ns</td><td>0.84 ns</td><td>0.79 ns</td><td>340.0 ns</td><td>1.83x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>502.2 ns</td><td>0.12 ns</td><td>0.10 ns</td><td>502.2 ns</td><td>2.70x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>209.0 ns</td><td>0.33 ns</td><td>0.31 ns</td><td>209.0 ns</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>328.9 ns</td><td>0.33 ns</td><td>0.29 ns</td><td>328.9 ns</td><td>1.77x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>150.0 ns</td><td>0.01 ns</td><td>0.01 ns</td><td>150.0 ns</td><td>1.24x faster</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>227.1 ns</td><td>0.01 ns</td><td>0.01 ns</td><td>227.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>383.3 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>383.3 ns</td><td>1.69x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>506.9 ns</td><td>0.24 ns</td><td>0.19 ns</td><td>506.9 ns</td><td>2.23x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>253.9 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>253.9 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>332.2 ns</td><td>0.33 ns</td><td>0.31 ns</td><td>332.0 ns</td><td>1.46x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>450.9 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>450.9 ns</td><td>1.99x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>1,284.1 ns</td><td>0.10 ns</td><td>0.09 ns</td><td>1,284.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>1,486.9 ns</td><td>0.23 ns</td><td>0.20 ns</td><td>1,486.9 ns</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>1,477.0 ns</td><td>4.94 ns</td><td>4.62 ns</td><td>1,474.3 ns</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>1,335.5 ns</td><td>0.18 ns</td><td>0.14 ns</td><td>1,335.5 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>1,300.0 ns</td><td>0.34 ns</td><td>0.28 ns</td><td>1,300.1 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>6,549.9 ns</td><td>0.57 ns</td><td>0.53 ns</td><td>6,550.0 ns</td><td>5.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>11,840.4 ns</td><td>4.46 ns</td><td>3.95 ns</td><td>11,838.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>5,987.9 ns</td><td>2.10 ns</td><td>1.64 ns</td><td>5,987.4 ns</td><td>1.98x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>10,908.2 ns</td><td>3.70 ns</td><td>2.89 ns</td><td>10,908.4 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>3,618.0 ns</td><td>7.61 ns</td><td>7.11 ns</td><td>3,618.3 ns</td><td>3.27x faster</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>10,564.0 ns</td><td>4.56 ns</td><td>4.04 ns</td><td>10,562.8 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>68,199.5 ns</td><td>6.14 ns</td><td>5.74 ns</td><td>68,199.8 ns</td><td>5.76x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>285.7 ns</td><td>0.02 ns</td><td>0.02 ns</td><td>285.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>437.3 ns</td><td>0.06 ns</td><td>0.06 ns</td><td>437.3 ns</td><td>1.53x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>680.5 ns</td><td>0.29 ns</td><td>0.24 ns</td><td>680.5 ns</td><td>2.38x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>297.5 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>297.5 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>427.5 ns</td><td>0.36 ns</td><td>0.30 ns</td><td>427.5 ns</td><td>1.50x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>216.9 ns</td><td>0.11 ns</td><td>0.09 ns</td><td>216.9 ns</td><td>1.32x faster</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>330.3 ns</td><td>0.02 ns</td><td>0.02 ns</td><td>330.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>487.3 ns</td><td>0.15 ns</td><td>0.12 ns</td><td>487.3 ns</td><td>1.48x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>684.7 ns</td><td>0.62 ns</td><td>0.55 ns</td><td>684.7 ns</td><td>2.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>339.6 ns</td><td>0.20 ns</td><td>0.17 ns</td><td>339.6 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>427.7 ns</td><td>0.32 ns</td><td>0.26 ns</td><td>427.8 ns</td><td>1.29x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>517.9 ns</td><td>0.28 ns</td><td>0.22 ns</td><td>517.9 ns</td><td>1.57x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>1,386.7 ns</td><td>0.12 ns</td><td>0.12 ns</td><td>1,386.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>1,571.8 ns</td><td>0.44 ns</td><td>0.39 ns</td><td>1,571.8 ns</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>1,659.8 ns</td><td>0.67 ns</td><td>0.60 ns</td><td>1,659.6 ns</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>1,424.3 ns</td><td>0.30 ns</td><td>0.28 ns</td><td>1,424.2 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>1,396.9 ns</td><td>0.46 ns</td><td>0.36 ns</td><td>1,396.9 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>6,617.7 ns</td><td>1.57 ns</td><td>1.23 ns</td><td>6,617.3 ns</td><td>4.77x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>11,945.6 ns</td><td>3.22 ns</td><td>2.85 ns</td><td>11,946.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>6,086.0 ns</td><td>0.90 ns</td><td>0.84 ns</td><td>6,085.8 ns</td><td>1.96x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>10,920.7 ns</td><td>2.56 ns</td><td>2.27 ns</td><td>10,920.5 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>3,726.2 ns</td><td>4.42 ns</td><td>4.14 ns</td><td>3,728.5 ns</td><td>3.21x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>10,684.7 ns</td><td>4.90 ns</td><td>4.34 ns</td><td>10,685.1 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>68,254.4 ns</td><td>9.01 ns</td><td>8.43 ns</td><td>68,251.7 ns</td><td>5.71x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>300.6 ns</td><td>0.01 ns</td><td>0.01 ns</td><td>300.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>445.6 ns</td><td>0.11 ns</td><td>0.09 ns</td><td>445.7 ns</td><td>1.48x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>678.7 ns</td><td>1.54 ns</td><td>1.44 ns</td><td>677.8 ns</td><td>2.26x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>298.0 ns</td><td>0.10 ns</td><td>0.08 ns</td><td>298.0 ns</td><td>1.01x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>428.6 ns</td><td>0.20 ns</td><td>0.19 ns</td><td>428.7 ns</td><td>1.43x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>283.7 ns</td><td>0.12 ns</td><td>0.12 ns</td><td>283.7 ns</td><td>1.06x faster</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>344.6 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>344.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>497.7 ns</td><td>0.21 ns</td><td>0.20 ns</td><td>497.8 ns</td><td>1.44x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>683.0 ns</td><td>1.47 ns</td><td>1.38 ns</td><td>682.6 ns</td><td>1.98x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>345.4 ns</td><td>0.34 ns</td><td>0.31 ns</td><td>345.2 ns</td><td>1.00x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>432.3 ns</td><td>0.21 ns</td><td>0.17 ns</td><td>432.3 ns</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>584.6 ns</td><td>0.27 ns</td><td>0.22 ns</td><td>584.6 ns</td><td>1.70x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>1,403.8 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>1,403.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>1,580.4 ns</td><td>1.10 ns</td><td>1.03 ns</td><td>1,579.8 ns</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>1,650.2 ns</td><td>0.35 ns</td><td>0.31 ns</td><td>1,650.2 ns</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>1,432.5 ns</td><td>0.11 ns</td><td>0.09 ns</td><td>1,432.6 ns</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>1,395.9 ns</td><td>0.22 ns</td><td>0.17 ns</td><td>1,395.9 ns</td><td>1.01x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>6,683.3 ns</td><td>0.63 ns</td><td>0.53 ns</td><td>6,683.2 ns</td><td>4.76x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>11,964.6 ns</td><td>2.68 ns</td><td>2.50 ns</td><td>11,964.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>6,073.7 ns</td><td>1.03 ns</td><td>0.86 ns</td><td>6,073.5 ns</td><td>1.97x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>10,922.1 ns</td><td>3.60 ns</td><td>2.81 ns</td><td>10,921.3 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>3,702.7 ns</td><td>4.00 ns</td><td>3.74 ns</td><td>3,702.3 ns</td><td>3.23x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>10,642.8 ns</td><td>3.67 ns</td><td>3.26 ns</td><td>10,642.4 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>68,329.8 ns</td><td>4.03 ns</td><td>3.77 ns</td><td>68,330.8 ns</td><td>5.71x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>307.9 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>307.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>428.3 ns</td><td>0.16 ns</td><td>0.15 ns</td><td>428.2 ns</td><td>1.39x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>666.3 ns</td><td>0.57 ns</td><td>0.53 ns</td><td>666.5 ns</td><td>2.16x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>333.9 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>333.9 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>411.1 ns</td><td>0.27 ns</td><td>0.22 ns</td><td>411.0 ns</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>417.5 ns</td><td>0.29 ns</td><td>0.24 ns</td><td>417.5 ns</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>353.3 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>353.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>481.2 ns</td><td>0.18 ns</td><td>0.17 ns</td><td>481.2 ns</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>668.2 ns</td><td>0.18 ns</td><td>0.16 ns</td><td>668.2 ns</td><td>1.89x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>380.4 ns</td><td>0.21 ns</td><td>0.18 ns</td><td>380.4 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>494.7 ns</td><td>0.27 ns</td><td>0.21 ns</td><td>494.7 ns</td><td>1.40x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>718.9 ns</td><td>0.26 ns</td><td>0.23 ns</td><td>718.8 ns</td><td>2.04x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>1,404.4 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>1,404.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>1,560.1 ns</td><td>0.15 ns</td><td>0.14 ns</td><td>1,560.1 ns</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>1,636.6 ns</td><td>0.57 ns</td><td>0.48 ns</td><td>1,636.6 ns</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>1,461.6 ns</td><td>1.54 ns</td><td>1.29 ns</td><td>1,462.1 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>1,380.0 ns</td><td>0.23 ns</td><td>0.20 ns</td><td>1,380.0 ns</td><td>1.02x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>6,817.1 ns</td><td>0.55 ns</td><td>0.51 ns</td><td>6,817.0 ns</td><td>4.85x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>11,973.9 ns</td><td>2.24 ns</td><td>2.09 ns</td><td>11,974.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>6,065.9 ns</td><td>5.31 ns</td><td>4.96 ns</td><td>6,069.4 ns</td><td>1.97x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>10,900.6 ns</td><td>3.25 ns</td><td>2.72 ns</td><td>10,901.0 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>3,747.7 ns</td><td>4.05 ns</td><td>3.79 ns</td><td>3,748.1 ns</td><td>3.20x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>10,639.3 ns</td><td>5.34 ns</td><td>4.46 ns</td><td>10,638.1 ns</td><td>1.13x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>68,458.5 ns</td><td>9.20 ns</td><td>7.69 ns</td><td>68,459.3 ns</td><td>5.72x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>419.7 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>419.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>557.6 ns</td><td>0.16 ns</td><td>0.15 ns</td><td>557.6 ns</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>735.4 ns</td><td>0.47 ns</td><td>0.36 ns</td><td>735.4 ns</td><td>1.75x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>449.4 ns</td><td>0.09 ns</td><td>0.07 ns</td><td>449.5 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>561.2 ns</td><td>0.21 ns</td><td>0.16 ns</td><td>561.2 ns</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>698.4 ns</td><td>0.07 ns</td><td>0.06 ns</td><td>698.4 ns</td><td>1.66x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>466.3 ns</td><td>0.15 ns</td><td>0.12 ns</td><td>466.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>587.6 ns</td><td>0.12 ns</td><td>0.10 ns</td><td>587.6 ns</td><td>1.26x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>743.2 ns</td><td>1.67 ns</td><td>1.57 ns</td><td>742.4 ns</td><td>1.59x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>495.6 ns</td><td>0.06 ns</td><td>0.06 ns</td><td>495.6 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>565.0 ns</td><td>0.28 ns</td><td>0.25 ns</td><td>565.0 ns</td><td>1.21x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>999.2 ns</td><td>0.12 ns</td><td>0.10 ns</td><td>999.2 ns</td><td>2.14x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>1,522.0 ns</td><td>0.11 ns</td><td>0.11 ns</td><td>1,522.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>1,677.9 ns</td><td>2.43 ns</td><td>2.27 ns</td><td>1,678.4 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>1,703.4 ns</td><td>1.99 ns</td><td>1.66 ns</td><td>1,702.9 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>1,572.9 ns</td><td>0.06 ns</td><td>0.06 ns</td><td>1,573.0 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>1,536.1 ns</td><td>1.95 ns</td><td>1.83 ns</td><td>1,537.0 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>7,097.0 ns</td><td>0.59 ns</td><td>0.55 ns</td><td>7,097.1 ns</td><td>4.66x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>12,085.4 ns</td><td>10.24 ns</td><td>9.08 ns</td><td>12,081.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>6,190.1 ns</td><td>2.06 ns</td><td>1.93 ns</td><td>6,190.8 ns</td><td>1.95x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>10,971.0 ns</td><td>4.21 ns</td><td>3.74 ns</td><td>10,969.7 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>3,867.5 ns</td><td>3.41 ns</td><td>3.19 ns</td><td>3,869.3 ns</td><td>3.12x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>10,755.7 ns</td><td>3.54 ns</td><td>3.14 ns</td><td>10,755.4 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>68,736.2 ns</td><td>8.65 ns</td><td>6.75 ns</td><td>68,735.8 ns</td><td>5.69x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>534.5 ns</td><td>0.53 ns</td><td>0.50 ns</td><td>534.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>648.3 ns</td><td>0.62 ns</td><td>0.58 ns</td><td>648.1 ns</td><td>1.21x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>841.1 ns</td><td>0.41 ns</td><td>0.37 ns</td><td>841.1 ns</td><td>1.57x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>549.9 ns</td><td>0.04 ns</td><td>0.04 ns</td><td>549.9 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>665.9 ns</td><td>0.27 ns</td><td>0.24 ns</td><td>665.9 ns</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>1,232.8 ns</td><td>0.14 ns</td><td>0.13 ns</td><td>1,232.8 ns</td><td>2.31x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>580.9 ns</td><td>0.04 ns</td><td>0.04 ns</td><td>580.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>694.8 ns</td><td>0.35 ns</td><td>0.33 ns</td><td>694.6 ns</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>848.4 ns</td><td>1.84 ns</td><td>1.72 ns</td><td>847.6 ns</td><td>1.46x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>607.0 ns</td><td>0.15 ns</td><td>0.13 ns</td><td>607.0 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>667.4 ns</td><td>0.13 ns</td><td>0.12 ns</td><td>667.4 ns</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>1,533.5 ns</td><td>0.13 ns</td><td>0.12 ns</td><td>1,533.5 ns</td><td>2.64x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>1,634.5 ns</td><td>0.20 ns</td><td>0.17 ns</td><td>1,634.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>1,781.4 ns</td><td>0.31 ns</td><td>0.26 ns</td><td>1,781.3 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>1,810.8 ns</td><td>0.61 ns</td><td>0.47 ns</td><td>1,811.0 ns</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>1,690.6 ns</td><td>0.13 ns</td><td>0.12 ns</td><td>1,690.6 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>1,644.5 ns</td><td>0.30 ns</td><td>0.27 ns</td><td>1,644.5 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>7,631.8 ns</td><td>0.57 ns</td><td>0.44 ns</td><td>7,632.0 ns</td><td>4.67x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>12,198.7 ns</td><td>2.14 ns</td><td>2.01 ns</td><td>12,199.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>6,275.9 ns</td><td>0.98 ns</td><td>0.87 ns</td><td>6,276.2 ns</td><td>1.94x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>11,241.8 ns</td><td>10.87 ns</td><td>10.17 ns</td><td>11,237.9 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>3,978.2 ns</td><td>4.79 ns</td><td>4.48 ns</td><td>3,979.7 ns</td><td>3.07x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>10,871.5 ns</td><td>3.29 ns</td><td>2.92 ns</td><td>10,871.8 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>69,265.8 ns</td><td>7.61 ns</td><td>7.11 ns</td><td>69,263.5 ns</td><td>5.68x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>702.4 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>702.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>813.5 ns</td><td>0.45 ns</td><td>0.42 ns</td><td>813.3 ns</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>988.0 ns</td><td>0.38 ns</td><td>0.32 ns</td><td>987.9 ns</td><td>1.41x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>717.2 ns</td><td>0.17 ns</td><td>0.16 ns</td><td>717.3 ns</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>812.0 ns</td><td>0.20 ns</td><td>0.18 ns</td><td>811.9 ns</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>2,302.0 ns</td><td>0.42 ns</td><td>0.39 ns</td><td>2,302.1 ns</td><td>3.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>751.8 ns</td><td>0.09 ns</td><td>0.07 ns</td><td>751.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>863.3 ns</td><td>1.27 ns</td><td>1.19 ns</td><td>862.7 ns</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>992.4 ns</td><td>1.09 ns</td><td>0.97 ns</td><td>992.1 ns</td><td>1.32x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>772.4 ns</td><td>0.05 ns</td><td>0.05 ns</td><td>772.4 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>814.1 ns</td><td>0.51 ns</td><td>0.42 ns</td><td>814.1 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>2,603.8 ns</td><td>0.30 ns</td><td>0.28 ns</td><td>2,603.8 ns</td><td>3.46x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>1,842.2 ns</td><td>0.25 ns</td><td>0.23 ns</td><td>1,842.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>1,944.2 ns</td><td>0.32 ns</td><td>0.30 ns</td><td>1,944.2 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>1,952.4 ns</td><td>0.55 ns</td><td>0.49 ns</td><td>1,952.5 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>1,921.4 ns</td><td>0.80 ns</td><td>0.75 ns</td><td>1,921.6 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>1,777.2 ns</td><td>0.51 ns</td><td>0.43 ns</td><td>1,777.2 ns</td><td>1.04x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>8,700.3 ns</td><td>0.82 ns</td><td>0.73 ns</td><td>8,700.4 ns</td><td>4.72x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>12,407.2 ns</td><td>1.09 ns</td><td>1.02 ns</td><td>12,407.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>6,453.1 ns</td><td>1.09 ns</td><td>0.97 ns</td><td>6,453.1 ns</td><td>1.92x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>11,228.7 ns</td><td>5.35 ns</td><td>4.74 ns</td><td>11,226.7 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>4,138.2 ns</td><td>4.39 ns</td><td>4.11 ns</td><td>4,140.9 ns</td><td>3.00x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>11,034.6 ns</td><td>6.89 ns</td><td>6.10 ns</td><td>11,033.0 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>70,349.9 ns</td><td>6.34 ns</td><td>5.62 ns</td><td>70,349.2 ns</td><td>5.67x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,198.3 ns</td><td>0.06 ns</td><td>0.06 ns</td><td>1,198.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,309.8 ns</td><td>1.68 ns</td><td>1.57 ns</td><td>1,309.8 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,466.3 ns</td><td>2.02 ns</td><td>1.89 ns</td><td>1,465.1 ns</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,282.6 ns</td><td>0.38 ns</td><td>0.34 ns</td><td>1,282.4 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,267.7 ns</td><td>0.33 ns</td><td>0.29 ns</td><td>1,267.6 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>4,440.4 ns</td><td>1.06 ns</td><td>1.00 ns</td><td>4,440.6 ns</td><td>3.71x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,244.9 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>1,244.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,353.0 ns</td><td>0.24 ns</td><td>0.22 ns</td><td>1,352.9 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,442.6 ns</td><td>0.62 ns</td><td>0.55 ns</td><td>1,442.6 ns</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,320.1 ns</td><td>0.28 ns</td><td>0.27 ns</td><td>1,320.2 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,266.8 ns</td><td>0.42 ns</td><td>0.38 ns</td><td>1,266.8 ns</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>4,739.4 ns</td><td>1.31 ns</td><td>1.23 ns</td><td>4,739.9 ns</td><td>3.81x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>2,335.8 ns</td><td>0.10 ns</td><td>0.09 ns</td><td>2,335.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>2,447.9 ns</td><td>0.18 ns</td><td>0.17 ns</td><td>2,447.9 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>2,436.2 ns</td><td>0.42 ns</td><td>0.37 ns</td><td>2,436.2 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>2,393.7 ns</td><td>0.28 ns</td><td>0.22 ns</td><td>2,393.7 ns</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>2,245.2 ns</td><td>2.25 ns</td><td>2.11 ns</td><td>2,244.3 ns</td><td>1.04x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>10,841.6 ns</td><td>1.06 ns</td><td>0.99 ns</td><td>10,841.8 ns</td><td>4.64x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>12,910.6 ns</td><td>2.48 ns</td><td>2.32 ns</td><td>12,911.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>6,937.8 ns</td><td>1.35 ns</td><td>1.05 ns</td><td>6,937.9 ns</td><td>1.86x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>11,655.8 ns</td><td>5.46 ns</td><td>4.84 ns</td><td>11,654.5 ns</td><td>1.11x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>4,699.6 ns</td><td>4.65 ns</td><td>4.35 ns</td><td>4,698.2 ns</td><td>2.75x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>11,514.8 ns</td><td>2.91 ns</td><td>2.58 ns</td><td>11,514.6 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>72,504.6 ns</td><td>14.37 ns</td><td>13.44 ns</td><td>72,505.5 ns</td><td>5.62x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,704.1 ns</td><td>0.09 ns</td><td>0.07 ns</td><td>1,704.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,855.4 ns</td><td>0.28 ns</td><td>0.27 ns</td><td>1,855.4 ns</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,899.7 ns</td><td>0.49 ns</td><td>0.38 ns</td><td>1,899.8 ns</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,754.7 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>1,754.7 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,722.6 ns</td><td>0.35 ns</td><td>0.31 ns</td><td>1,722.7 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>6,581.9 ns</td><td>1.90 ns</td><td>1.78 ns</td><td>6,582.1 ns</td><td>3.86x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,752.6 ns</td><td>0.49 ns</td><td>0.43 ns</td><td>1,752.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,899.0 ns</td><td>0.20 ns</td><td>0.19 ns</td><td>1,898.9 ns</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,927.1 ns</td><td>0.74 ns</td><td>0.65 ns</td><td>1,927.0 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,819.0 ns</td><td>0.13 ns</td><td>0.11 ns</td><td>1,819.0 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,728.2 ns</td><td>0.25 ns</td><td>0.20 ns</td><td>1,728.1 ns</td><td>1.01x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>6,883.3 ns</td><td>1.78 ns</td><td>1.67 ns</td><td>6,883.9 ns</td><td>3.93x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2,841.9 ns</td><td>0.21 ns</td><td>0.17 ns</td><td>2,841.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2,990.5 ns</td><td>0.23 ns</td><td>0.19 ns</td><td>2,990.5 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2,872.2 ns</td><td>0.91 ns</td><td>0.81 ns</td><td>2,871.9 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2,955.1 ns</td><td>3.04 ns</td><td>2.84 ns</td><td>2,953.5 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2,698.3 ns</td><td>0.75 ns</td><td>0.59 ns</td><td>2,698.4 ns</td><td>1.05x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>12,991.6 ns</td><td>12.51 ns</td><td>11.70 ns</td><td>12,984.9 ns</td><td>4.57x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13,414.6 ns</td><td>1.28 ns</td><td>1.13 ns</td><td>13,414.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>7,497.9 ns</td><td>7.13 ns</td><td>6.67 ns</td><td>7,495.0 ns</td><td>1.79x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>12,196.4 ns</td><td>12.17 ns</td><td>11.38 ns</td><td>12,201.2 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>5,185.6 ns</td><td>4.11 ns</td><td>3.85 ns</td><td>5,186.0 ns</td><td>2.59x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>11,951.2 ns</td><td>5.48 ns</td><td>4.86 ns</td><td>11,951.3 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>74,664.0 ns</td><td>13.43 ns</td><td>12.56 ns</td><td>74,661.7 ns</td><td>5.57x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>2,207.0 ns</td><td>1.73 ns</td><td>1.62 ns</td><td>2,205.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>1,632.8 ns</td><td>0.60 ns</td><td>0.50 ns</td><td>1,632.9 ns</td><td>1.35x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>2,357.5 ns</td><td>1.29 ns</td><td>1.00 ns</td><td>2,357.3 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>2,310.9 ns</td><td>0.15 ns</td><td>0.13 ns</td><td>2,310.9 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>2,180.8 ns</td><td>2.81 ns</td><td>2.63 ns</td><td>2,179.1 ns</td><td>1.01x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>8,723.9 ns</td><td>2.07 ns</td><td>1.83 ns</td><td>8,724.4 ns</td><td>3.95x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>2,250.6 ns</td><td>0.20 ns</td><td>0.19 ns</td><td>2,250.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>1,688.0 ns</td><td>0.42 ns</td><td>0.40 ns</td><td>1,688.0 ns</td><td>1.33x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>2,382.9 ns</td><td>2.80 ns</td><td>2.62 ns</td><td>2,381.4 ns</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>2,353.0 ns</td><td>0.10 ns</td><td>0.09 ns</td><td>2,353.0 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>2,180.8 ns</td><td>0.63 ns</td><td>0.56 ns</td><td>2,180.9 ns</td><td>1.03x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>9,023.0 ns</td><td>2.14 ns</td><td>2.00 ns</td><td>9,023.0 ns</td><td>4.01x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>3,344.7 ns</td><td>0.44 ns</td><td>0.34 ns</td><td>3,344.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>2,778.5 ns</td><td>0.72 ns</td><td>0.64 ns</td><td>2,778.7 ns</td><td>1.20x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>3,329.6 ns</td><td>0.73 ns</td><td>0.64 ns</td><td>3,329.8 ns</td><td>1.00x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>3,437.4 ns</td><td>0.34 ns</td><td>0.29 ns</td><td>3,437.4 ns</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>3,148.4 ns</td><td>0.53 ns</td><td>0.47 ns</td><td>3,148.5 ns</td><td>1.06x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>15,124.2 ns</td><td>2.64 ns</td><td>2.47 ns</td><td>15,124.5 ns</td><td>4.52x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>13,905.4 ns</td><td>2.42 ns</td><td>2.27 ns</td><td>13,905.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>7,287.2 ns</td><td>1.56 ns</td><td>1.30 ns</td><td>7,287.0 ns</td><td>1.91x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>12,632.5 ns</td><td>3.15 ns</td><td>2.63 ns</td><td>12,632.5 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>5,735.4 ns</td><td>4.92 ns</td><td>4.60 ns</td><td>5,736.9 ns</td><td>2.42x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>12,421.5 ns</td><td>34.99 ns</td><td>31.02 ns</td><td>12,405.3 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>76,810.0 ns</td><td>8.45 ns</td><td>7.49 ns</td><td>76,810.4 ns</td><td>5.52x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>16,209.0 ns</td><td>4.62 ns</td><td>3.86 ns</td><td>16,208.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>18,758.4 ns</td><td>66.07 ns</td><td>61.81 ns</td><td>18,739.0 ns</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>15,118.8 ns</td><td>3.94 ns</td><td>3.29 ns</td><td>15,119.5 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>10,180.1 ns</td><td>0.88 ns</td><td>0.82 ns</td><td>10,180.0 ns</td><td>1.59x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>14,933.4 ns</td><td>8.86 ns</td><td>6.92 ns</td><td>14,931.2 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>68,871.8 ns</td><td>9.22 ns</td><td>8.62 ns</td><td>68,871.0 ns</td><td>4.25x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>16,231.9 ns</td><td>2.90 ns</td><td>2.71 ns</td><td>16,231.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>18,911.0 ns</td><td>26.95 ns</td><td>25.21 ns</td><td>18,911.8 ns</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>15,098.1 ns</td><td>3.96 ns</td><td>3.51 ns</td><td>15,097.2 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>10,256.8 ns</td><td>27.63 ns</td><td>25.85 ns</td><td>10,241.8 ns</td><td>1.58x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>14,967.0 ns</td><td>3.36 ns</td><td>2.81 ns</td><td>14,966.6 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>69,173.8 ns</td><td>10.86 ns</td><td>9.07 ns</td><td>69,178.2 ns</td><td>4.26x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>17,339.6 ns</td><td>2.18 ns</td><td>2.04 ns</td><td>17,340.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>20,044.6 ns</td><td>87.31 ns</td><td>81.67 ns</td><td>20,071.7 ns</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>16,158.9 ns</td><td>51.64 ns</td><td>48.30 ns</td><td>16,127.3 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>11,381.0 ns</td><td>32.91 ns</td><td>30.78 ns</td><td>11,403.0 ns</td><td>1.52x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>15,968.1 ns</td><td>3.77 ns</td><td>3.34 ns</td><td>15,968.5 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>75,296.4 ns</td><td>17.34 ns</td><td>15.37 ns</td><td>75,299.9 ns</td><td>4.34x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>27,899.0 ns</td><td>5.00 ns</td><td>4.68 ns</td><td>27,900.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>26,095.3 ns</td><td>44.00 ns</td><td>41.15 ns</td><td>26,099.3 ns</td><td>1.07x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>25,487.9 ns</td><td>8.14 ns</td><td>7.22 ns</td><td>25,489.3 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>13,655.0 ns</td><td>5.07 ns</td><td>4.75 ns</td><td>13,656.5 ns</td><td>2.04x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>25,208.4 ns</td><td>10.16 ns</td><td>9.01 ns</td><td>25,206.5 ns</td><td>1.11x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>137,146.2 ns</td><td>64.21 ns</td><td>56.92 ns</td><td>137,131.6 ns</td><td>4.92x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>32,242.7 ns</td><td>5.58 ns</td><td>4.66 ns</td><td>32,242.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>24,347.3 ns</td><td>50.05 ns</td><td>46.82 ns</td><td>24,349.4 ns</td><td>1.32x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>29,753.5 ns</td><td>3.07 ns</td><td>2.40 ns</td><td>29,754.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>33,924.4 ns</td><td>25.43 ns</td><td>22.55 ns</td><td>33,928.4 ns</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>29,452.0 ns</td><td>5.10 ns</td><td>4.53 ns</td><td>29,452.3 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>137,744.8 ns</td><td>17.33 ns</td><td>14.47 ns</td><td>137,745.8 ns</td><td>4.27x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>32,223.0 ns</td><td>5.74 ns</td><td>5.09 ns</td><td>32,221.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>24,644.5 ns</td><td>33.04 ns</td><td>30.91 ns</td><td>24,639.9 ns</td><td>1.31x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>29,786.8 ns</td><td>5.43 ns</td><td>4.53 ns</td><td>29,786.2 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>34,438.4 ns</td><td>32.44 ns</td><td>30.34 ns</td><td>34,445.9 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>29,508.2 ns</td><td>4.58 ns</td><td>4.06 ns</td><td>29,507.7 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>138,014.9 ns</td><td>32.74 ns</td><td>30.62 ns</td><td>138,016.7 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>33,309.8 ns</td><td>4.17 ns</td><td>3.69 ns</td><td>33,309.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>26,074.3 ns</td><td>39.26 ns</td><td>34.80 ns</td><td>26,082.4 ns</td><td>1.28x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>30,833.3 ns</td><td>94.52 ns</td><td>88.41 ns</td><td>30,778.1 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>35,806.4 ns</td><td>37.04 ns</td><td>34.65 ns</td><td>35,812.8 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>30,572.8 ns</td><td>6.09 ns</td><td>5.40 ns</td><td>30,573.8 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>144,200.2 ns</td><td>45.70 ns</td><td>42.74 ns</td><td>144,200.6 ns</td><td>4.33x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>43,877.1 ns</td><td>11.58 ns</td><td>10.84 ns</td><td>43,882.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>34,553.7 ns</td><td>47.67 ns</td><td>42.26 ns</td><td>34,565.4 ns</td><td>1.27x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>40,093.9 ns</td><td>33.00 ns</td><td>25.77 ns</td><td>40,091.0 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>39,119.2 ns</td><td>43.57 ns</td><td>40.75 ns</td><td>39,116.0 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>40,288.2 ns</td><td>136.28 ns</td><td>127.48 ns</td><td>40,195.7 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>205,997.2 ns</td><td>46.05 ns</td><td>38.46 ns</td><td>205,992.4 ns</td><td>4.69x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>64,574.3 ns</td><td>229.39 ns</td><td>214.57 ns</td><td>64,406.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>42,496.2 ns</td><td>91.59 ns</td><td>76.48 ns</td><td>42,481.5 ns</td><td>1.52x faster</td><td>0.01x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>59,118.4 ns</td><td>21.31 ns</td><td>18.89 ns</td><td>59,118.1 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>57,700.9 ns</td><td>50.40 ns</td><td>47.15 ns</td><td>57,709.9 ns</td><td>1.12x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>58,816.9 ns</td><td>11.71 ns</td><td>10.38 ns</td><td>58,817.7 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>275,944.7 ns</td><td>283.97 ns</td><td>265.62 ns</td><td>275,783.1 ns</td><td>4.27x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>64,288.7 ns</td><td>8.39 ns</td><td>7.44 ns</td><td>64,287.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>42,595.6 ns</td><td>30.27 ns</td><td>26.83 ns</td><td>42,594.8 ns</td><td>1.51x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>58,943.9 ns</td><td>10.09 ns</td><td>8.94 ns</td><td>58,943.8 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>58,040.6 ns</td><td>21.82 ns</td><td>19.34 ns</td><td>58,045.1 ns</td><td>1.11x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>58,654.2 ns</td><td>5.19 ns</td><td>4.60 ns</td><td>58,655.1 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>276,150.4 ns</td><td>79.60 ns</td><td>62.15 ns</td><td>276,127.1 ns</td><td>4.30x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>65,356.2 ns</td><td>16.81 ns</td><td>15.73 ns</td><td>65,348.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>43,523.3 ns</td><td>34.89 ns</td><td>30.93 ns</td><td>43,526.2 ns</td><td>1.50x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>60,129.5 ns</td><td>13.69 ns</td><td>12.14 ns</td><td>60,133.9 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>59,443.7 ns</td><td>307.56 ns</td><td>287.69 ns</td><td>59,508.1 ns</td><td>1.10x faster</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>60,032.0 ns</td><td>5.69 ns</td><td>5.04 ns</td><td>60,031.9 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>282,266.8 ns</td><td>63.26 ns</td><td>59.18 ns</td><td>282,280.0 ns</td><td>4.32x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>75,969.3 ns</td><td>10.94 ns</td><td>10.23 ns</td><td>75,972.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>48,949.9 ns</td><td>31.68 ns</td><td>29.63 ns</td><td>48,940.3 ns</td><td>1.55x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>69,611.8 ns</td><td>20.06 ns</td><td>17.78 ns</td><td>69,615.8 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>63,035.8 ns</td><td>35.71 ns</td><td>33.40 ns</td><td>63,046.7 ns</td><td>1.21x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>69,188.4 ns</td><td>62.73 ns</td><td>55.61 ns</td><td>69,164.2 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>344,108.2 ns</td><td>59.32 ns</td><td>55.49 ns</td><td>344,103.6 ns</td><td>4.53x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>129,167.2 ns</td><td>129.23 ns</td><td>120.89 ns</td><td>129,226.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>70,848.5 ns</td><td>39.94 ns</td><td>37.36 ns</td><td>70,846.8 ns</td><td>1.82x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>118,206.2 ns</td><td>28.89 ns</td><td>25.61 ns</td><td>118,212.5 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>93,762.6 ns</td><td>107.90 ns</td><td>100.93 ns</td><td>93,725.4 ns</td><td>1.38x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>117,429.8 ns</td><td>12.28 ns</td><td>10.89 ns</td><td>117,428.7 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>551,430.5 ns</td><td>120.63 ns</td><td>106.93 ns</td><td>551,433.8 ns</td><td>4.27x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>129,016.0 ns</td><td>12.66 ns</td><td>11.84 ns</td><td>129,014.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>71,205.4 ns</td><td>63.75 ns</td><td>59.63 ns</td><td>71,194.3 ns</td><td>1.81x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>119,741.2 ns</td><td>40.67 ns</td><td>36.05 ns</td><td>119,761.2 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>93,879.3 ns</td><td>68.86 ns</td><td>64.41 ns</td><td>93,894.3 ns</td><td>1.37x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>117,782.5 ns</td><td>10.81 ns</td><td>9.59 ns</td><td>117,783.9 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>551,832.5 ns</td><td>91.46 ns</td><td>76.37 ns</td><td>551,832.5 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>130,295.8 ns</td><td>25.46 ns</td><td>23.81 ns</td><td>130,298.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>72,074.4 ns</td><td>50.38 ns</td><td>47.13 ns</td><td>72,066.7 ns</td><td>1.81x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>119,313.8 ns</td><td>43.81 ns</td><td>38.84 ns</td><td>119,327.6 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>94,916.2 ns</td><td>74.85 ns</td><td>70.01 ns</td><td>94,918.8 ns</td><td>1.37x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>118,529.7 ns</td><td>10.30 ns</td><td>9.13 ns</td><td>118,529.3 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>558,028.3 ns</td><td>121.86 ns</td><td>113.99 ns</td><td>558,051.8 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>140,664.3 ns</td><td>34.59 ns</td><td>32.35 ns</td><td>140,651.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>76,591.5 ns</td><td>43.97 ns</td><td>41.13 ns</td><td>76,593.0 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>128,279.9 ns</td><td>160.19 ns</td><td>149.84 ns</td><td>128,242.1 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>95,819.8 ns</td><td>58.94 ns</td><td>49.22 ns</td><td>95,832.7 ns</td><td>1.47x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>127,947.3 ns</td><td>32.83 ns</td><td>27.42 ns</td><td>127,957.9 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>619,859.4 ns</td><td>91.09 ns</td><td>76.06 ns</td><td>619,851.3 ns</td><td>4.41x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>515,399.6 ns</td><td>128.72 ns</td><td>100.50 ns</td><td>515,418.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>201,758.9 ns</td><td>70.65 ns</td><td>66.08 ns</td><td>201,758.7 ns</td><td>2.55x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>471,492.6 ns</td><td>44.02 ns</td><td>39.02 ns</td><td>471,499.9 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>243,451.1 ns</td><td>69.33 ns</td><td>64.86 ns</td><td>243,468.3 ns</td><td>2.12x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>474,326.1 ns</td><td>52.27 ns</td><td>48.89 ns</td><td>474,315.5 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>2,205,553.3 ns</td><td>339.62 ns</td><td>283.60 ns</td><td>2,205,662.1 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>515,195.7 ns</td><td>177.80 ns</td><td>138.82 ns</td><td>515,251.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>200,101.4 ns</td><td>99.78 ns</td><td>88.45 ns</td><td>200,073.0 ns</td><td>2.57x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>471,173.9 ns</td><td>719.43 ns</td><td>672.95 ns</td><td>470,745.4 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>244,347.1 ns</td><td>133.71 ns</td><td>125.07 ns</td><td>244,357.3 ns</td><td>2.11x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>469,982.9 ns</td><td>39.50 ns</td><td>35.01 ns</td><td>469,969.3 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>2,206,104.5 ns</td><td>288.55 ns</td><td>269.91 ns</td><td>2,206,076.2 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>516,526.0 ns</td><td>151.25 ns</td><td>134.08 ns</td><td>516,573.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>201,030.6 ns</td><td>100.52 ns</td><td>94.03 ns</td><td>201,038.9 ns</td><td>2.57x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>471,581.1 ns</td><td>42.39 ns</td><td>37.58 ns</td><td>471,582.3 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>246,719.1 ns</td><td>144.84 ns</td><td>135.49 ns</td><td>246,734.6 ns</td><td>2.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>471,582.5 ns</td><td>380.88 ns</td><td>356.28 ns</td><td>471,530.7 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>2,211,707.1 ns</td><td>322.94 ns</td><td>269.67 ns</td><td>2,211,674.2 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>527,341.5 ns</td><td>674.04 ns</td><td>630.50 ns</td><td>527,142.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>205,872.4 ns</td><td>137.05 ns</td><td>128.20 ns</td><td>205,856.9 ns</td><td>2.56x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>481,892.1 ns</td><td>37.60 ns</td><td>33.33 ns</td><td>481,886.1 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>246,306.6 ns</td><td>184.95 ns</td><td>173.00 ns</td><td>246,321.9 ns</td><td>2.14x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>480,689.2 ns</td><td>57.77 ns</td><td>54.04 ns</td><td>480,698.3 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>2,273,461.8 ns</td><td>742.37 ns</td><td>579.59 ns</td><td>2,273,430.9 ns</td><td>4.31x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>1,030,043.0 ns</td><td>424.06 ns</td><td>331.07 ns</td><td>1,030,240.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>369,472.4 ns</td><td>154.46 ns</td><td>144.48 ns</td><td>369,433.7 ns</td><td>2.79x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>939,917.0 ns</td><td>418.51 ns</td><td>349.47 ns</td><td>939,775.6 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>427,500.5 ns</td><td>280.21 ns</td><td>262.11 ns</td><td>427,404.9 ns</td><td>2.41x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>940,114.7 ns</td><td>76.65 ns</td><td>71.70 ns</td><td>940,127.1 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>4,411,908.3 ns</td><td>166.14 ns</td><td>147.28 ns</td><td>4,411,871.5 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>1,030,613.4 ns</td><td>419.05 ns</td><td>391.98 ns</td><td>1,030,382.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>369,279.7 ns</td><td>173.61 ns</td><td>162.40 ns</td><td>369,325.8 ns</td><td>2.79x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>940,583.3 ns</td><td>97.61 ns</td><td>91.31 ns</td><td>940,598.2 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>427,280.2 ns</td><td>170.71 ns</td><td>151.33 ns</td><td>427,271.2 ns</td><td>2.41x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>939,717.4 ns</td><td>407.24 ns</td><td>380.93 ns</td><td>939,894.0 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>4,412,321.7 ns</td><td>1,680.69 ns</td><td>1,312.17 ns</td><td>4,412,566.4 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>1,031,516.4 ns</td><td>99.45 ns</td><td>93.02 ns</td><td>1,031,525.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>370,230.1 ns</td><td>172.36 ns</td><td>161.23 ns</td><td>370,243.9 ns</td><td>2.79x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>942,719.2 ns</td><td>72.44 ns</td><td>64.22 ns</td><td>942,722.8 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>427,544.4 ns</td><td>143.97 ns</td><td>134.67 ns</td><td>427,560.5 ns</td><td>2.41x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>942,417.4 ns</td><td>219.92 ns</td><td>205.72 ns</td><td>942,460.1 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>4,418,526.6 ns</td><td>388.17 ns</td><td>363.09 ns</td><td>4,418,584.4 ns</td><td>4.28x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>1,042,206.7 ns</td><td>85.34 ns</td><td>79.82 ns</td><td>1,042,185.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>374,474.3 ns</td><td>141.16 ns</td><td>132.04 ns</td><td>374,458.5 ns</td><td>2.78x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>952,530.7 ns</td><td>75.13 ns</td><td>70.27 ns</td><td>952,532.5 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>427,425.0 ns</td><td>271.72 ns</td><td>254.17 ns</td><td>427,433.3 ns</td><td>2.44x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>950,467.3 ns</td><td>121.95 ns</td><td>114.07 ns</td><td>950,485.1 ns</td><td>1.10x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>4,479,637.8 ns</td><td>481.31 ns</td><td>450.21 ns</td><td>4,479,556.2 ns</td><td>4.30x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>10,694,178.2 ns</td><td>11,401.13 ns</td><td>10,664.62 ns</td><td>10,689,105.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>3,565,345.0 ns</td><td>1,168.31 ns</td><td>1,092.84 ns</td><td>3,565,472.3 ns</td><td>3.00x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>9,805,215.8 ns</td><td>2,921.91 ns</td><td>2,590.20 ns</td><td>9,805,225.8 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>3,671,072.8 ns</td><td>1,801.69 ns</td><td>1,597.15 ns</td><td>3,671,327.3 ns</td><td>2.91x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>9,830,538.2 ns</td><td>12,842.25 ns</td><td>12,012.65 ns</td><td>9,824,681.2 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>44,297,864.4 ns</td><td>26,857.46 ns</td><td>25,122.48 ns</td><td>44,304,800.0 ns</td><td>4.14x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>10,685,127.7 ns</td><td>11,417.84 ns</td><td>10,680.26 ns</td><td>10,677,468.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>3,572,869.5 ns</td><td>774.28 ns</td><td>724.26 ns</td><td>3,572,884.4 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>9,808,889.6 ns</td><td>4,467.78 ns</td><td>3,960.57 ns</td><td>9,809,114.8 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>3,666,046.1 ns</td><td>2,229.02 ns</td><td>2,085.03 ns</td><td>3,665,638.7 ns</td><td>2.91x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>9,794,151.0 ns</td><td>3,589.75 ns</td><td>3,182.22 ns</td><td>9,795,006.2 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>44,292,227.2 ns</td><td>18,651.70 ns</td><td>17,446.81 ns</td><td>44,298,450.0 ns</td><td>4.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>10,675,192.1 ns</td><td>1,758.83 ns</td><td>1,373.18 ns</td><td>10,675,732.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>3,573,561.7 ns</td><td>1,179.34 ns</td><td>984.80 ns</td><td>3,573,728.1 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>9,873,784.4 ns</td><td>4,085.23 ns</td><td>3,621.45 ns</td><td>9,872,728.1 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>3,679,141.5 ns</td><td>2,160.46 ns</td><td>2,020.90 ns</td><td>3,679,508.2 ns</td><td>2.90x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>9,877,066.1 ns</td><td>2,870.39 ns</td><td>2,544.53 ns</td><td>9,877,422.7 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>44,285,235.6 ns</td><td>34,885.72 ns</td><td>32,632.12 ns</td><td>44,280,891.7 ns</td><td>4.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>10,681,877.6 ns</td><td>1,707.58 ns</td><td>1,333.16 ns</td><td>10,681,570.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>3,586,784.8 ns</td><td>1,045.68 ns</td><td>978.13 ns</td><td>3,586,782.8 ns</td><td>2.98x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>9,845,004.0 ns</td><td>3,378.14 ns</td><td>2,994.63 ns</td><td>9,844,273.4 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>3,673,914.9 ns</td><td>1,866.17 ns</td><td>1,745.61 ns</td><td>3,673,541.8 ns</td><td>2.91x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>9,836,379.8 ns</td><td>5,437.97 ns</td><td>4,820.62 ns</td><td>9,836,860.2 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>44,364,498.9 ns</td><td>11,294.38 ns</td><td>10,564.77 ns</td><td>44,368,000.0 ns</td><td>4.15x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>53,938,720.7 ns</td><td>5,445.38 ns</td><td>4,827.18 ns</td><td>53,940,670.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>18,003,313.1 ns</td><td>11,145.83 ns</td><td>10,425.82 ns</td><td>18,005,475.0 ns</td><td>3.00x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>50,033,367.4 ns</td><td>5,279.26 ns</td><td>4,121.70 ns</td><td>50,033,095.5 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>18,147,414.2 ns</td><td>12,813.82 ns</td><td>11,986.06 ns</td><td>18,147,159.4 ns</td><td>2.97x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>49,740,129.5 ns</td><td>14,280.85 ns</td><td>11,149.55 ns</td><td>49,737,827.3 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>221,460,573.8 ns</td><td>56,773.58 ns</td><td>50,328.30 ns</td><td>221,480,583.3 ns</td><td>4.11x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>53,928,465.7 ns</td><td>47,739.39 ns</td><td>42,319.73 ns</td><td>53,911,150.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>18,076,818.5 ns</td><td>14,759.38 ns</td><td>13,805.94 ns</td><td>18,076,615.6 ns</td><td>2.98x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>49,714,398.5 ns</td><td>11,009.04 ns</td><td>8,595.13 ns</td><td>49,713,054.5 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>18,174,658.1 ns</td><td>17,057.90 ns</td><td>15,955.97 ns</td><td>18,177,406.2 ns</td><td>2.97x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>49,864,800.0 ns</td><td>20,037.70 ns</td><td>15,644.12 ns</td><td>49,860,236.4 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>221,364,409.5 ns</td><td>45,510.61 ns</td><td>40,343.97 ns</td><td>221,376,300.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>53,946,975.3 ns</td><td>3,752.14 ns</td><td>3,509.75 ns</td><td>53,947,650.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>18,095,213.1 ns</td><td>10,298.47 ns</td><td>9,633.20 ns</td><td>18,095,668.8 ns</td><td>2.98x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>49,740,962.1 ns</td><td>50,988.93 ns</td><td>39,808.80 ns</td><td>49,718,277.3 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>18,294,688.5 ns</td><td>15,827.34 ns</td><td>14,804.91 ns</td><td>18,294,962.5 ns</td><td>2.95x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>49,922,445.5 ns</td><td>15,462.84 ns</td><td>12,072.37 ns</td><td>49,916,790.9 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>221,490,446.2 ns</td><td>58,609.68 ns</td><td>48,941.74 ns</td><td>221,506,100.0 ns</td><td>4.11x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>53,955,422.3 ns</td><td>6,149.76 ns</td><td>5,135.33 ns</td><td>53,955,930.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>18,016,699.8 ns</td><td>15,548.91 ns</td><td>14,544.46 ns</td><td>18,019,637.5 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>49,750,485.0 ns</td><td>4,716.23 ns</td><td>4,180.81 ns</td><td>49,750,645.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>18,254,554.6 ns</td><td>12,374.90 ns</td><td>11,575.49 ns</td><td>18,256,840.6 ns</td><td>2.96x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>49,988,816.4 ns</td><td>10,715.38 ns</td><td>10,023.17 ns</td><td>49,991,818.2 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>221,398,097.8 ns</td><td>141,369.39 ns</td><td>132,237.02 ns</td><td>221,454,800.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>107,971,801.3 ns</td><td>10,519.96 ns</td><td>9,840.38 ns</td><td>107,973,480.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>35,895,266.2 ns</td><td>40,338.95 ns</td><td>37,733.08 ns</td><td>35,884,607.1 ns</td><td>3.01x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>100,167,191.0 ns</td><td>66,467.18 ns</td><td>55,503.11 ns</td><td>100,187,666.7 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>36,304,793.8 ns</td><td>34,366.52 ns</td><td>32,146.46 ns</td><td>36,310,271.4 ns</td><td>2.97x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>99,754,464.0 ns</td><td>187,491.04 ns</td><td>175,379.24 ns</td><td>99,756,680.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>442,913,523.1 ns</td><td>471,348.03 ns</td><td>393,596.95 ns</td><td>442,910,700.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>107,905,813.3 ns</td><td>19,230.72 ns</td><td>17,988.43 ns</td><td>107,900,440.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>36,225,480.0 ns</td><td>62,079.68 ns</td><td>58,069.37 ns</td><td>36,234,864.3 ns</td><td>2.98x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>99,855,688.9 ns</td><td>8,548.20 ns</td><td>6,673.87 ns</td><td>99,856,791.7 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>36,525,535.2 ns</td><td>58,708.82 ns</td><td>49,024.53 ns</td><td>36,537,435.7 ns</td><td>2.95x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>100,176,126.7 ns</td><td>33,432.85 ns</td><td>26,102.17 ns</td><td>100,174,180.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>442,650,966.7 ns</td><td>217,687.17 ns</td><td>203,624.71 ns</td><td>442,685,200.0 ns</td><td>4.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>108,000,042.7 ns</td><td>8,130.03 ns</td><td>7,604.84 ns</td><td>108,001,400.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>36,210,722.4 ns</td><td>38,730.42 ns</td><td>34,333.51 ns</td><td>36,198,378.6 ns</td><td>2.98x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>100,000,367.1 ns</td><td>14,447.12 ns</td><td>12,806.99 ns</td><td>100,003,070.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>36,598,681.4 ns</td><td>76,957.04 ns</td><td>71,985.66 ns</td><td>36,627,707.1 ns</td><td>2.95x faster</td><td>0.01x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>99,507,184.7 ns</td><td>10,128.09 ns</td><td>7,907.34 ns</td><td>99,506,008.3 ns</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>443,929,846.7 ns</td><td>1,560,286.20 ns</td><td>1,459,492.68 ns</td><td>443,005,700.0 ns</td><td>4.11x slower</td><td>0.01x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>107,877,525.3 ns</td><td>16,762.25 ns</td><td>15,679.42 ns</td><td>107,879,200.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>cEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>36,039,855.2 ns</td><td>55,765.41 ns</td><td>52,163.00 ns</td><td>36,025,828.6 ns</td><td>2.99x faster</td><td>0.00x</td>
+</tr><tr><td>cEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>99,859,160.0 ns</td><td>13,442.51 ns</td><td>12,574.13 ns</td><td>99,856,420.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>36,282,020.0 ns</td><td>60,478.17 ns</td><td>56,571.32 ns</td><td>36,281,728.6 ns</td><td>2.97x faster</td><td>0.00x</td>
+</tr><tr><td>oEtMBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>99,756,316.7 ns</td><td>8,526.81 ns</td><td>7,120.27 ns</td><td>99,758,800.0 ns</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>Ascon80pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>443,038,526.7 ns</td><td>131,336.90 ns</td><td>122,852.62 ns</td><td>443,084,300.0 ns</td><td>4.11x slower</td><td>0.00x</td>
+</tr></tbody></table>
+</body>
+</html>

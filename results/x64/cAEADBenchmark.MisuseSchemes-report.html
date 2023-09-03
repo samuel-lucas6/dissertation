@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>cAEADBenchmark.MisuseSchemes-20230729-092728</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.6, Windows 11 (10.0.22621.1992/22H2/2022Update/SunValley2)
+Intel Core i5-9600K CPU 3.70GHz (Coffee Lake), 1 CPU, 6 logical and 6 physical cores
+.NET SDK 7.0.306
+  [Host]     : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>         Method</th><th>Categories</th><th>PlaintextSize</th><th>AssociatedDataSize</th><th>      Mean</th><th>  Error</th><th> StdDev</th><th>    Median</th><th> Ratio</th><th>RatioSD</th>
+</tr>
+</thead><tbody><tr><td>Daence_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>589.0 ns</td><td>0.59 ns</td><td>0.52 ns</td><td>588.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>360.7 ns</td><td>0.17 ns</td><td>0.15 ns</td><td>360.7 ns</td><td>1.63x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>613.8 ns</td><td>0.16 ns</td><td>0.15 ns</td><td>613.8 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>467.3 ns</td><td>0.81 ns</td><td>0.76 ns</td><td>467.6 ns</td><td>1.26x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>631.4 ns</td><td>0.36 ns</td><td>0.30 ns</td><td>631.5 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>663.9 ns</td><td>0.42 ns</td><td>0.35 ns</td><td>663.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>382.9 ns</td><td>0.36 ns</td><td>0.32 ns</td><td>382.9 ns</td><td>1.73x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>320.2 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>320.2 ns</td><td>2.07x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>515.9 ns</td><td>0.51 ns</td><td>0.45 ns</td><td>516.0 ns</td><td>1.29x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>632.3 ns</td><td>0.30 ns</td><td>0.27 ns</td><td>632.3 ns</td><td>1.05x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>2,815.8 ns</td><td>0.60 ns</td><td>0.53 ns</td><td>2,815.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>661.7 ns</td><td>0.30 ns</td><td>0.26 ns</td><td>661.6 ns</td><td>4.26x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>638.6 ns</td><td>0.19 ns</td><td>0.16 ns</td><td>638.6 ns</td><td>4.41x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>1,602.6 ns</td><td>0.71 ns</td><td>0.60 ns</td><td>1,602.5 ns</td><td>1.76x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>1,603.2 ns</td><td>6.78 ns</td><td>5.66 ns</td><td>1,600.4 ns</td><td>1.76x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>23,974.7 ns</td><td>4.66 ns</td><td>3.89 ns</td><td>23,975.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>3,898.6 ns</td><td>17.39 ns</td><td>16.27 ns</td><td>3,898.5 ns</td><td>6.15x faster</td><td>0.02x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>4,119.4 ns</td><td>15.42 ns</td><td>12.88 ns</td><td>4,114.5 ns</td><td>5.82x faster</td><td>0.02x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>6,137.7 ns</td><td>3.29 ns</td><td>2.57 ns</td><td>6,137.0 ns</td><td>3.91x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>11,008.8 ns</td><td>5.21 ns</td><td>4.35 ns</td><td>11,008.8 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>705.9 ns</td><td>2.72 ns</td><td>2.13 ns</td><td>706.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>376.9 ns</td><td>0.39 ns</td><td>0.31 ns</td><td>376.8 ns</td><td>1.87x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>297.6 ns</td><td>0.30 ns</td><td>0.23 ns</td><td>297.5 ns</td><td>2.37x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>563.2 ns</td><td>1.42 ns</td><td>1.33 ns</td><td>563.6 ns</td><td>1.25x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>812.4 ns</td><td>4.65 ns</td><td>4.35 ns</td><td>813.3 ns</td><td>1.15x slower</td><td>0.01x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>777.3 ns</td><td>0.29 ns</td><td>0.23 ns</td><td>777.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>379.6 ns</td><td>0.18 ns</td><td>0.14 ns</td><td>379.6 ns</td><td>2.05x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>306.0 ns</td><td>0.13 ns</td><td>0.11 ns</td><td>305.9 ns</td><td>2.54x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>621.9 ns</td><td>0.25 ns</td><td>0.23 ns</td><td>622.0 ns</td><td>1.25x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>809.6 ns</td><td>0.40 ns</td><td>0.35 ns</td><td>809.5 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>2,927.6 ns</td><td>1.12 ns</td><td>0.99 ns</td><td>2,927.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>672.6 ns</td><td>0.70 ns</td><td>0.62 ns</td><td>672.4 ns</td><td>4.35x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>648.4 ns</td><td>0.07 ns</td><td>0.06 ns</td><td>648.4 ns</td><td>4.52x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>1,702.9 ns</td><td>5.93 ns</td><td>5.55 ns</td><td>1,699.3 ns</td><td>1.72x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>1,797.5 ns</td><td>0.45 ns</td><td>0.40 ns</td><td>1,797.5 ns</td><td>1.63x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>24,105.4 ns</td><td>3.44 ns</td><td>3.05 ns</td><td>24,105.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>3,626.4 ns</td><td>2.27 ns</td><td>2.01 ns</td><td>3,626.4 ns</td><td>6.65x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>4,060.0 ns</td><td>2.33 ns</td><td>1.94 ns</td><td>4,059.6 ns</td><td>5.94x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>6,184.0 ns</td><td>1.15 ns</td><td>1.08 ns</td><td>6,184.1 ns</td><td>3.90x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>11,064.0 ns</td><td>5.98 ns</td><td>4.67 ns</td><td>11,063.9 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>715.8 ns</td><td>3.05 ns</td><td>2.86 ns</td><td>713.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>372.7 ns</td><td>0.09 ns</td><td>0.08 ns</td><td>372.7 ns</td><td>1.92x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>303.4 ns</td><td>0.30 ns</td><td>0.25 ns</td><td>303.3 ns</td><td>2.36x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>558.2 ns</td><td>1.46 ns</td><td>1.37 ns</td><td>557.6 ns</td><td>1.28x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>804.0 ns</td><td>0.45 ns</td><td>0.40 ns</td><td>803.9 ns</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>801.1 ns</td><td>0.38 ns</td><td>0.33 ns</td><td>801.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>387.0 ns</td><td>0.23 ns</td><td>0.21 ns</td><td>387.0 ns</td><td>2.07x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>314.9 ns</td><td>0.48 ns</td><td>0.45 ns</td><td>314.9 ns</td><td>2.54x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>613.8 ns</td><td>0.15 ns</td><td>0.14 ns</td><td>613.7 ns</td><td>1.31x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>810.8 ns</td><td>0.54 ns</td><td>0.47 ns</td><td>810.9 ns</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>2,950.0 ns</td><td>0.72 ns</td><td>0.64 ns</td><td>2,949.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>728.6 ns</td><td>0.21 ns</td><td>0.16 ns</td><td>728.6 ns</td><td>4.05x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>656.3 ns</td><td>0.25 ns</td><td>0.22 ns</td><td>656.3 ns</td><td>4.49x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>1,699.3 ns</td><td>0.11 ns</td><td>0.09 ns</td><td>1,699.3 ns</td><td>1.74x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>1,781.8 ns</td><td>0.41 ns</td><td>0.36 ns</td><td>1,781.9 ns</td><td>1.66x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>24,125.0 ns</td><td>17.11 ns</td><td>16.01 ns</td><td>24,117.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>3,629.1 ns</td><td>5.06 ns</td><td>4.73 ns</td><td>3,629.2 ns</td><td>6.65x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>4,072.2 ns</td><td>5.28 ns</td><td>4.94 ns</td><td>4,070.6 ns</td><td>5.92x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>6,188.0 ns</td><td>1.40 ns</td><td>1.31 ns</td><td>6,188.3 ns</td><td>3.90x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>11,245.8 ns</td><td>3.46 ns</td><td>3.07 ns</td><td>11,245.6 ns</td><td>2.15x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>739.3 ns</td><td>0.64 ns</td><td>0.54 ns</td><td>739.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>395.0 ns</td><td>0.19 ns</td><td>0.14 ns</td><td>395.0 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>320.1 ns</td><td>0.08 ns</td><td>0.06 ns</td><td>320.1 ns</td><td>2.31x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>551.0 ns</td><td>0.28 ns</td><td>0.25 ns</td><td>551.0 ns</td><td>1.34x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>791.9 ns</td><td>0.48 ns</td><td>0.43 ns</td><td>791.9 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>840.5 ns</td><td>0.26 ns</td><td>0.22 ns</td><td>840.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>403.8 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>403.8 ns</td><td>2.08x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>334.2 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>334.2 ns</td><td>2.51x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>609.9 ns</td><td>0.29 ns</td><td>0.24 ns</td><td>609.9 ns</td><td>1.38x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>798.5 ns</td><td>0.45 ns</td><td>0.40 ns</td><td>798.6 ns</td><td>1.05x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>2,979.4 ns</td><td>0.84 ns</td><td>0.70 ns</td><td>2,979.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>755.9 ns</td><td>0.17 ns</td><td>0.15 ns</td><td>755.9 ns</td><td>3.94x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>682.7 ns</td><td>0.63 ns</td><td>0.49 ns</td><td>682.5 ns</td><td>4.36x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>1,683.2 ns</td><td>0.36 ns</td><td>0.34 ns</td><td>1,683.2 ns</td><td>1.77x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>1,792.4 ns</td><td>5.85 ns</td><td>5.47 ns</td><td>1,789.4 ns</td><td>1.66x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>24,146.2 ns</td><td>4.35 ns</td><td>3.86 ns</td><td>24,145.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>3,884.0 ns</td><td>10.82 ns</td><td>10.12 ns</td><td>3,879.9 ns</td><td>6.22x faster</td><td>0.02x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>4,087.9 ns</td><td>1.76 ns</td><td>1.47 ns</td><td>4,088.3 ns</td><td>5.91x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>6,207.2 ns</td><td>19.01 ns</td><td>17.78 ns</td><td>6,196.2 ns</td><td>3.89x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>11,037.1 ns</td><td>4.62 ns</td><td>3.86 ns</td><td>11,037.1 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>903.9 ns</td><td>0.31 ns</td><td>0.27 ns</td><td>903.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>410.2 ns</td><td>0.19 ns</td><td>0.14 ns</td><td>410.2 ns</td><td>2.20x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>372.8 ns</td><td>0.35 ns</td><td>0.33 ns</td><td>372.6 ns</td><td>2.42x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>664.7 ns</td><td>0.06 ns</td><td>0.06 ns</td><td>664.7 ns</td><td>1.36x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>861.7 ns</td><td>0.41 ns</td><td>0.34 ns</td><td>861.7 ns</td><td>1.05x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>992.6 ns</td><td>0.45 ns</td><td>0.37 ns</td><td>992.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>435.0 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>435.0 ns</td><td>2.28x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>375.7 ns</td><td>0.17 ns</td><td>0.14 ns</td><td>375.7 ns</td><td>2.64x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>729.3 ns</td><td>0.30 ns</td><td>0.26 ns</td><td>729.3 ns</td><td>1.36x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>869.8 ns</td><td>0.44 ns</td><td>0.39 ns</td><td>869.7 ns</td><td>1.14x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>3,143.8 ns</td><td>0.74 ns</td><td>0.65 ns</td><td>3,143.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>734.0 ns</td><td>0.18 ns</td><td>0.16 ns</td><td>733.9 ns</td><td>4.28x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>715.1 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>715.1 ns</td><td>4.40x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>1,808.6 ns</td><td>4.29 ns</td><td>3.81 ns</td><td>1,806.7 ns</td><td>1.74x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>1,833.1 ns</td><td>0.46 ns</td><td>0.41 ns</td><td>1,833.1 ns</td><td>1.72x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>24,277.5 ns</td><td>15.17 ns</td><td>11.84 ns</td><td>24,275.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>3,710.4 ns</td><td>5.93 ns</td><td>5.54 ns</td><td>3,709.3 ns</td><td>6.54x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>4,125.9 ns</td><td>3.69 ns</td><td>3.45 ns</td><td>4,125.3 ns</td><td>5.88x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>6,302.4 ns</td><td>1.17 ns</td><td>0.98 ns</td><td>6,302.1 ns</td><td>3.85x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>11,131.9 ns</td><td>3.42 ns</td><td>2.86 ns</td><td>11,132.5 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>1,175.0 ns</td><td>0.37 ns</td><td>0.31 ns</td><td>1,175.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>459.6 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>459.6 ns</td><td>2.56x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>439.7 ns</td><td>0.12 ns</td><td>0.10 ns</td><td>439.8 ns</td><td>2.67x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>773.1 ns</td><td>0.20 ns</td><td>0.19 ns</td><td>773.0 ns</td><td>1.52x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>970.4 ns</td><td>4.73 ns</td><td>4.42 ns</td><td>968.2 ns</td><td>1.21x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>1,242.9 ns</td><td>0.50 ns</td><td>0.42 ns</td><td>1,243.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>472.7 ns</td><td>0.35 ns</td><td>0.31 ns</td><td>472.6 ns</td><td>2.63x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>451.5 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>451.5 ns</td><td>2.75x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>835.8 ns</td><td>2.31 ns</td><td>2.05 ns</td><td>834.9 ns</td><td>1.49x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>966.9 ns</td><td>3.60 ns</td><td>3.19 ns</td><td>965.4 ns</td><td>1.29x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>3,343.6 ns</td><td>0.67 ns</td><td>0.59 ns</td><td>3,343.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>783.0 ns</td><td>0.25 ns</td><td>0.22 ns</td><td>782.9 ns</td><td>4.27x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>805.2 ns</td><td>2.55 ns</td><td>2.38 ns</td><td>804.0 ns</td><td>4.15x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>1,899.5 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>1,899.5 ns</td><td>1.76x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>1,940.1 ns</td><td>7.73 ns</td><td>6.85 ns</td><td>1,936.7 ns</td><td>1.72x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>24,526.2 ns</td><td>3.19 ns</td><td>2.83 ns</td><td>24,526.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>3,781.2 ns</td><td>5.66 ns</td><td>5.29 ns</td><td>3,780.7 ns</td><td>6.49x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>4,206.3 ns</td><td>1.51 ns</td><td>1.34 ns</td><td>4,206.1 ns</td><td>5.83x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>6,399.3 ns</td><td>0.90 ns</td><td>0.75 ns</td><td>6,399.3 ns</td><td>3.83x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>11,215.2 ns</td><td>16.85 ns</td><td>15.77 ns</td><td>11,205.7 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>1,502.4 ns</td><td>0.29 ns</td><td>0.24 ns</td><td>1,502.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>576.8 ns</td><td>0.78 ns</td><td>0.73 ns</td><td>576.6 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>625.7 ns</td><td>0.20 ns</td><td>0.15 ns</td><td>625.7 ns</td><td>2.40x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>940.3 ns</td><td>2.12 ns</td><td>1.98 ns</td><td>940.3 ns</td><td>1.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>1,111.0 ns</td><td>0.35 ns</td><td>0.31 ns</td><td>1,111.0 ns</td><td>1.35x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>1,587.8 ns</td><td>0.33 ns</td><td>0.28 ns</td><td>1,587.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>595.4 ns</td><td>0.12 ns</td><td>0.10 ns</td><td>595.4 ns</td><td>2.67x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>641.9 ns</td><td>0.29 ns</td><td>0.22 ns</td><td>641.8 ns</td><td>2.47x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>992.5 ns</td><td>0.69 ns</td><td>0.65 ns</td><td>992.2 ns</td><td>1.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>1,108.8 ns</td><td>0.46 ns</td><td>0.41 ns</td><td>1,108.8 ns</td><td>1.43x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>3,692.3 ns</td><td>3.29 ns</td><td>2.75 ns</td><td>3,691.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>922.0 ns</td><td>0.23 ns</td><td>0.21 ns</td><td>922.0 ns</td><td>4.00x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>965.4 ns</td><td>1.19 ns</td><td>1.11 ns</td><td>964.9 ns</td><td>3.82x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>2,066.6 ns</td><td>0.28 ns</td><td>0.25 ns</td><td>2,066.6 ns</td><td>1.79x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>2,078.8 ns</td><td>0.40 ns</td><td>0.35 ns</td><td>2,078.8 ns</td><td>1.78x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>24,863.2 ns</td><td>3.13 ns</td><td>2.62 ns</td><td>24,862.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>3,898.5 ns</td><td>4.81 ns</td><td>4.50 ns</td><td>3,898.9 ns</td><td>6.38x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>4,381.3 ns</td><td>2.47 ns</td><td>2.06 ns</td><td>4,380.9 ns</td><td>5.67x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>6,565.5 ns</td><td>0.65 ns</td><td>0.57 ns</td><td>6,565.5 ns</td><td>3.79x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>11,382.9 ns</td><td>5.17 ns</td><td>4.58 ns</td><td>11,383.0 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>2,364.6 ns</td><td>1.23 ns</td><td>1.09 ns</td><td>2,364.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>756.0 ns</td><td>0.67 ns</td><td>0.59 ns</td><td>756.1 ns</td><td>3.13x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>939.7 ns</td><td>0.16 ns</td><td>0.15 ns</td><td>939.7 ns</td><td>2.52x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>1,439.5 ns</td><td>0.19 ns</td><td>0.16 ns</td><td>1,439.5 ns</td><td>1.64x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>1,576.5 ns</td><td>0.38 ns</td><td>0.33 ns</td><td>1,576.6 ns</td><td>1.50x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>2,449.8 ns</td><td>1.06 ns</td><td>0.83 ns</td><td>2,449.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>801.2 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>801.2 ns</td><td>3.06x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>967.4 ns</td><td>0.18 ns</td><td>0.16 ns</td><td>967.3 ns</td><td>2.53x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>1,480.7 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>1,480.7 ns</td><td>1.65x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>1,581.6 ns</td><td>0.51 ns</td><td>0.45 ns</td><td>1,581.6 ns</td><td>1.55x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>4,559.3 ns</td><td>0.85 ns</td><td>0.76 ns</td><td>4,559.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>1,101.5 ns</td><td>0.26 ns</td><td>0.23 ns</td><td>1,101.6 ns</td><td>4.14x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>1,285.1 ns</td><td>0.24 ns</td><td>0.19 ns</td><td>1,285.1 ns</td><td>3.55x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>2,560.5 ns</td><td>0.61 ns</td><td>0.57 ns</td><td>2,560.2 ns</td><td>1.78x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>2,537.6 ns</td><td>3.63 ns</td><td>3.40 ns</td><td>2,538.8 ns</td><td>1.80x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>25,729.9 ns</td><td>2.67 ns</td><td>2.37 ns</td><td>25,729.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>4,074.5 ns</td><td>2.58 ns</td><td>2.02 ns</td><td>4,073.9 ns</td><td>6.31x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>4,676.0 ns</td><td>1.36 ns</td><td>1.20 ns</td><td>4,675.8 ns</td><td>5.50x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>7,063.2 ns</td><td>1.73 ns</td><td>1.62 ns</td><td>7,062.4 ns</td><td>3.64x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>11,829.6 ns</td><td>5.13 ns</td><td>4.80 ns</td><td>11,829.9 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>3,234.2 ns</td><td>0.78 ns</td><td>0.66 ns</td><td>3,234.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>948.6 ns</td><td>0.60 ns</td><td>0.56 ns</td><td>948.6 ns</td><td>3.41x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1,298.4 ns</td><td>0.21 ns</td><td>0.19 ns</td><td>1,298.4 ns</td><td>2.49x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1,984.6 ns</td><td>0.20 ns</td><td>0.18 ns</td><td>1,984.6 ns</td><td>1.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2,022.8 ns</td><td>1.32 ns</td><td>1.17 ns</td><td>2,023.2 ns</td><td>1.60x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>3,319.7 ns</td><td>0.59 ns</td><td>0.52 ns</td><td>3,319.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>970.0 ns</td><td>0.45 ns</td><td>0.40 ns</td><td>970.1 ns</td><td>3.42x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1,253.2 ns</td><td>0.29 ns</td><td>0.24 ns</td><td>1,253.1 ns</td><td>2.65x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2,024.3 ns</td><td>0.20 ns</td><td>0.18 ns</td><td>2,024.3 ns</td><td>1.64x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2,048.2 ns</td><td>0.47 ns</td><td>0.39 ns</td><td>2,048.2 ns</td><td>1.62x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>5,426.1 ns</td><td>0.84 ns</td><td>0.75 ns</td><td>5,426.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>1,305.6 ns</td><td>0.28 ns</td><td>0.25 ns</td><td>1,305.6 ns</td><td>4.16x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>1,612.5 ns</td><td>0.24 ns</td><td>0.19 ns</td><td>1,612.4 ns</td><td>3.37x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3,103.0 ns</td><td>0.50 ns</td><td>0.47 ns</td><td>3,103.2 ns</td><td>1.75x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2,999.5 ns</td><td>0.69 ns</td><td>0.61 ns</td><td>2,999.4 ns</td><td>1.81x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>26,600.5 ns</td><td>4.45 ns</td><td>3.95 ns</td><td>26,600.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>4,535.1 ns</td><td>3.04 ns</td><td>2.70 ns</td><td>4,533.7 ns</td><td>5.87x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>5,053.8 ns</td><td>0.93 ns</td><td>0.78 ns</td><td>5,053.8 ns</td><td>5.26x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>7,624.2 ns</td><td>1.54 ns</td><td>1.44 ns</td><td>7,623.8 ns</td><td>3.49x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>12,277.5 ns</td><td>8.76 ns</td><td>7.32 ns</td><td>12,275.8 ns</td><td>2.17x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>4,096.0 ns</td><td>0.99 ns</td><td>0.82 ns</td><td>4,096.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>1,190.6 ns</td><td>1.22 ns</td><td>1.08 ns</td><td>1,190.2 ns</td><td>3.44x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>1,591.8 ns</td><td>0.24 ns</td><td>0.21 ns</td><td>1,591.8 ns</td><td>2.57x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>1,763.1 ns</td><td>0.72 ns</td><td>0.67 ns</td><td>1,763.2 ns</td><td>2.32x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>2,480.3 ns</td><td>3.49 ns</td><td>3.27 ns</td><td>2,478.7 ns</td><td>1.65x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>4,182.9 ns</td><td>1.44 ns</td><td>1.20 ns</td><td>4,182.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>1,168.2 ns</td><td>0.59 ns</td><td>0.52 ns</td><td>1,168.1 ns</td><td>3.58x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>1,607.0 ns</td><td>0.40 ns</td><td>0.34 ns</td><td>1,606.9 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>1,796.7 ns</td><td>0.97 ns</td><td>0.90 ns</td><td>1,796.6 ns</td><td>2.33x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>2,479.8 ns</td><td>0.69 ns</td><td>0.58 ns</td><td>2,479.9 ns</td><td>1.69x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>6,301.1 ns</td><td>1.93 ns</td><td>1.61 ns</td><td>6,300.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>1,516.5 ns</td><td>1.01 ns</td><td>0.90 ns</td><td>1,516.7 ns</td><td>4.16x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>1,945.9 ns</td><td>0.15 ns</td><td>0.13 ns</td><td>1,945.9 ns</td><td>3.24x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>2,892.5 ns</td><td>0.41 ns</td><td>0.34 ns</td><td>2,892.6 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>3,453.7 ns</td><td>4.21 ns</td><td>3.93 ns</td><td>3,451.6 ns</td><td>1.82x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>27,454.3 ns</td><td>2.77 ns</td><td>2.46 ns</td><td>27,453.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>4,516.2 ns</td><td>10.42 ns</td><td>9.75 ns</td><td>4,518.0 ns</td><td>6.08x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>5,295.2 ns</td><td>3.48 ns</td><td>3.25 ns</td><td>5,294.9 ns</td><td>5.18x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>7,383.1 ns</td><td>1.83 ns</td><td>1.62 ns</td><td>7,382.7 ns</td><td>3.72x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>12,761.2 ns</td><td>3.20 ns</td><td>2.67 ns</td><td>12,761.6 ns</td><td>2.15x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>28,358.6 ns</td><td>3.19 ns</td><td>2.83 ns</td><td>28,358.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>6,776.9 ns</td><td>14.95 ns</td><td>13.98 ns</td><td>6,776.9 ns</td><td>4.18x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>10,308.4 ns</td><td>1.49 ns</td><td>1.32 ns</td><td>10,308.6 ns</td><td>2.75x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>17,366.7 ns</td><td>304.95 ns</td><td>285.25 ns</td><td>17,212.9 ns</td><td>1.64x faster</td><td>0.03x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>15,250.4 ns</td><td>6.85 ns</td><td>6.08 ns</td><td>15,250.8 ns</td><td>1.86x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>28,446.7 ns</td><td>27.35 ns</td><td>25.59 ns</td><td>28,431.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>6,712.0 ns</td><td>7.94 ns</td><td>7.43 ns</td><td>6,711.5 ns</td><td>4.24x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>10,689.3 ns</td><td>7.80 ns</td><td>6.91 ns</td><td>10,687.4 ns</td><td>2.66x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>17,949.6 ns</td><td>19.20 ns</td><td>17.02 ns</td><td>17,949.7 ns</td><td>1.58x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>15,297.0 ns</td><td>6.83 ns</td><td>6.05 ns</td><td>15,297.3 ns</td><td>1.86x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>30,537.4 ns</td><td>4.65 ns</td><td>3.88 ns</td><td>30,538.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>7,382.3 ns</td><td>2.84 ns</td><td>2.52 ns</td><td>7,381.5 ns</td><td>4.14x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>10,602.6 ns</td><td>3.66 ns</td><td>3.43 ns</td><td>10,602.1 ns</td><td>2.88x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>19,265.4 ns</td><td>22.35 ns</td><td>19.81 ns</td><td>19,263.7 ns</td><td>1.58x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>16,314.1 ns</td><td>22.03 ns</td><td>19.53 ns</td><td>16,306.7 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>51,786.6 ns</td><td>115.75 ns</td><td>108.27 ns</td><td>51,715.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>10,507.6 ns</td><td>10.68 ns</td><td>9.99 ns</td><td>10,508.1 ns</td><td>4.93x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>34,042.2 ns</td><td>3.11 ns</td><td>2.91 ns</td><td>34,041.9 ns</td><td>1.52x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>24,844.6 ns</td><td>33.68 ns</td><td>31.50 ns</td><td>24,843.8 ns</td><td>2.08x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>25,971.4 ns</td><td>5.40 ns</td><td>4.79 ns</td><td>25,971.7 ns</td><td>1.99x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>56,160.7 ns</td><td>2.55 ns</td><td>2.26 ns</td><td>56,161.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>12,768.1 ns</td><td>6.35 ns</td><td>5.94 ns</td><td>12,769.0 ns</td><td>4.40x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>20,617.7 ns</td><td>18.80 ns</td><td>17.59 ns</td><td>20,616.6 ns</td><td>2.72x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>23,145.2 ns</td><td>445.35 ns</td><td>512.86 ns</td><td>23,477.5 ns</td><td>2.44x faster</td><td>0.06x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>30,369.1 ns</td><td>5.72 ns</td><td>4.78 ns</td><td>30,368.2 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>56,173.4 ns</td><td>5.60 ns</td><td>4.68 ns</td><td>56,174.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>14,069.4 ns</td><td>6.59 ns</td><td>6.16 ns</td><td>14,071.0 ns</td><td>3.99x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>20,926.6 ns</td><td>4.14 ns</td><td>3.45 ns</td><td>20,926.5 ns</td><td>2.68x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>23,648.9 ns</td><td>27.58 ns</td><td>25.80 ns</td><td>23,644.8 ns</td><td>2.38x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>30,028.8 ns</td><td>7.46 ns</td><td>6.62 ns</td><td>30,025.6 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>58,183.2 ns</td><td>9.48 ns</td><td>8.41 ns</td><td>58,184.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>13,153.1 ns</td><td>7.05 ns</td><td>6.25 ns</td><td>13,151.7 ns</td><td>4.42x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>21,274.8 ns</td><td>3.16 ns</td><td>2.80 ns</td><td>21,275.1 ns</td><td>2.73x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>25,523.0 ns</td><td>44.55 ns</td><td>41.67 ns</td><td>25,530.5 ns</td><td>2.28x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>31,276.4 ns</td><td>12.38 ns</td><td>10.97 ns</td><td>31,271.9 ns</td><td>1.86x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>79,368.4 ns</td><td>7.65 ns</td><td>6.78 ns</td><td>79,369.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>16,888.3 ns</td><td>9.42 ns</td><td>8.81 ns</td><td>16,887.9 ns</td><td>4.70x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>56,602.6 ns</td><td>2.72 ns</td><td>2.41 ns</td><td>56,603.1 ns</td><td>1.40x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>33,905.4 ns</td><td>38.31 ns</td><td>35.84 ns</td><td>33,902.3 ns</td><td>2.34x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>40,623.9 ns</td><td>7.73 ns</td><td>6.85 ns</td><td>40,624.1 ns</td><td>1.95x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>111,751.0 ns</td><td>87.79 ns</td><td>82.12 ns</td><td>111,703.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>25,059.2 ns</td><td>12.59 ns</td><td>11.16 ns</td><td>25,062.6 ns</td><td>4.46x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>41,527.2 ns</td><td>6.63 ns</td><td>6.20 ns</td><td>41,527.9 ns</td><td>2.69x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>40,734.9 ns</td><td>25.03 ns</td><td>23.42 ns</td><td>40,732.5 ns</td><td>2.74x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>59,054.2 ns</td><td>7.46 ns</td><td>6.62 ns</td><td>59,052.9 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>111,688.6 ns</td><td>15.68 ns</td><td>13.09 ns</td><td>111,686.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>25,071.5 ns</td><td>8.19 ns</td><td>7.66 ns</td><td>25,070.7 ns</td><td>4.45x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>40,643.7 ns</td><td>5.97 ns</td><td>4.66 ns</td><td>40,642.9 ns</td><td>2.75x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>41,127.7 ns</td><td>367.43 ns</td><td>343.70 ns</td><td>40,884.6 ns</td><td>2.72x faster</td><td>0.02x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>59,279.7 ns</td><td>12.65 ns</td><td>11.22 ns</td><td>59,279.9 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>113,699.3 ns</td><td>12.74 ns</td><td>11.30 ns</td><td>113,700.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>25,415.3 ns</td><td>9.66 ns</td><td>8.07 ns</td><td>25,415.1 ns</td><td>4.47x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>40,191.0 ns</td><td>16.56 ns</td><td>14.68 ns</td><td>40,192.7 ns</td><td>2.83x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>43,138.1 ns</td><td>48.99 ns</td><td>45.83 ns</td><td>43,137.5 ns</td><td>2.64x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>60,334.8 ns</td><td>13.94 ns</td><td>11.64 ns</td><td>60,337.0 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>135,287.3 ns</td><td>426.12 ns</td><td>398.60 ns</td><td>135,035.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>28,404.3 ns</td><td>23.26 ns</td><td>20.62 ns</td><td>28,402.2 ns</td><td>4.76x faster</td><td>0.02x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>101,225.5 ns</td><td>14.60 ns</td><td>12.95 ns</td><td>101,224.9 ns</td><td>1.34x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>49,105.9 ns</td><td>60.61 ns</td><td>56.69 ns</td><td>49,107.2 ns</td><td>2.76x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>70,254.6 ns</td><td>62.16 ns</td><td>51.91 ns</td><td>70,232.1 ns</td><td>1.93x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>222,852.3 ns</td><td>120.73 ns</td><td>107.02 ns</td><td>222,842.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>49,919.5 ns</td><td>36.32 ns</td><td>32.20 ns</td><td>49,905.6 ns</td><td>4.46x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>86,973.2 ns</td><td>58.60 ns</td><td>54.81 ns</td><td>86,967.8 ns</td><td>2.56x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>70,549.8 ns</td><td>54.55 ns</td><td>51.03 ns</td><td>70,547.0 ns</td><td>3.16x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>118,425.1 ns</td><td>52.31 ns</td><td>48.93 ns</td><td>118,438.5 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>222,899.0 ns</td><td>15.42 ns</td><td>12.88 ns</td><td>222,902.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>50,842.9 ns</td><td>13.97 ns</td><td>13.07 ns</td><td>50,844.0 ns</td><td>4.38x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>82,960.9 ns</td><td>2.69 ns</td><td>2.39 ns</td><td>82,961.0 ns</td><td>2.69x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>70,808.1 ns</td><td>57.75 ns</td><td>54.02 ns</td><td>70,819.3 ns</td><td>3.15x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>118,791.5 ns</td><td>8.60 ns</td><td>7.62 ns</td><td>118,792.0 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>224,927.7 ns</td><td>42.70 ns</td><td>37.86 ns</td><td>224,916.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>50,242.4 ns</td><td>10.43 ns</td><td>9.25 ns</td><td>50,240.2 ns</td><td>4.48x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>79,886.8 ns</td><td>5.70 ns</td><td>5.33 ns</td><td>79,887.8 ns</td><td>2.82x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>71,837.2 ns</td><td>69.86 ns</td><td>65.35 ns</td><td>71,847.4 ns</td><td>3.13x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>120,548.2 ns</td><td>50.83 ns</td><td>47.55 ns</td><td>120,558.3 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>246,273.6 ns</td><td>17.99 ns</td><td>15.94 ns</td><td>246,276.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>62,180.2 ns</td><td>39.63 ns</td><td>37.07 ns</td><td>62,175.3 ns</td><td>3.96x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>84,992.2 ns</td><td>8.27 ns</td><td>7.74 ns</td><td>84,989.6 ns</td><td>2.90x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>76,509.1 ns</td><td>55.93 ns</td><td>52.32 ns</td><td>76,500.1 ns</td><td>3.22x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>128,878.8 ns</td><td>52.20 ns</td><td>43.59 ns</td><td>128,891.0 ns</td><td>1.91x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>888,788.5 ns</td><td>71.02 ns</td><td>66.43 ns</td><td>888,787.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>227,592.0 ns</td><td>35.87 ns</td><td>33.56 ns</td><td>227,586.1 ns</td><td>3.91x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>331,199.7 ns</td><td>146.09 ns</td><td>121.99 ns</td><td>331,133.5 ns</td><td>2.68x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>201,247.4 ns</td><td>126.61 ns</td><td>112.23 ns</td><td>201,261.5 ns</td><td>4.42x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>471,708.1 ns</td><td>238.25 ns</td><td>222.86 ns</td><td>471,587.2 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>888,811.3 ns</td><td>53.19 ns</td><td>47.15 ns</td><td>888,804.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>229,667.8 ns</td><td>53.41 ns</td><td>47.35 ns</td><td>229,669.2 ns</td><td>3.87x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>331,484.2 ns</td><td>24.45 ns</td><td>21.67 ns</td><td>331,490.0 ns</td><td>2.68x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>202,411.2 ns</td><td>124.69 ns</td><td>116.63 ns</td><td>202,392.4 ns</td><td>4.39x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>472,607.7 ns</td><td>244.47 ns</td><td>228.67 ns</td><td>472,691.7 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>890,870.6 ns</td><td>206.18 ns</td><td>172.17 ns</td><td>890,827.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>198,471.4 ns</td><td>52.04 ns</td><td>40.63 ns</td><td>198,481.5 ns</td><td>4.49x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>317,735.4 ns</td><td>120.17 ns</td><td>112.41 ns</td><td>317,777.8 ns</td><td>2.80x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>201,696.7 ns</td><td>128.13 ns</td><td>113.59 ns</td><td>201,682.0 ns</td><td>4.42x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>471,629.2 ns</td><td>179.74 ns</td><td>159.34 ns</td><td>471,723.3 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>911,816.6 ns</td><td>231.70 ns</td><td>193.48 ns</td><td>911,824.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>211,756.3 ns</td><td>64.55 ns</td><td>60.38 ns</td><td>211,727.8 ns</td><td>4.31x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>334,284.2 ns</td><td>126.01 ns</td><td>117.87 ns</td><td>334,335.0 ns</td><td>2.73x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>206,149.7 ns</td><td>491.70 ns</td><td>459.93 ns</td><td>205,901.4 ns</td><td>4.42x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>481,938.5 ns</td><td>708.66 ns</td><td>662.88 ns</td><td>481,599.1 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>1,776,265.4 ns</td><td>352.93 ns</td><td>275.54 ns</td><td>1,776,332.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>407,711.0 ns</td><td>208.87 ns</td><td>195.37 ns</td><td>407,597.5 ns</td><td>4.36x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>636,327.1 ns</td><td>220.83 ns</td><td>195.76 ns</td><td>636,423.9 ns</td><td>2.79x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>371,117.3 ns</td><td>197.97 ns</td><td>185.18 ns</td><td>371,157.9 ns</td><td>4.79x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>950,386.1 ns</td><td>325.18 ns</td><td>304.17 ns</td><td>950,492.0 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>1,775,863.4 ns</td><td>492.76 ns</td><td>460.93 ns</td><td>1,775,941.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>407,788.6 ns</td><td>156.52 ns</td><td>146.41 ns</td><td>407,850.1 ns</td><td>4.35x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>662,056.6 ns</td><td>244.76 ns</td><td>228.95 ns</td><td>662,148.4 ns</td><td>2.68x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>371,919.2 ns</td><td>200.19 ns</td><td>187.26 ns</td><td>371,901.1 ns</td><td>4.77x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>942,276.7 ns</td><td>87.88 ns</td><td>82.20 ns</td><td>942,265.9 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>1,778,618.0 ns</td><td>88.15 ns</td><td>82.46 ns</td><td>1,778,617.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>403,301.6 ns</td><td>180.84 ns</td><td>169.16 ns</td><td>403,406.6 ns</td><td>4.41x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>686,911.2 ns</td><td>66.67 ns</td><td>62.36 ns</td><td>686,908.4 ns</td><td>2.59x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>375,037.0 ns</td><td>203.24 ns</td><td>190.11 ns</td><td>375,047.5 ns</td><td>4.74x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>942,227.9 ns</td><td>330.51 ns</td><td>309.16 ns</td><td>942,435.0 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>1,799,718.5 ns</td><td>298.47 ns</td><td>279.19 ns</td><td>1,799,783.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>406,476.7 ns</td><td>75.94 ns</td><td>71.03 ns</td><td>406,464.6 ns</td><td>4.43x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>662,933.6 ns</td><td>58.33 ns</td><td>54.56 ns</td><td>662,914.2 ns</td><td>2.71x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>377,905.6 ns</td><td>213.38 ns</td><td>199.60 ns</td><td>377,951.4 ns</td><td>4.76x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>952,364.1 ns</td><td>69.02 ns</td><td>64.56 ns</td><td>952,341.5 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>18,325,541.8 ns</td><td>2,825.91 ns</td><td>2,359.77 ns</td><td>18,326,381.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>4,535,222.5 ns</td><td>405.20 ns</td><td>316.35 ns</td><td>4,535,206.2 ns</td><td>4.04x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>6,967,328.1 ns</td><td>1,686.44 ns</td><td>1,408.25 ns</td><td>6,967,635.9 ns</td><td>2.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>3,667,820.8 ns</td><td>1,107.83 ns</td><td>1,036.26 ns</td><td>3,667,581.4 ns</td><td>5.00x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>9,924,799.3 ns</td><td>2,632.84 ns</td><td>2,198.54 ns</td><td>9,924,623.4 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>18,305,954.2 ns</td><td>2,363.48 ns</td><td>2,095.16 ns</td><td>18,306,634.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>4,173,359.3 ns</td><td>5,412.64 ns</td><td>5,062.99 ns</td><td>4,176,836.7 ns</td><td>4.39x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>7,521,209.8 ns</td><td>5,573.71 ns</td><td>5,213.65 ns</td><td>7,518,842.2 ns</td><td>2.43x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>3,663,787.9 ns</td><td>854.11 ns</td><td>798.93 ns</td><td>3,663,785.2 ns</td><td>5.00x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>9,893,524.2 ns</td><td>5,362.74 ns</td><td>4,753.93 ns</td><td>9,892,146.1 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>18,338,526.0 ns</td><td>4,563.31 ns</td><td>3,562.73 ns</td><td>18,338,656.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>4,167,492.4 ns</td><td>1,904.96 ns</td><td>1,487.27 ns</td><td>4,167,214.5 ns</td><td>4.40x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>7,716,717.4 ns</td><td>2,242.45 ns</td><td>1,872.55 ns</td><td>7,716,818.8 ns</td><td>2.38x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>3,648,586.7 ns</td><td>1,358.86 ns</td><td>1,271.08 ns</td><td>3,648,681.2 ns</td><td>5.03x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>9,919,848.2 ns</td><td>6,879.55 ns</td><td>6,098.54 ns</td><td>9,918,890.6 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>18,360,964.8 ns</td><td>5,893.21 ns</td><td>4,601.03 ns</td><td>18,359,215.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>4,112,307.3 ns</td><td>5,109.11 ns</td><td>4,779.06 ns</td><td>4,110,270.3 ns</td><td>4.46x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>7,072,145.2 ns</td><td>8,087.82 ns</td><td>7,565.36 ns</td><td>7,068,769.5 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>3,689,206.6 ns</td><td>8,195.17 ns</td><td>6,843.33 ns</td><td>3,691,651.6 ns</td><td>4.98x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>9,932,826.9 ns</td><td>3,789.19 ns</td><td>3,164.15 ns</td><td>9,932,620.3 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>92,157,263.3 ns</td><td>6,204.81 ns</td><td>5,803.98 ns</td><td>92,157,233.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>23,344,136.4 ns</td><td>4,843.15 ns</td><td>4,293.32 ns</td><td>23,345,504.7 ns</td><td>3.95x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>34,678,368.6 ns</td><td>4,804.82 ns</td><td>4,259.35 ns</td><td>34,678,766.7 ns</td><td>2.66x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>18,105,514.0 ns</td><td>15,503.58 ns</td><td>14,502.06 ns</td><td>18,105,306.2 ns</td><td>5.09x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>49,740,025.8 ns</td><td>108,929.22 ns</td><td>85,044.77 ns</td><td>49,714,805.0 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>92,042,067.9 ns</td><td>7,694.30 ns</td><td>6,820.80 ns</td><td>92,041,258.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>23,406,429.6 ns</td><td>38,842.62 ns</td><td>36,333.41 ns</td><td>23,379,859.4 ns</td><td>3.93x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>34,687,645.3 ns</td><td>9,184.72 ns</td><td>8,591.39 ns</td><td>34,685,946.7 ns</td><td>2.65x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>18,169,306.2 ns</td><td>15,328.23 ns</td><td>13,588.08 ns</td><td>18,168,068.8 ns</td><td>5.07x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>49,791,561.0 ns</td><td>104,899.39 ns</td><td>92,990.58 ns</td><td>49,743,509.1 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>92,005,000.0 ns</td><td>8,129.35 ns</td><td>7,604.20 ns</td><td>92,003,783.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>20,607,683.3 ns</td><td>7,383.44 ns</td><td>5,764.50 ns</td><td>20,608,906.2 ns</td><td>4.46x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>34,437,505.3 ns</td><td>228,757.82 ns</td><td>213,980.20 ns</td><td>34,285,873.3 ns</td><td>2.67x faster</td><td>0.02x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>18,111,640.8 ns</td><td>21,668.61 ns</td><td>20,268.83 ns</td><td>18,113,337.5 ns</td><td>5.08x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>50,105,400.8 ns</td><td>8,568.59 ns</td><td>6,689.79 ns</td><td>50,104,740.9 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>92,256,258.9 ns</td><td>9,934.48 ns</td><td>9,292.72 ns</td><td>92,252,966.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>23,617,431.0 ns</td><td>412,077.96 ns</td><td>365,296.37 ns</td><td>23,453,721.9 ns</td><td>3.91x faster</td><td>0.06x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>35,851,296.9 ns</td><td>563,588.12 ns</td><td>527,180.68 ns</td><td>36,207,686.7 ns</td><td>2.57x faster</td><td>0.04x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>18,148,147.3 ns</td><td>21,375.93 ns</td><td>19,995.06 ns</td><td>18,145,584.4 ns</td><td>5.08x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>49,734,910.6 ns</td><td>8,752.90 ns</td><td>6,833.69 ns</td><td>49,735,400.0 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>184,553,756.4 ns</td><td>35,660.77 ns</td><td>29,778.36 ns</td><td>184,553,566.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>41,535,925.6 ns</td><td>16,482.54 ns</td><td>14,611.35 ns</td><td>41,536,237.5 ns</td><td>4.44x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>65,499,128.3 ns</td><td>244,857.62 ns</td><td>229,039.97 ns</td><td>65,652,462.5 ns</td><td>2.82x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>36,117,203.8 ns</td><td>65,839.87 ns</td><td>61,586.65 ns</td><td>36,113,900.0 ns</td><td>5.11x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>100,567,234.4 ns</td><td>123,810.83 ns</td><td>115,812.73 ns</td><td>100,615,150.0 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>184,387,697.8 ns</td><td>39,704.51 ns</td><td>37,139.62 ns</td><td>184,379,300.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>42,707,962.2 ns</td><td>86,753.90 ns</td><td>72,443.43 ns</td><td>42,712,191.7 ns</td><td>4.32x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>66,367,783.9 ns</td><td>6,853.71 ns</td><td>6,075.64 ns</td><td>66,366,700.0 ns</td><td>2.78x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>36,179,363.8 ns</td><td>44,880.89 ns</td><td>39,785.74 ns</td><td>36,175,932.1 ns</td><td>5.10x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>100,482,526.7 ns</td><td>105,851.42 ns</td><td>99,013.48 ns</td><td>100,518,100.0 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>184,221,247.6 ns</td><td>11,733.95 ns</td><td>10,401.84 ns</td><td>184,221,050.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>42,617,457.2 ns</td><td>23,601.70 ns</td><td>22,077.05 ns</td><td>42,611,716.7 ns</td><td>4.32x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>66,344,640.2 ns</td><td>7,870.45 ns</td><td>6,976.95 ns</td><td>66,344,012.5 ns</td><td>2.78x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>36,005,876.2 ns</td><td>62,810.29 ns</td><td>58,752.78 ns</td><td>36,002,457.1 ns</td><td>5.12x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>99,904,676.7 ns</td><td>39,156.83 ns</td><td>30,571.08 ns</td><td>99,890,700.0 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>184,257,771.1 ns</td><td>157,877.03 ns</td><td>147,678.27 ns</td><td>184,170,833.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>41,778,313.3 ns</td><td>59,102.09 ns</td><td>55,284.13 ns</td><td>41,799,800.0 ns</td><td>4.41x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>65,253,371.7 ns</td><td>5,439.80 ns</td><td>5,088.39 ns</td><td>65,254,887.5 ns</td><td>2.82x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>36,124,632.9 ns</td><td>66,719.12 ns</td><td>62,409.11 ns</td><td>36,144,600.0 ns</td><td>5.10x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>99,608,514.7 ns</td><td>324,191.39 ns</td><td>303,248.83 ns</td><td>99,379,780.0 ns</td><td>1.85x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>535.9 ns</td><td>0.62 ns</td><td>0.48 ns</td><td>535.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>400.8 ns</td><td>0.26 ns</td><td>0.24 ns</td><td>400.8 ns</td><td>1.34x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>172.4 ns</td><td>0.03 ns</td><td>0.02 ns</td><td>172.4 ns</td><td>3.11x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>421.7 ns</td><td>0.09 ns</td><td>0.07 ns</td><td>421.7 ns</td><td>1.27x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>591.8 ns</td><td>0.44 ns</td><td>0.39 ns</td><td>591.9 ns</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>624.8 ns</td><td>0.32 ns</td><td>0.28 ns</td><td>624.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>390.8 ns</td><td>0.13 ns</td><td>0.12 ns</td><td>390.8 ns</td><td>1.60x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>184.4 ns</td><td>0.04 ns</td><td>0.04 ns</td><td>184.4 ns</td><td>3.39x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>481.9 ns</td><td>0.25 ns</td><td>0.19 ns</td><td>481.8 ns</td><td>1.30x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>597.0 ns</td><td>3.28 ns</td><td>2.91 ns</td><td>595.7 ns</td><td>1.05x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>2,777.0 ns</td><td>0.77 ns</td><td>0.68 ns</td><td>2,777.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>684.0 ns</td><td>0.28 ns</td><td>0.25 ns</td><td>683.9 ns</td><td>4.06x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>486.2 ns</td><td>0.31 ns</td><td>0.26 ns</td><td>486.1 ns</td><td>5.71x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>1,549.9 ns</td><td>0.98 ns</td><td>0.91 ns</td><td>1,549.5 ns</td><td>1.79x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>1,571.0 ns</td><td>1.95 ns</td><td>1.82 ns</td><td>1,571.6 ns</td><td>1.77x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>23,915.3 ns</td><td>4.69 ns</td><td>4.16 ns</td><td>23,914.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>3,706.3 ns</td><td>3.01 ns</td><td>2.67 ns</td><td>3,706.4 ns</td><td>6.45x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>3,504.7 ns</td><td>0.93 ns</td><td>0.83 ns</td><td>3,504.6 ns</td><td>6.82x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>6,053.1 ns</td><td>0.73 ns</td><td>0.61 ns</td><td>6,053.0 ns</td><td>3.95x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>10,835.8 ns</td><td>2.50 ns</td><td>2.22 ns</td><td>10,836.0 ns</td><td>2.21x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>667.9 ns</td><td>1.01 ns</td><td>0.95 ns</td><td>667.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>391.6 ns</td><td>0.04 ns</td><td>0.04 ns</td><td>391.6 ns</td><td>1.71x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>186.3 ns</td><td>0.18 ns</td><td>0.16 ns</td><td>186.2 ns</td><td>3.59x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>523.0 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>523.0 ns</td><td>1.28x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>765.6 ns</td><td>0.60 ns</td><td>0.53 ns</td><td>765.7 ns</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>738.7 ns</td><td>0.48 ns</td><td>0.40 ns</td><td>738.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>404.9 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>404.9 ns</td><td>1.82x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>193.9 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>193.9 ns</td><td>3.81x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>568.4 ns</td><td>0.23 ns</td><td>0.21 ns</td><td>568.3 ns</td><td>1.30x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>770.6 ns</td><td>1.00 ns</td><td>0.94 ns</td><td>770.2 ns</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>2,887.3 ns</td><td>0.36 ns</td><td>0.30 ns</td><td>2,887.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>702.3 ns</td><td>0.20 ns</td><td>0.17 ns</td><td>702.3 ns</td><td>4.11x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>496.3 ns</td><td>0.17 ns</td><td>0.15 ns</td><td>496.3 ns</td><td>5.82x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>1,656.2 ns</td><td>0.38 ns</td><td>0.35 ns</td><td>1,656.2 ns</td><td>1.74x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>1,737.0 ns</td><td>0.30 ns</td><td>0.27 ns</td><td>1,737.0 ns</td><td>1.66x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>24,033.5 ns</td><td>3.90 ns</td><td>3.46 ns</td><td>24,032.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>3,689.6 ns</td><td>4.18 ns</td><td>3.70 ns</td><td>3,689.6 ns</td><td>6.51x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>3,518.8 ns</td><td>0.40 ns</td><td>0.31 ns</td><td>3,518.8 ns</td><td>6.83x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>6,163.8 ns</td><td>0.99 ns</td><td>0.77 ns</td><td>6,163.5 ns</td><td>3.90x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>11,030.7 ns</td><td>16.91 ns</td><td>15.82 ns</td><td>11,023.4 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>674.8 ns</td><td>0.27 ns</td><td>0.24 ns</td><td>674.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>411.8 ns</td><td>0.16 ns</td><td>0.13 ns</td><td>411.7 ns</td><td>1.64x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>189.8 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>189.8 ns</td><td>3.55x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>528.3 ns</td><td>0.13 ns</td><td>0.12 ns</td><td>528.3 ns</td><td>1.28x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>765.7 ns</td><td>0.31 ns</td><td>0.27 ns</td><td>765.7 ns</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>768.8 ns</td><td>0.13 ns</td><td>0.10 ns</td><td>768.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>418.9 ns</td><td>0.38 ns</td><td>0.34 ns</td><td>418.8 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>204.8 ns</td><td>0.12 ns</td><td>0.10 ns</td><td>204.7 ns</td><td>3.75x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>584.5 ns</td><td>0.58 ns</td><td>0.45 ns</td><td>584.6 ns</td><td>1.32x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>767.3 ns</td><td>1.01 ns</td><td>0.85 ns</td><td>767.0 ns</td><td>1.00x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>2,913.1 ns</td><td>2.65 ns</td><td>2.48 ns</td><td>2,911.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>699.9 ns</td><td>0.23 ns</td><td>0.18 ns</td><td>699.9 ns</td><td>4.16x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>506.3 ns</td><td>0.09 ns</td><td>0.08 ns</td><td>506.3 ns</td><td>5.75x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>1,652.1 ns</td><td>0.10 ns</td><td>0.09 ns</td><td>1,652.0 ns</td><td>1.76x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>1,735.8 ns</td><td>0.35 ns</td><td>0.30 ns</td><td>1,735.9 ns</td><td>1.68x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>24,068.2 ns</td><td>2.15 ns</td><td>1.80 ns</td><td>24,068.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>3,717.2 ns</td><td>4.32 ns</td><td>4.04 ns</td><td>3,717.0 ns</td><td>6.47x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>3,531.1 ns</td><td>0.69 ns</td><td>0.54 ns</td><td>3,531.1 ns</td><td>6.82x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>6,160.0 ns</td><td>1.05 ns</td><td>0.98 ns</td><td>6,159.9 ns</td><td>3.91x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>11,010.9 ns</td><td>4.35 ns</td><td>3.85 ns</td><td>11,011.2 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>701.7 ns</td><td>0.67 ns</td><td>0.62 ns</td><td>701.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>419.6 ns</td><td>0.10 ns</td><td>0.09 ns</td><td>419.7 ns</td><td>1.67x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>211.6 ns</td><td>0.17 ns</td><td>0.16 ns</td><td>211.6 ns</td><td>3.32x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>521.4 ns</td><td>0.15 ns</td><td>0.14 ns</td><td>521.5 ns</td><td>1.35x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>752.5 ns</td><td>0.19 ns</td><td>0.17 ns</td><td>752.5 ns</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>789.2 ns</td><td>0.60 ns</td><td>0.56 ns</td><td>789.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>457.7 ns</td><td>0.16 ns</td><td>0.14 ns</td><td>457.7 ns</td><td>1.72x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>251.0 ns</td><td>0.12 ns</td><td>0.11 ns</td><td>251.0 ns</td><td>3.14x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>563.8 ns</td><td>0.85 ns</td><td>0.80 ns</td><td>563.4 ns</td><td>1.40x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>758.7 ns</td><td>1.51 ns</td><td>1.41 ns</td><td>758.0 ns</td><td>1.04x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>2,938.2 ns</td><td>0.88 ns</td><td>0.78 ns</td><td>2,937.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>732.5 ns</td><td>0.40 ns</td><td>0.36 ns</td><td>732.6 ns</td><td>4.01x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>524.7 ns</td><td>0.62 ns</td><td>0.52 ns</td><td>524.4 ns</td><td>5.60x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>1,648.3 ns</td><td>1.95 ns</td><td>1.63 ns</td><td>1,647.7 ns</td><td>1.78x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>1,725.3 ns</td><td>0.60 ns</td><td>0.47 ns</td><td>1,725.3 ns</td><td>1.70x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>24,086.0 ns</td><td>1.94 ns</td><td>1.72 ns</td><td>24,086.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>3,857.8 ns</td><td>4.03 ns</td><td>3.77 ns</td><td>3,858.4 ns</td><td>6.24x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>3,555.5 ns</td><td>0.95 ns</td><td>0.85 ns</td><td>3,555.6 ns</td><td>6.77x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>6,136.9 ns</td><td>0.67 ns</td><td>0.56 ns</td><td>6,136.9 ns</td><td>3.92x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>11,021.2 ns</td><td>4.04 ns</td><td>3.59 ns</td><td>11,020.9 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>863.2 ns</td><td>0.33 ns</td><td>0.29 ns</td><td>863.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>459.8 ns</td><td>0.67 ns</td><td>0.63 ns</td><td>459.5 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>246.8 ns</td><td>0.10 ns</td><td>0.08 ns</td><td>246.8 ns</td><td>3.50x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>626.2 ns</td><td>1.73 ns</td><td>1.62 ns</td><td>625.0 ns</td><td>1.38x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>820.5 ns</td><td>0.57 ns</td><td>0.53 ns</td><td>820.4 ns</td><td>1.05x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>961.4 ns</td><td>0.38 ns</td><td>0.31 ns</td><td>961.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>478.9 ns</td><td>1.54 ns</td><td>1.44 ns</td><td>479.5 ns</td><td>2.01x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>274.1 ns</td><td>0.18 ns</td><td>0.16 ns</td><td>274.1 ns</td><td>3.51x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>684.9 ns</td><td>0.21 ns</td><td>0.18 ns</td><td>684.9 ns</td><td>1.40x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>825.7 ns</td><td>0.85 ns</td><td>0.80 ns</td><td>825.6 ns</td><td>1.16x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>3,101.9 ns</td><td>0.63 ns</td><td>0.56 ns</td><td>3,101.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>805.3 ns</td><td>0.80 ns</td><td>0.75 ns</td><td>805.0 ns</td><td>3.85x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>568.2 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>568.1 ns</td><td>5.46x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>1,744.3 ns</td><td>0.17 ns</td><td>0.14 ns</td><td>1,744.3 ns</td><td>1.78x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>1,792.2 ns</td><td>0.66 ns</td><td>0.52 ns</td><td>1,792.4 ns</td><td>1.73x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>24,275.8 ns</td><td>4.20 ns</td><td>3.50 ns</td><td>24,276.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>3,756.9 ns</td><td>1.60 ns</td><td>1.42 ns</td><td>3,756.9 ns</td><td>6.46x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>3,594.0 ns</td><td>10.43 ns</td><td>9.76 ns</td><td>3,588.9 ns</td><td>6.76x faster</td><td>0.02x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>6,251.1 ns</td><td>0.76 ns</td><td>0.67 ns</td><td>6,251.1 ns</td><td>3.88x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>11,074.7 ns</td><td>4.40 ns</td><td>3.90 ns</td><td>11,075.5 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>1,070.5 ns</td><td>0.32 ns</td><td>0.27 ns</td><td>1,070.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>564.9 ns</td><td>0.09 ns</td><td>0.08 ns</td><td>564.9 ns</td><td>1.90x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>325.1 ns</td><td>0.04 ns</td><td>0.04 ns</td><td>325.1 ns</td><td>3.29x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>737.2 ns</td><td>0.16 ns</td><td>0.15 ns</td><td>737.2 ns</td><td>1.45x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>932.0 ns</td><td>0.27 ns</td><td>0.23 ns</td><td>932.1 ns</td><td>1.15x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>1,209.4 ns</td><td>0.25 ns</td><td>0.22 ns</td><td>1,209.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>552.3 ns</td><td>0.20 ns</td><td>0.15 ns</td><td>552.3 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>381.5 ns</td><td>0.07 ns</td><td>0.07 ns</td><td>381.5 ns</td><td>3.17x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>789.1 ns</td><td>0.14 ns</td><td>0.11 ns</td><td>789.1 ns</td><td>1.53x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>927.0 ns</td><td>0.24 ns</td><td>0.19 ns</td><td>927.0 ns</td><td>1.30x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>3,307.9 ns</td><td>0.88 ns</td><td>0.69 ns</td><td>3,307.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>849.5 ns</td><td>0.34 ns</td><td>0.30 ns</td><td>849.5 ns</td><td>3.89x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>682.4 ns</td><td>0.23 ns</td><td>0.19 ns</td><td>682.4 ns</td><td>4.85x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>1,876.6 ns</td><td>0.69 ns</td><td>0.64 ns</td><td>1,876.6 ns</td><td>1.76x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>1,902.0 ns</td><td>2.58 ns</td><td>2.01 ns</td><td>1,901.9 ns</td><td>1.74x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>24,488.1 ns</td><td>2.62 ns</td><td>2.33 ns</td><td>24,487.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>3,936.8 ns</td><td>5.58 ns</td><td>5.22 ns</td><td>3,936.1 ns</td><td>6.22x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>3,676.5 ns</td><td>1.57 ns</td><td>1.23 ns</td><td>3,676.4 ns</td><td>6.66x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>6,358.8 ns</td><td>0.32 ns</td><td>0.28 ns</td><td>6,358.8 ns</td><td>3.85x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>11,171.8 ns</td><td>4.46 ns</td><td>3.72 ns</td><td>11,170.9 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>1,475.3 ns</td><td>0.62 ns</td><td>0.52 ns</td><td>1,475.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>752.7 ns</td><td>0.15 ns</td><td>0.13 ns</td><td>752.8 ns</td><td>1.96x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>512.9 ns</td><td>0.14 ns</td><td>0.11 ns</td><td>512.9 ns</td><td>2.88x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>893.1 ns</td><td>0.22 ns</td><td>0.18 ns</td><td>893.1 ns</td><td>1.65x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>1,075.9 ns</td><td>0.47 ns</td><td>0.39 ns</td><td>1,075.9 ns</td><td>1.37x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>1,556.5 ns</td><td>0.30 ns</td><td>0.23 ns</td><td>1,556.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>719.7 ns</td><td>0.20 ns</td><td>0.18 ns</td><td>719.7 ns</td><td>2.16x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>546.5 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>546.5 ns</td><td>2.85x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>951.8 ns</td><td>0.19 ns</td><td>0.18 ns</td><td>951.8 ns</td><td>1.64x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>1,070.2 ns</td><td>0.40 ns</td><td>0.35 ns</td><td>1,070.3 ns</td><td>1.45x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>3,656.1 ns</td><td>0.43 ns</td><td>0.36 ns</td><td>3,656.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>1,020.2 ns</td><td>0.12 ns</td><td>0.10 ns</td><td>1,020.2 ns</td><td>3.58x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>823.9 ns</td><td>0.18 ns</td><td>0.14 ns</td><td>824.0 ns</td><td>4.44x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>2,030.7 ns</td><td>0.09 ns</td><td>0.07 ns</td><td>2,030.7 ns</td><td>1.80x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>2,044.8 ns</td><td>0.68 ns</td><td>0.60 ns</td><td>2,044.7 ns</td><td>1.79x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>24,834.7 ns</td><td>5.15 ns</td><td>4.56 ns</td><td>24,834.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>3,994.9 ns</td><td>6.83 ns</td><td>6.39 ns</td><td>3,996.1 ns</td><td>6.22x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>3,848.0 ns</td><td>0.44 ns</td><td>0.39 ns</td><td>3,847.9 ns</td><td>6.45x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>6,533.0 ns</td><td>1.46 ns</td><td>1.30 ns</td><td>6,532.7 ns</td><td>3.80x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>11,321.6 ns</td><td>5.08 ns</td><td>4.51 ns</td><td>11,321.6 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>2,329.8 ns</td><td>0.54 ns</td><td>0.45 ns</td><td>2,329.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,030.7 ns</td><td>1.27 ns</td><td>1.18 ns</td><td>1,031.5 ns</td><td>2.26x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>843.7 ns</td><td>0.13 ns</td><td>0.11 ns</td><td>843.7 ns</td><td>2.76x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,395.8 ns</td><td>1.29 ns</td><td>1.20 ns</td><td>1,395.1 ns</td><td>1.67x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>1,526.9 ns</td><td>0.82 ns</td><td>0.73 ns</td><td>1,526.8 ns</td><td>1.53x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>2,418.4 ns</td><td>0.49 ns</td><td>0.43 ns</td><td>2,418.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,038.8 ns</td><td>0.35 ns</td><td>0.29 ns</td><td>1,038.7 ns</td><td>2.33x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>873.8 ns</td><td>0.24 ns</td><td>0.21 ns</td><td>873.8 ns</td><td>2.77x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,434.1 ns</td><td>0.06 ns</td><td>0.05 ns</td><td>1,434.1 ns</td><td>1.69x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>1,530.0 ns</td><td>0.39 ns</td><td>0.33 ns</td><td>1,530.0 ns</td><td>1.58x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>4,529.8 ns</td><td>0.57 ns</td><td>0.45 ns</td><td>4,529.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>1,368.0 ns</td><td>0.33 ns</td><td>0.28 ns</td><td>1,368.0 ns</td><td>3.31x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>1,167.7 ns</td><td>0.61 ns</td><td>0.54 ns</td><td>1,167.7 ns</td><td>3.88x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>2,520.5 ns</td><td>0.43 ns</td><td>0.40 ns</td><td>2,520.7 ns</td><td>1.80x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>2,502.2 ns</td><td>3.46 ns</td><td>3.23 ns</td><td>2,501.1 ns</td><td>1.81x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>25,695.3 ns</td><td>2.88 ns</td><td>2.56 ns</td><td>25,694.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>4,594.4 ns</td><td>5.89 ns</td><td>5.22 ns</td><td>4,594.1 ns</td><td>5.59x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>4,182.1 ns</td><td>1.09 ns</td><td>0.97 ns</td><td>4,181.9 ns</td><td>6.14x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>7,026.0 ns</td><td>3.09 ns</td><td>2.58 ns</td><td>7,024.7 ns</td><td>3.66x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>11,775.3 ns</td><td>6.82 ns</td><td>6.04 ns</td><td>11,773.3 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>3,199.1 ns</td><td>0.52 ns</td><td>0.44 ns</td><td>3,199.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,365.7 ns</td><td>1.21 ns</td><td>1.07 ns</td><td>1,365.3 ns</td><td>2.34x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,196.4 ns</td><td>0.22 ns</td><td>0.20 ns</td><td>1,196.4 ns</td><td>2.67x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,932.9 ns</td><td>0.16 ns</td><td>0.15 ns</td><td>1,932.8 ns</td><td>1.66x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1,983.5 ns</td><td>1.05 ns</td><td>0.93 ns</td><td>1,983.6 ns</td><td>1.61x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>3,280.9 ns</td><td>0.56 ns</td><td>0.49 ns</td><td>3,280.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,362.0 ns</td><td>0.33 ns</td><td>0.29 ns</td><td>1,362.0 ns</td><td>2.41x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,201.2 ns</td><td>0.26 ns</td><td>0.23 ns</td><td>1,201.2 ns</td><td>2.73x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,987.0 ns</td><td>0.26 ns</td><td>0.23 ns</td><td>1,987.0 ns</td><td>1.65x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1,987.9 ns</td><td>0.38 ns</td><td>0.34 ns</td><td>1,987.8 ns</td><td>1.65x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>5,388.6 ns</td><td>1.23 ns</td><td>1.03 ns</td><td>5,388.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>1,652.8 ns</td><td>0.28 ns</td><td>0.23 ns</td><td>1,652.9 ns</td><td>3.26x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>1,439.3 ns</td><td>0.18 ns</td><td>0.16 ns</td><td>1,439.3 ns</td><td>3.74x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3,072.6 ns</td><td>0.25 ns</td><td>0.23 ns</td><td>3,072.6 ns</td><td>1.75x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2,960.4 ns</td><td>0.71 ns</td><td>0.63 ns</td><td>2,960.4 ns</td><td>1.82x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>26,569.3 ns</td><td>3.81 ns</td><td>3.37 ns</td><td>26,569.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>4,602.1 ns</td><td>3.24 ns</td><td>2.87 ns</td><td>4,601.3 ns</td><td>5.77x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>4,449.2 ns</td><td>0.52 ns</td><td>0.46 ns</td><td>4,449.0 ns</td><td>5.97x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>7,576.9 ns</td><td>1.40 ns</td><td>1.24 ns</td><td>7,576.8 ns</td><td>3.51x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>12,209.5 ns</td><td>2.38 ns</td><td>2.11 ns</td><td>12,209.6 ns</td><td>2.18x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>4,061.3 ns</td><td>0.90 ns</td><td>0.75 ns</td><td>4,061.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>1,666.6 ns</td><td>0.26 ns</td><td>0.23 ns</td><td>1,666.6 ns</td><td>2.44x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>1,517.9 ns</td><td>0.29 ns</td><td>0.23 ns</td><td>1,517.9 ns</td><td>2.68x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>1,728.5 ns</td><td>0.23 ns</td><td>0.18 ns</td><td>1,728.5 ns</td><td>2.35x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>2,443.7 ns</td><td>0.47 ns</td><td>0.42 ns</td><td>2,443.7 ns</td><td>1.66x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>4,147.4 ns</td><td>0.70 ns</td><td>0.62 ns</td><td>4,147.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>1,677.4 ns</td><td>0.36 ns</td><td>0.28 ns</td><td>1,677.4 ns</td><td>2.47x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>1,475.6 ns</td><td>0.25 ns</td><td>0.22 ns</td><td>1,475.7 ns</td><td>2.81x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>1,767.4 ns</td><td>0.20 ns</td><td>0.19 ns</td><td>1,767.4 ns</td><td>2.35x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>2,441.2 ns</td><td>0.62 ns</td><td>0.52 ns</td><td>2,441.0 ns</td><td>1.70x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>6,250.6 ns</td><td>0.62 ns</td><td>0.55 ns</td><td>6,250.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>1,965.4 ns</td><td>0.78 ns</td><td>0.69 ns</td><td>1,965.2 ns</td><td>3.18x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>3,048.6 ns</td><td>0.47 ns</td><td>0.41 ns</td><td>3,048.6 ns</td><td>2.05x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>2,851.4 ns</td><td>0.17 ns</td><td>0.13 ns</td><td>2,851.4 ns</td><td>2.19x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>3,417.9 ns</td><td>1.59 ns</td><td>1.33 ns</td><td>3,418.0 ns</td><td>1.83x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>27,439.5 ns</td><td>3.11 ns</td><td>2.60 ns</td><td>27,439.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>4,994.9 ns</td><td>9.92 ns</td><td>9.28 ns</td><td>4,997.3 ns</td><td>5.49x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>4,948.9 ns</td><td>3.19 ns</td><td>2.83 ns</td><td>4,948.0 ns</td><td>5.54x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>7,348.1 ns</td><td>0.84 ns</td><td>0.66 ns</td><td>7,348.1 ns</td><td>3.73x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>12,704.0 ns</td><td>3.67 ns</td><td>2.87 ns</td><td>12,703.5 ns</td><td>2.16x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>28,301.5 ns</td><td>4.16 ns</td><td>3.69 ns</td><td>28,300.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>10,897.1 ns</td><td>3.00 ns</td><td>2.66 ns</td><td>10,897.4 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>10,434.2 ns</td><td>21.18 ns</td><td>19.81 ns</td><td>10,440.7 ns</td><td>2.71x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>17,717.4 ns</td><td>28.32 ns</td><td>26.49 ns</td><td>17,725.3 ns</td><td>1.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>15,190.7 ns</td><td>5.00 ns</td><td>4.43 ns</td><td>15,190.8 ns</td><td>1.86x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>28,394.3 ns</td><td>3.82 ns</td><td>3.19 ns</td><td>28,395.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>10,685.8 ns</td><td>9.49 ns</td><td>8.87 ns</td><td>10,688.0 ns</td><td>2.66x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>10,424.8 ns</td><td>14.06 ns</td><td>13.15 ns</td><td>10,425.9 ns</td><td>2.72x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>17,712.0 ns</td><td>21.09 ns</td><td>18.70 ns</td><td>17,711.2 ns</td><td>1.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>15,244.6 ns</td><td>4.83 ns</td><td>4.28 ns</td><td>15,243.9 ns</td><td>1.86x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>30,479.9 ns</td><td>3.55 ns</td><td>3.15 ns</td><td>30,480.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>11,246.2 ns</td><td>7.12 ns</td><td>6.31 ns</td><td>11,246.4 ns</td><td>2.71x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>11,307.4 ns</td><td>2.35 ns</td><td>1.97 ns</td><td>11,307.2 ns</td><td>2.70x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>19,200.6 ns</td><td>22.02 ns</td><td>20.60 ns</td><td>19,202.5 ns</td><td>1.59x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>16,410.9 ns</td><td>3.74 ns</td><td>3.32 ns</td><td>16,411.6 ns</td><td>1.86x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>51,661.2 ns</td><td>9.52 ns</td><td>8.44 ns</td><td>51,659.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>14,534.8 ns</td><td>8.42 ns</td><td>7.88 ns</td><td>14,536.6 ns</td><td>3.55x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>33,967.4 ns</td><td>4.86 ns</td><td>4.55 ns</td><td>33,965.3 ns</td><td>1.52x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>24,971.2 ns</td><td>32.94 ns</td><td>29.20 ns</td><td>24,964.7 ns</td><td>2.07x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>25,713.7 ns</td><td>75.46 ns</td><td>70.59 ns</td><td>25,669.1 ns</td><td>2.01x faster</td><td>0.01x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>56,028.5 ns</td><td>4.56 ns</td><td>3.81 ns</td><td>56,028.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>21,372.7 ns</td><td>8.01 ns</td><td>7.10 ns</td><td>21,372.1 ns</td><td>2.62x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>21,682.0 ns</td><td>3.42 ns</td><td>3.20 ns</td><td>21,683.1 ns</td><td>2.58x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>21,652.8 ns</td><td>46.90 ns</td><td>43.87 ns</td><td>21,654.5 ns</td><td>2.59x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>29,906.3 ns</td><td>10.80 ns</td><td>8.43 ns</td><td>29,905.3 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>56,105.4 ns</td><td>5.51 ns</td><td>4.89 ns</td><td>56,104.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>20,381.9 ns</td><td>8.17 ns</td><td>6.82 ns</td><td>20,382.5 ns</td><td>2.75x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>21,540.1 ns</td><td>17.37 ns</td><td>16.25 ns</td><td>21,544.4 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>21,517.0 ns</td><td>34.12 ns</td><td>31.92 ns</td><td>21,515.6 ns</td><td>2.61x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>29,913.8 ns</td><td>8.52 ns</td><td>7.12 ns</td><td>29,915.5 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>58,218.3 ns</td><td>4.98 ns</td><td>4.42 ns</td><td>58,219.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>22,403.8 ns</td><td>16.77 ns</td><td>14.86 ns</td><td>22,407.9 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>22,085.9 ns</td><td>29.78 ns</td><td>27.86 ns</td><td>22,074.6 ns</td><td>2.64x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>23,069.2 ns</td><td>26.52 ns</td><td>22.15 ns</td><td>23,064.5 ns</td><td>2.52x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>30,867.6 ns</td><td>8.94 ns</td><td>7.93 ns</td><td>30,868.9 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>79,396.4 ns</td><td>6.61 ns</td><td>5.86 ns</td><td>79,397.1 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>24,210.1 ns</td><td>125.14 ns</td><td>117.06 ns</td><td>24,252.8 ns</td><td>3.28x faster</td><td>0.02x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>61,707.6 ns</td><td>5.56 ns</td><td>4.64 ns</td><td>61,706.1 ns</td><td>1.29x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>32,374.9 ns</td><td>37.63 ns</td><td>35.20 ns</td><td>32,365.9 ns</td><td>2.45x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>40,185.2 ns</td><td>12.92 ns</td><td>11.45 ns</td><td>40,180.5 ns</td><td>1.98x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>111,575.7 ns</td><td>12.37 ns</td><td>10.97 ns</td><td>111,575.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>41,039.5 ns</td><td>59.14 ns</td><td>55.32 ns</td><td>41,049.2 ns</td><td>2.72x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>43,121.4 ns</td><td>15.12 ns</td><td>14.14 ns</td><td>43,123.0 ns</td><td>2.59x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>38,713.9 ns</td><td>34.49 ns</td><td>32.27 ns</td><td>38,712.0 ns</td><td>2.88x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>59,269.3 ns</td><td>15.13 ns</td><td>13.41 ns</td><td>59,267.2 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>111,610.8 ns</td><td>19.17 ns</td><td>16.01 ns</td><td>111,614.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>41,053.9 ns</td><td>154.43 ns</td><td>144.46 ns</td><td>41,073.4 ns</td><td>2.72x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>43,145.8 ns</td><td>6.33 ns</td><td>5.61 ns</td><td>43,145.6 ns</td><td>2.59x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>38,963.2 ns</td><td>39.60 ns</td><td>35.10 ns</td><td>38,976.5 ns</td><td>2.86x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>59,156.1 ns</td><td>8.34 ns</td><td>7.39 ns</td><td>59,157.1 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>113,773.2 ns</td><td>5.40 ns</td><td>4.79 ns</td><td>113,771.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>40,172.0 ns</td><td>28.63 ns</td><td>25.38 ns</td><td>40,169.7 ns</td><td>2.83x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>43,500.2 ns</td><td>5.17 ns</td><td>4.03 ns</td><td>43,500.1 ns</td><td>2.62x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>40,193.6 ns</td><td>38.42 ns</td><td>35.94 ns</td><td>40,194.7 ns</td><td>2.83x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>60,222.8 ns</td><td>4.25 ns</td><td>3.77 ns</td><td>60,221.8 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>134,949.3 ns</td><td>11.78 ns</td><td>9.83 ns</td><td>134,952.5 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>48,587.8 ns</td><td>20.34 ns</td><td>18.03 ns</td><td>48,590.9 ns</td><td>2.78x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>45,935.1 ns</td><td>22.43 ns</td><td>20.98 ns</td><td>45,935.4 ns</td><td>2.94x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>46,288.9 ns</td><td>38.90 ns</td><td>34.49 ns</td><td>46,283.0 ns</td><td>2.92x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>69,656.0 ns</td><td>14.22 ns</td><td>12.60 ns</td><td>69,657.3 ns</td><td>1.94x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>222,714.5 ns</td><td>41.65 ns</td><td>34.78 ns</td><td>222,714.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>86,730.7 ns</td><td>116.02 ns</td><td>108.52 ns</td><td>86,767.1 ns</td><td>2.57x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>84,747.4 ns</td><td>15.91 ns</td><td>14.88 ns</td><td>84,751.2 ns</td><td>2.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>67,221.5 ns</td><td>352.27 ns</td><td>294.16 ns</td><td>67,128.5 ns</td><td>3.31x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>118,351.8 ns</td><td>10.68 ns</td><td>9.46 ns</td><td>118,349.1 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>222,765.5 ns</td><td>71.61 ns</td><td>63.48 ns</td><td>222,768.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>85,492.3 ns</td><td>127.33 ns</td><td>119.10 ns</td><td>85,528.5 ns</td><td>2.61x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>86,292.6 ns</td><td>18.64 ns</td><td>17.43 ns</td><td>86,296.4 ns</td><td>2.58x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>67,177.1 ns</td><td>62.12 ns</td><td>55.07 ns</td><td>67,185.2 ns</td><td>3.32x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>118,463.8 ns</td><td>32.17 ns</td><td>26.87 ns</td><td>118,452.9 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>224,904.7 ns</td><td>18.83 ns</td><td>16.69 ns</td><td>224,900.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>86,160.8 ns</td><td>24.50 ns</td><td>22.92 ns</td><td>86,160.4 ns</td><td>2.61x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>86,421.3 ns</td><td>6.76 ns</td><td>6.32 ns</td><td>86,421.6 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>68,396.6 ns</td><td>78.56 ns</td><td>73.49 ns</td><td>68,412.1 ns</td><td>3.29x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>119,352.1 ns</td><td>71.81 ns</td><td>67.17 ns</td><td>119,334.4 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>246,226.3 ns</td><td>19.93 ns</td><td>17.67 ns</td><td>246,225.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>159,740.3 ns</td><td>599.36 ns</td><td>560.65 ns</td><td>160,009.9 ns</td><td>1.54x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>89,387.3 ns</td><td>24.07 ns</td><td>20.10 ns</td><td>89,391.0 ns</td><td>2.75x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>73,564.1 ns</td><td>49.65 ns</td><td>46.44 ns</td><td>73,558.0 ns</td><td>3.35x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>128,554.2 ns</td><td>20.49 ns</td><td>18.17 ns</td><td>128,553.7 ns</td><td>1.92x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>889,137.0 ns</td><td>322.55 ns</td><td>301.71 ns</td><td>889,275.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>323,163.2 ns</td><td>67.98 ns</td><td>60.27 ns</td><td>323,161.5 ns</td><td>2.75x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>345,435.2 ns</td><td>367.60 ns</td><td>325.87 ns</td><td>345,351.8 ns</td><td>2.57x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>192,743.8 ns</td><td>111.61 ns</td><td>104.40 ns</td><td>192,733.9 ns</td><td>4.61x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>470,859.3 ns</td><td>138.96 ns</td><td>116.04 ns</td><td>470,885.8 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>889,457.3 ns</td><td>219.07 ns</td><td>171.04 ns</td><td>889,510.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>325,611.0 ns</td><td>143.17 ns</td><td>126.92 ns</td><td>325,579.7 ns</td><td>2.73x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>344,245.2 ns</td><td>34.07 ns</td><td>28.45 ns</td><td>344,252.3 ns</td><td>2.58x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>192,005.2 ns</td><td>94.73 ns</td><td>88.61 ns</td><td>191,990.9 ns</td><td>4.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>471,279.4 ns</td><td>40.14 ns</td><td>33.52 ns</td><td>471,273.0 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>891,880.1 ns</td><td>82.40 ns</td><td>77.07 ns</td><td>891,887.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>327,976.9 ns</td><td>151.71 ns</td><td>141.91 ns</td><td>327,979.1 ns</td><td>2.72x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>344,538.9 ns</td><td>82.26 ns</td><td>76.94 ns</td><td>344,558.1 ns</td><td>2.59x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>192,789.6 ns</td><td>100.58 ns</td><td>94.08 ns</td><td>192,748.5 ns</td><td>4.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>472,264.9 ns</td><td>221.12 ns</td><td>172.64 ns</td><td>472,327.8 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>912,721.4 ns</td><td>76.07 ns</td><td>71.16 ns</td><td>912,723.9 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>585,952.9 ns</td><td>140.19 ns</td><td>131.13 ns</td><td>586,000.8 ns</td><td>1.56x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>346,697.4 ns</td><td>94.72 ns</td><td>83.97 ns</td><td>346,692.8 ns</td><td>2.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>198,109.8 ns</td><td>86.65 ns</td><td>81.05 ns</td><td>198,097.3 ns</td><td>4.61x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>480,728.0 ns</td><td>279.29 ns</td><td>261.25 ns</td><td>480,575.8 ns</td><td>1.90x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>1,777,819.8 ns</td><td>131.21 ns</td><td>122.73 ns</td><td>1,777,833.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>686,897.0 ns</td><td>2,512.75 ns</td><td>2,350.43 ns</td><td>688,524.7 ns</td><td>2.59x faster</td><td>0.01x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>688,213.8 ns</td><td>145.92 ns</td><td>136.49 ns</td><td>688,256.2 ns</td><td>2.58x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>354,589.0 ns</td><td>244.83 ns</td><td>229.02 ns</td><td>354,583.3 ns</td><td>5.01x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>945,128.5 ns</td><td>98.24 ns</td><td>91.90 ns</td><td>945,139.3 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>1,778,321.9 ns</td><td>298.67 ns</td><td>279.38 ns</td><td>1,778,383.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>656,683.8 ns</td><td>70.08 ns</td><td>62.13 ns</td><td>656,661.1 ns</td><td>2.71x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>687,833.4 ns</td><td>209.13 ns</td><td>163.27 ns</td><td>687,911.3 ns</td><td>2.59x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>354,542.0 ns</td><td>181.82 ns</td><td>161.18 ns</td><td>354,562.8 ns</td><td>5.02x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>943,473.9 ns</td><td>339.70 ns</td><td>317.76 ns</td><td>943,608.3 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>1,778,974.2 ns</td><td>365.55 ns</td><td>341.94 ns</td><td>1,779,117.8 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>696,769.1 ns</td><td>223.88 ns</td><td>186.95 ns</td><td>696,811.3 ns</td><td>2.55x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>688,273.4 ns</td><td>271.24 ns</td><td>253.72 ns</td><td>688,372.6 ns</td><td>2.58x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>354,395.9 ns</td><td>151.20 ns</td><td>141.43 ns</td><td>354,392.2 ns</td><td>5.02x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>941,849.1 ns</td><td>367.99 ns</td><td>344.22 ns</td><td>941,580.8 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>1,799,668.2 ns</td><td>434.42 ns</td><td>406.35 ns</td><td>1,799,470.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>1,186,298.8 ns</td><td>188.34 ns</td><td>166.96 ns</td><td>1,186,341.3 ns</td><td>1.52x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>683,636.0 ns</td><td>423.63 ns</td><td>396.27 ns</td><td>683,605.1 ns</td><td>2.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>360,372.6 ns</td><td>117.80 ns</td><td>110.19 ns</td><td>360,379.1 ns</td><td>4.99x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>953,629.4 ns</td><td>202.25 ns</td><td>179.29 ns</td><td>953,677.9 ns</td><td>1.89x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>18,210,250.2 ns</td><td>6,736.33 ns</td><td>5,971.58 ns</td><td>18,210,450.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>6,998,390.5 ns</td><td>2,050.46 ns</td><td>1,817.68 ns</td><td>6,998,807.4 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>7,042,885.9 ns</td><td>2,555.42 ns</td><td>2,265.31 ns</td><td>7,042,742.2 ns</td><td>2.59x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>3,461,684.1 ns</td><td>2,557.99 ns</td><td>2,392.75 ns</td><td>3,461,489.5 ns</td><td>5.26x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>9,756,650.8 ns</td><td>3,115.28 ns</td><td>2,761.61 ns</td><td>9,756,549.2 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>18,213,494.4 ns</td><td>19,532.16 ns</td><td>18,270.39 ns</td><td>18,211,265.6 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>6,995,683.0 ns</td><td>2,930.93 ns</td><td>2,288.27 ns</td><td>6,995,991.4 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>7,079,973.6 ns</td><td>2,531.02 ns</td><td>2,113.52 ns</td><td>7,080,132.0 ns</td><td>2.57x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>3,463,511.4 ns</td><td>2,012.17 ns</td><td>1,882.19 ns</td><td>3,463,427.9 ns</td><td>5.26x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>9,759,371.8 ns</td><td>15,098.14 ns</td><td>14,122.81 ns</td><td>9,764,450.0 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>18,220,533.1 ns</td><td>15,804.76 ns</td><td>14,783.79 ns</td><td>18,220,184.4 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>6,995,559.7 ns</td><td>1,492.05 ns</td><td>1,245.93 ns</td><td>6,996,057.0 ns</td><td>2.60x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>6,855,058.0 ns</td><td>1,788.44 ns</td><td>1,585.41 ns</td><td>6,855,167.2 ns</td><td>2.66x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>3,457,650.5 ns</td><td>1,004.77 ns</td><td>939.87 ns</td><td>3,457,720.7 ns</td><td>5.27x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>9,701,394.0 ns</td><td>4,245.01 ns</td><td>3,763.09 ns</td><td>9,700,871.1 ns</td><td>1.88x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>18,228,873.1 ns</td><td>6,846.01 ns</td><td>6,403.76 ns</td><td>18,226,831.2 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>7,088,985.7 ns</td><td>8,800.89 ns</td><td>8,232.36 ns</td><td>7,091,228.1 ns</td><td>2.57x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>7,226,560.0 ns</td><td>9,008.68 ns</td><td>8,426.72 ns</td><td>7,229,949.2 ns</td><td>2.52x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>3,464,546.2 ns</td><td>1,527.99 ns</td><td>1,429.28 ns</td><td>3,464,933.2 ns</td><td>5.26x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>9,753,644.4 ns</td><td>6,464.83 ns</td><td>6,047.20 ns</td><td>9,752,529.7 ns</td><td>1.87x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>92,162,727.4 ns</td><td>7,229.84 ns</td><td>6,409.06 ns</td><td>92,163,175.0 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>34,544,710.7 ns</td><td>14,907.43 ns</td><td>13,944.42 ns</td><td>34,536,633.3 ns</td><td>2.67x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>36,557,893.3 ns</td><td>231,371.79 ns</td><td>216,425.31 ns</td><td>36,509,864.3 ns</td><td>2.52x faster</td><td>0.02x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>17,972,433.8 ns</td><td>14,476.43 ns</td><td>13,541.27 ns</td><td>17,974,521.9 ns</td><td>5.13x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>50,161,954.5 ns</td><td>51,889.22 ns</td><td>48,537.21 ns</td><td>50,184,872.7 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>92,176,150.0 ns</td><td>5,515.28 ns</td><td>4,605.51 ns</td><td>92,175,766.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>34,565,087.1 ns</td><td>3,011.44 ns</td><td>2,669.56 ns</td><td>34,565,706.7 ns</td><td>2.67x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>36,062,862.9 ns</td><td>9,809.15 ns</td><td>9,175.48 ns</td><td>36,063,900.0 ns</td><td>2.56x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>17,946,323.0 ns</td><td>14,083.32 ns</td><td>12,484.50 ns</td><td>17,948,234.4 ns</td><td>5.14x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>49,982,689.7 ns</td><td>106,804.94 ns</td><td>99,905.40 ns</td><td>50,017,463.6 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>92,179,107.8 ns</td><td>5,329.32 ns</td><td>4,985.04 ns</td><td>92,179,133.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>34,008,313.8 ns</td><td>2,061.18 ns</td><td>1,721.18 ns</td><td>34,008,200.0 ns</td><td>2.71x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>36,712,161.9 ns</td><td>355,609.58 ns</td><td>332,637.43 ns</td><td>36,649,778.6 ns</td><td>2.51x faster</td><td>0.02x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>17,956,169.0 ns</td><td>13,960.04 ns</td><td>13,058.23 ns</td><td>17,958,012.5 ns</td><td>5.13x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>49,872,600.8 ns</td><td>8,274.18 ns</td><td>6,459.94 ns</td><td>49,872,295.5 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>92,172,303.3 ns</td><td>5,153.81 ns</td><td>4,820.88 ns</td><td>92,173,316.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>37,314,030.4 ns</td><td>12,085.11 ns</td><td>9,435.26 ns</td><td>37,314,664.3 ns</td><td>2.47x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>36,379,250.0 ns</td><td>27,813.87 ns</td><td>24,656.28 ns</td><td>36,384,235.7 ns</td><td>2.53x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>17,986,593.3 ns</td><td>13,472.01 ns</td><td>12,601.73 ns</td><td>17,984,381.2 ns</td><td>5.12x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>49,789,290.2 ns</td><td>65,030.76 ns</td><td>50,771.74 ns</td><td>49,810,459.1 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>184,332,582.1 ns</td><td>8,217.40 ns</td><td>6,861.90 ns</td><td>184,332,633.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>69,202,809.6 ns</td><td>6,952.69 ns</td><td>5,805.81 ns</td><td>69,203,637.5 ns</td><td>2.66x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>66,543,256.7 ns</td><td>5,808.14 ns</td><td>5,432.94 ns</td><td>66,543,887.5 ns</td><td>2.77x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>35,800,334.3 ns</td><td>59,132.38 ns</td><td>55,312.46 ns</td><td>35,804,750.0 ns</td><td>5.15x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>99,913,356.9 ns</td><td>4,150.21 ns</td><td>3,240.21 ns</td><td>99,914,083.3 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>184,417,895.6 ns</td><td>17,544.28 ns</td><td>16,410.93 ns</td><td>184,412,566.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>67,551,525.0 ns</td><td>8,815.36 ns</td><td>8,245.90 ns</td><td>67,555,650.0 ns</td><td>2.73x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>70,199,574.2 ns</td><td>58,375.68 ns</td><td>54,604.65 ns</td><td>70,168,925.0 ns</td><td>2.63x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>36,034,169.0 ns</td><td>43,576.19 ns</td><td>40,761.20 ns</td><td>36,034,307.1 ns</td><td>5.12x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>99,677,366.7 ns</td><td>124,049.66 ns</td><td>103,587.08 ns</td><td>99,639,633.3 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>184,408,706.7 ns</td><td>23,522.62 ns</td><td>22,003.07 ns</td><td>184,407,466.7 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>73,267,220.5 ns</td><td>13,704.05 ns</td><td>12,148.28 ns</td><td>73,264,087.5 ns</td><td>2.52x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>71,051,381.7 ns</td><td>211,672.10 ns</td><td>197,998.22 ns</td><td>70,921,350.0 ns</td><td>2.60x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>35,983,057.1 ns</td><td>82,517.77 ns</td><td>77,187.17 ns</td><td>35,974,000.0 ns</td><td>5.12x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>99,597,318.7 ns</td><td>229,448.07 ns</td><td>214,625.87 ns</td><td>99,569,920.0 ns</td><td>1.85x faster</td><td>0.00x</td>
+</tr><tr><td>Daence_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>184,462,426.2 ns</td><td>18,597.42 ns</td><td>16,486.13 ns</td><td>184,465,433.3 ns</td><td>baseline</td><td></td>
+</tr><tr><td>AEGIS256_DFV4_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>68,098,295.8 ns</td><td>4,776.89 ns</td><td>4,468.31 ns</td><td>68,099,275.0 ns</td><td>2.71x faster</td><td>0.00x</td>
+</tr><tr><td>AEGIS256_SIV_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>72,167,779.0 ns</td><td>11,531.88 ns</td><td>10,786.93 ns</td><td>72,170,885.7 ns</td><td>2.56x faster</td><td>0.00x</td>
+</tr><tr><td>cSIVBLAKE3_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>36,167,304.8 ns</td><td>94,395.58 ns</td><td>88,297.69 ns</td><td>36,192,700.0 ns</td><td>5.10x faster</td><td>0.01x</td>
+</tr><tr><td>cSIVBLAKE2b_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>100,513,939.3 ns</td><td>17,865.18 ns</td><td>15,837.02 ns</td><td>100,518,975.0 ns</td><td>1.84x faster</td><td>0.00x</td>
+</tr></tbody></table>
+</body>
+</html>

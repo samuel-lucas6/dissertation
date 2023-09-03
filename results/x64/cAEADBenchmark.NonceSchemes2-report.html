@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>cAEADBenchmark.NonceSchemes-20230803-111656</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.6, Windows 11 (10.0.22621.1992/22H2/2022Update/SunValley2)
+Intel Core i5-9600K CPU 3.70GHz (Coffee Lake), 1 CPU, 6 logical and 6 physical cores
+.NET SDK 7.0.306
+  [Host]     : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>       Method</th><th>Categories</th><th>PlaintextSize</th><th>AssociatedDataSize</th><th>      Mean</th><th>  Error</th><th> StdDev</th><th>    Median</th>
+</tr>
+</thead><tbody><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>0</td><td>0</td><td>327.1 ns</td><td>1.31 ns</td><td>1.02 ns</td><td>326.8 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>0</td><td>64</td><td>631.9 ns</td><td>0.13 ns</td><td>0.11 ns</td><td>631.9 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>0</td><td>1536</td><td>6,824.5 ns</td><td>0.81 ns</td><td>0.72 ns</td><td>6,824.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>0</td><td>16384</td><td>70,967.3 ns</td><td>304.41 ns</td><td>284.75 ns</td><td>70,780.2 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16</td><td>0</td><td>393.5 ns</td><td>0.05 ns</td><td>0.04 ns</td><td>393.4 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16</td><td>64</td><td>698.8 ns</td><td>0.16 ns</td><td>0.13 ns</td><td>698.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16</td><td>1536</td><td>6,899.3 ns</td><td>1.06 ns</td><td>0.89 ns</td><td>6,899.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16</td><td>16384</td><td>69,543.0 ns</td><td>290.72 ns</td><td>271.94 ns</td><td>69,389.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32</td><td>0</td><td>462.2 ns</td><td>1.90 ns</td><td>1.78 ns</td><td>463.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32</td><td>64</td><td>764.6 ns</td><td>0.07 ns</td><td>0.06 ns</td><td>764.6 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32</td><td>1536</td><td>6,969.4 ns</td><td>2.77 ns</td><td>2.59 ns</td><td>6,968.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32</td><td>16384</td><td>69,454.0 ns</td><td>6.81 ns</td><td>5.69 ns</td><td>69,453.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>64</td><td>0</td><td>592.7 ns</td><td>0.03 ns</td><td>0.03 ns</td><td>592.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>64</td><td>64</td><td>946.7 ns</td><td>2.82 ns</td><td>2.64 ns</td><td>947.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>64</td><td>1536</td><td>7,095.6 ns</td><td>2.98 ns</td><td>2.49 ns</td><td>7,094.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>64</td><td>16384</td><td>69,721.1 ns</td><td>288.36 ns</td><td>255.63 ns</td><td>69,597.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>128</td><td>0</td><td>876.1 ns</td><td>3.70 ns</td><td>3.47 ns</td><td>873.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>128</td><td>64</td><td>1,178.2 ns</td><td>0.15 ns</td><td>0.14 ns</td><td>1,178.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>128</td><td>1536</td><td>7,360.9 ns</td><td>0.70 ns</td><td>0.62 ns</td><td>7,360.9 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>128</td><td>16384</td><td>69,809.2 ns</td><td>13.73 ns</td><td>12.84 ns</td><td>69,812.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>256</td><td>0</td><td>1,415.2 ns</td><td>5.67 ns</td><td>5.30 ns</td><td>1,417.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>256</td><td>64</td><td>1,711.7 ns</td><td>0.18 ns</td><td>0.14 ns</td><td>1,711.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>256</td><td>1536</td><td>7,894.9 ns</td><td>1.65 ns</td><td>1.38 ns</td><td>7,894.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>256</td><td>16384</td><td>70,358.9 ns</td><td>15.19 ns</td><td>14.21 ns</td><td>70,356.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>512</td><td>0</td><td>2,490.5 ns</td><td>10.08 ns</td><td>9.43 ns</td><td>2,495.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>512</td><td>64</td><td>2,784.4 ns</td><td>0.39 ns</td><td>0.33 ns</td><td>2,784.4 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>512</td><td>1536</td><td>8,957.0 ns</td><td>0.86 ns</td><td>0.67 ns</td><td>8,957.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>512</td><td>16384</td><td>72,309.7 ns</td><td>6.59 ns</td><td>5.15 ns</td><td>72,311.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>0</td><td>4,630.2 ns</td><td>17.96 ns</td><td>16.80 ns</td><td>4,621.4 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>64</td><td>5,223.5 ns</td><td>1.59 ns</td><td>1.33 ns</td><td>5,223.4 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>1536</td><td>11,094.8 ns</td><td>3.39 ns</td><td>3.18 ns</td><td>11,094.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1024</td><td>16384</td><td>73,615.7 ns</td><td>5.99 ns</td><td>5.60 ns</td><td>73,615.5 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>6,765.7 ns</td><td>2.74 ns</td><td>2.43 ns</td><td>6,764.9 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>7,071.1 ns</td><td>2.53 ns</td><td>2.25 ns</td><td>7,071.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>13,370.8 ns</td><td>6.52 ns</td><td>5.78 ns</td><td>13,372.2 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>79,297.2 ns</td><td>14.12 ns</td><td>11.02 ns</td><td>79,294.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>0</td><td>8,904.4 ns</td><td>2.75 ns</td><td>2.44 ns</td><td>8,905.2 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>64</td><td>9,222.8 ns</td><td>3.13 ns</td><td>2.93 ns</td><td>9,223.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>1536</td><td>15,384.7 ns</td><td>3.41 ns</td><td>3.19 ns</td><td>15,384.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>2048</td><td>16384</td><td>77,907.9 ns</td><td>7.78 ns</td><td>6.90 ns</td><td>77,908.6 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>0</td><td>69,108.8 ns</td><td>239.73 ns</td><td>224.24 ns</td><td>68,987.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>64</td><td>69,294.5 ns</td><td>12.89 ns</td><td>12.06 ns</td><td>69,297.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>1536</td><td>75,949.0 ns</td><td>294.70 ns</td><td>275.67 ns</td><td>76,060.2 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>16384</td><td>16384</td><td>138,377.8 ns</td><td>17.51 ns</td><td>16.38 ns</td><td>138,377.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>0</td><td>137,789.4 ns</td><td>22.15 ns</td><td>17.30 ns</td><td>137,790.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>64</td><td>138,480.9 ns</td><td>583.30 ns</td><td>545.62 ns</td><td>138,132.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>1536</td><td>144,268.2 ns</td><td>26.85 ns</td><td>22.42 ns</td><td>144,267.9 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>32768</td><td>16384</td><td>206,826.2 ns</td><td>101.21 ns</td><td>94.67 ns</td><td>206,773.8 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>0</td><td>276,228.6 ns</td><td>1,203.83 ns</td><td>1,126.07 ns</td><td>275,593.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>64</td><td>276,535.7 ns</td><td>1,183.66 ns</td><td>1,107.19 ns</td><td>275,917.9 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>1536</td><td>282,184.2 ns</td><td>38.49 ns</td><td>34.12 ns</td><td>282,192.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>65536</td><td>16384</td><td>344,856.8 ns</td><td>36.41 ns</td><td>28.43 ns</td><td>344,858.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>0</td><td>551,069.3 ns</td><td>135.58 ns</td><td>113.22 ns</td><td>551,102.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>64</td><td>551,177.4 ns</td><td>114.16 ns</td><td>95.33 ns</td><td>551,178.8 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>1536</td><td>557,484.1 ns</td><td>61.66 ns</td><td>48.14 ns</td><td>557,481.6 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>131072</td><td>16384</td><td>619,809.8 ns</td><td>130.97 ns</td><td>116.10 ns</td><td>619,828.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>0</td><td>2,203,066.3 ns</td><td>705.24 ns</td><td>659.68 ns</td><td>2,203,272.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>64</td><td>2,203,247.5 ns</td><td>705.71 ns</td><td>660.13 ns</td><td>2,202,994.1 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>1536</td><td>2,209,559.8 ns</td><td>947.99 ns</td><td>740.13 ns</td><td>2,209,380.9 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>524288</td><td>16384</td><td>2,271,127.0 ns</td><td>187.39 ns</td><td>166.12 ns</td><td>2,271,101.2 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>0</td><td>4,405,864.3 ns</td><td>1,794.19 ns</td><td>1,400.78 ns</td><td>4,405,748.8 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>64</td><td>4,406,161.7 ns</td><td>1,204.60 ns</td><td>1,126.78 ns</td><td>4,405,660.2 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>1536</td><td>4,409,609.5 ns</td><td>1,162.79 ns</td><td>1,087.68 ns</td><td>4,409,120.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>1048576</td><td>16384</td><td>4,474,368.9 ns</td><td>1,210.31 ns</td><td>1,072.90 ns</td><td>4,474,438.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>0</td><td>44,220,296.7 ns</td><td>16,878.27 ns</td><td>15,787.95 ns</td><td>44,217,475.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>64</td><td>44,210,031.7 ns</td><td>26,916.58 ns</td><td>25,177.78 ns</td><td>44,210,041.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>1536</td><td>44,224,492.2 ns</td><td>20,357.95 ns</td><td>19,042.84 ns</td><td>44,217,391.7 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>10485760</td><td>16384</td><td>44,286,004.4 ns</td><td>45,298.85 ns</td><td>42,372.57 ns</td><td>44,286,250.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>0</td><td>221,136,389.7 ns</td><td>150,658.09 ns</td><td>125,806.33 ns</td><td>221,096,000.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>64</td><td>221,074,973.3 ns</td><td>142,308.17 ns</td><td>133,115.15 ns</td><td>221,073,833.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>1536</td><td>221,125,600.0 ns</td><td>139,428.91 ns</td><td>130,421.89 ns</td><td>221,146,933.3 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>52428800</td><td>16384</td><td>221,208,078.6 ns</td><td>94,896.14 ns</td><td>84,122.96 ns</td><td>221,203,600.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>0</td><td>442,304,606.7 ns</td><td>262,715.58 ns</td><td>245,744.31 ns</td><td>442,431,000.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>64</td><td>442,267,785.7 ns</td><td>269,104.00 ns</td><td>238,553.68 ns</td><td>442,351,200.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>1536</td><td>442,310,466.7 ns</td><td>271,306.92 ns</td><td>253,780.66 ns</td><td>442,388,900.0 ns</td>
+</tr><tr><td>Ascon128pqc_Decrypt</td><td>Decryption</td><td>104857600</td><td>16384</td><td>442,462,428.6 ns</td><td>197,784.59 ns</td><td>175,330.89 ns</td><td>442,499,650.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>0</td><td>0</td><td>214.7 ns</td><td>0.06 ns</td><td>0.06 ns</td><td>214.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>0</td><td>64</td><td>514.9 ns</td><td>0.11 ns</td><td>0.09 ns</td><td>514.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>0</td><td>1536</td><td>6,619.8 ns</td><td>1.28 ns</td><td>1.19 ns</td><td>6,620.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>0</td><td>16384</td><td>68,215.3 ns</td><td>18.05 ns</td><td>16.89 ns</td><td>68,208.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16</td><td>0</td><td>281.0 ns</td><td>0.10 ns</td><td>0.09 ns</td><td>281.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16</td><td>64</td><td>581.9 ns</td><td>0.14 ns</td><td>0.12 ns</td><td>581.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16</td><td>1536</td><td>6,684.5 ns</td><td>1.11 ns</td><td>0.99 ns</td><td>6,684.6 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16</td><td>16384</td><td>68,327.8 ns</td><td>62.56 ns</td><td>58.52 ns</td><td>68,299.6 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32</td><td>0</td><td>347.7 ns</td><td>0.03 ns</td><td>0.02 ns</td><td>347.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32</td><td>64</td><td>682.4 ns</td><td>1.12 ns</td><td>1.05 ns</td><td>681.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32</td><td>1536</td><td>6,763.3 ns</td><td>1.03 ns</td><td>0.86 ns</td><td>6,763.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32</td><td>16384</td><td>68,361.4 ns</td><td>18.86 ns</td><td>17.65 ns</td><td>68,365.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>64</td><td>0</td><td>482.3 ns</td><td>0.17 ns</td><td>0.14 ns</td><td>482.3 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>64</td><td>64</td><td>780.9 ns</td><td>0.11 ns</td><td>0.09 ns</td><td>780.8 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>64</td><td>1536</td><td>6,884.0 ns</td><td>0.97 ns</td><td>0.91 ns</td><td>6,883.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>64</td><td>16384</td><td>68,484.7 ns</td><td>19.04 ns</td><td>17.81 ns</td><td>68,476.6 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>128</td><td>0</td><td>763.1 ns</td><td>0.08 ns</td><td>0.07 ns</td><td>763.1 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>128</td><td>64</td><td>1,062.1 ns</td><td>0.45 ns</td><td>0.42 ns</td><td>1,061.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>128</td><td>1536</td><td>7,164.2 ns</td><td>1.64 ns</td><td>1.53 ns</td><td>7,163.8 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>128</td><td>16384</td><td>68,762.9 ns</td><td>16.94 ns</td><td>15.85 ns</td><td>68,767.4 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>256</td><td>0</td><td>1,298.4 ns</td><td>0.92 ns</td><td>0.76 ns</td><td>1,298.1 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>256</td><td>64</td><td>1,595.3 ns</td><td>0.39 ns</td><td>0.36 ns</td><td>1,595.4 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>256</td><td>1536</td><td>7,699.1 ns</td><td>1.55 ns</td><td>1.45 ns</td><td>7,699.3 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>256</td><td>16384</td><td>69,293.0 ns</td><td>20.07 ns</td><td>18.77 ns</td><td>69,305.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>512</td><td>0</td><td>2,369.3 ns</td><td>0.50 ns</td><td>0.44 ns</td><td>2,369.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>512</td><td>64</td><td>2,667.1 ns</td><td>0.38 ns</td><td>0.30 ns</td><td>2,667.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>512</td><td>1536</td><td>8,766.7 ns</td><td>1.23 ns</td><td>1.03 ns</td><td>8,766.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>512</td><td>16384</td><td>70,379.0 ns</td><td>21.69 ns</td><td>20.28 ns</td><td>70,375.4 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>0</td><td>4,512.0 ns</td><td>0.51 ns</td><td>0.45 ns</td><td>4,512.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>64</td><td>4,809.8 ns</td><td>0.56 ns</td><td>0.53 ns</td><td>4,809.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>1536</td><td>10,907.3 ns</td><td>2.12 ns</td><td>1.98 ns</td><td>10,906.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1024</td><td>16384</td><td>72,534.6 ns</td><td>16.26 ns</td><td>15.21 ns</td><td>72,537.1 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>6,653.9 ns</td><td>0.62 ns</td><td>0.58 ns</td><td>6,653.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>6,948.2 ns</td><td>0.69 ns</td><td>0.65 ns</td><td>6,948.4 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>13,042.9 ns</td><td>1.39 ns</td><td>1.23 ns</td><td>13,042.6 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>74,691.0 ns</td><td>23.37 ns</td><td>21.86 ns</td><td>74,679.8 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>0</td><td>8,794.3 ns</td><td>0.80 ns</td><td>0.75 ns</td><td>8,794.1 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>64</td><td>9,187.5 ns</td><td>0.82 ns</td><td>0.68 ns</td><td>9,187.4 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>1536</td><td>15,178.2 ns</td><td>1.72 ns</td><td>1.61 ns</td><td>15,178.6 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>2048</td><td>16384</td><td>76,826.1 ns</td><td>34.26 ns</td><td>32.04 ns</td><td>76,811.1 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>0</td><td>68,955.2 ns</td><td>9.68 ns</td><td>9.05 ns</td><td>68,954.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>64</td><td>69,234.3 ns</td><td>7.13 ns</td><td>6.32 ns</td><td>69,232.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>1536</td><td>75,381.3 ns</td><td>11.10 ns</td><td>10.39 ns</td><td>75,381.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>16384</td><td>16384</td><td>137,162.5 ns</td><td>27.47 ns</td><td>25.69 ns</td><td>137,172.8 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>0</td><td>137,831.9 ns</td><td>25.68 ns</td><td>24.02 ns</td><td>137,835.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>64</td><td>158,237.7 ns</td><td>21.36 ns</td><td>18.94 ns</td><td>158,238.8 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>1536</td><td>144,248.8 ns</td><td>27.35 ns</td><td>22.84 ns</td><td>144,239.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>32768</td><td>16384</td><td>205,904.2 ns</td><td>68.99 ns</td><td>57.61 ns</td><td>205,902.3 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>0</td><td>276,114.9 ns</td><td>234.79 ns</td><td>219.62 ns</td><td>276,024.6 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>64</td><td>276,224.7 ns</td><td>47.66 ns</td><td>44.58 ns</td><td>276,209.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>1536</td><td>282,590.5 ns</td><td>218.42 ns</td><td>204.31 ns</td><td>282,485.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>65536</td><td>16384</td><td>344,148.2 ns</td><td>76.87 ns</td><td>64.19 ns</td><td>344,169.4 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>0</td><td>551,706.3 ns</td><td>61.49 ns</td><td>51.35 ns</td><td>551,715.1 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>64</td><td>566,203.8 ns</td><td>134.36 ns</td><td>119.11 ns</td><td>566,181.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>1536</td><td>558,202.7 ns</td><td>73.76 ns</td><td>65.38 ns</td><td>558,206.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>131072</td><td>16384</td><td>619,945.9 ns</td><td>518.90 ns</td><td>485.38 ns</td><td>619,646.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>0</td><td>2,205,533.2 ns</td><td>187.57 ns</td><td>156.63 ns</td><td>2,205,550.8 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>64</td><td>2,303,172.5 ns</td><td>582.24 ns</td><td>516.14 ns</td><td>2,303,032.8 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>1536</td><td>2,212,210.2 ns</td><td>487.11 ns</td><td>455.64 ns</td><td>2,212,124.6 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>524288</td><td>16384</td><td>2,273,542.6 ns</td><td>92.59 ns</td><td>82.07 ns</td><td>2,273,570.1 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>0</td><td>4,414,470.1 ns</td><td>4,043.23 ns</td><td>3,782.04 ns</td><td>4,411,525.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>64</td><td>4,411,906.0 ns</td><td>623.43 ns</td><td>552.66 ns</td><td>4,411,807.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>1536</td><td>4,416,915.6 ns</td><td>365.59 ns</td><td>324.09 ns</td><td>4,416,946.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>1048576</td><td>16384</td><td>4,479,090.5 ns</td><td>257.54 ns</td><td>215.06 ns</td><td>4,479,146.9 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>0</td><td>47,042,890.5 ns</td><td>26,509.69 ns</td><td>23,500.15 ns</td><td>47,052,454.2 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>64</td><td>44,313,222.4 ns</td><td>44,123.09 ns</td><td>36,844.78 ns</td><td>44,326,500.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>1536</td><td>44,343,596.1 ns</td><td>56,417.23 ns</td><td>52,772.71 ns</td><td>44,330,075.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>10485760</td><td>16384</td><td>44,346,112.2 ns</td><td>53,530.65 ns</td><td>50,072.60 ns</td><td>44,369,233.3 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>0</td><td>221,411,442.2 ns</td><td>221,884.67 ns</td><td>207,551.06 ns</td><td>221,472,566.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>64</td><td>221,280,100.0 ns</td><td>232,579.81 ns</td><td>217,555.30 ns</td><td>221,359,300.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>1536</td><td>221,340,048.9 ns</td><td>144,375.28 ns</td><td>135,048.73 ns</td><td>221,365,366.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>52428800</td><td>16384</td><td>221,518,720.0 ns</td><td>113,319.17 ns</td><td>105,998.83 ns</td><td>221,538,866.7 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>0</td><td>442,980,620.0 ns</td><td>358,997.60 ns</td><td>335,806.57 ns</td><td>443,043,000.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>64</td><td>442,734,093.3 ns</td><td>424,708.35 ns</td><td>397,272.46 ns</td><td>442,892,200.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>1536</td><td>442,990,693.3 ns</td><td>249,665.75 ns</td><td>233,537.50 ns</td><td>443,041,800.0 ns</td>
+</tr><tr><td>Ascon128pqc_Encrypt</td><td>Encryption</td><td>104857600</td><td>16384</td><td>442,970,314.3 ns</td><td>297,014.58 ns</td><td>263,295.69 ns</td><td>443,121,050.0 ns</td>
+</tr></tbody></table>
+</body>
+</html>

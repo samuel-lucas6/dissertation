@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>cAEADBenchmark.NoncePatches-20230727-091718</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.6, Windows 11 (10.0.22621.1992/22H2/2022Update/SunValley2)
+Intel Core i5-9600K CPU 3.70GHz (Coffee Lake), 1 CPU, 6 logical and 6 physical cores
+.NET SDK 7.0.306
+  [Host]     : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                Method</th><th>Categories</th><th>PlaintextSize</th><th>AssociatedDataSize</th><th>Mean</th><th>Error</th><th>StdDev</th><th> Ratio</th><th>RatioSD</th>
+</tr>
+</thead><tbody><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1.739 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1.827 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.007 &mu;s</td><td>0.0063 &mu;s</td><td>0.0058 &mu;s</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1.880 &mu;s</td><td>0.0002 &mu;s</td><td>0.0001 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.351 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.363 &mu;s</td><td>0.0014 &mu;s</td><td>0.0012 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.380 &mu;s</td><td>0.0080 &mu;s</td><td>0.0075 &mu;s</td><td>1.37x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.374 &mu;s</td><td>0.0007 &mu;s</td><td>0.0007 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1.868 &mu;s</td><td>0.0003 &mu;s</td><td>0.0002 &mu;s</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.532 &mu;s</td><td>0.0022 &mu;s</td><td>0.0020 &mu;s</td><td>1.46x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.882 &mu;s</td><td>0.0123 &mu;s</td><td>0.0115 &mu;s</td><td>1.66x slower</td><td>0.01x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.135 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.108 &mu;s</td><td>0.0126 &mu;s</td><td>0.0112 &mu;s</td><td>1.21x slower</td><td>0.01x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.088 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1.945 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.819 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.62x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.343 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>1.892 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.094 &mu;s</td><td>0.0003 &mu;s</td><td>0.0002 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>0</td><td>2.143 &mu;s</td><td>0.0054 &mu;s</td><td>0.0042 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>1.757 &mu;s</td><td>0.0045 &mu;s</td><td>0.0042 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>1.878 &mu;s</td><td>0.0014 &mu;s</td><td>0.0011 &mu;s</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.074 &mu;s</td><td>0.0024 &mu;s</td><td>0.0019 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>1.914 &mu;s</td><td>0.0077 &mu;s</td><td>0.0072 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.402 &mu;s</td><td>0.0008 &mu;s</td><td>0.0006 &mu;s</td><td>1.37x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.420 &mu;s</td><td>0.0013 &mu;s</td><td>0.0010 &mu;s</td><td>1.38x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.410 &mu;s</td><td>0.0013 &mu;s</td><td>0.0012 &mu;s</td><td>1.37x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.412 &mu;s</td><td>0.0061 &mu;s</td><td>0.0057 &mu;s</td><td>1.37x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>1.897 &mu;s</td><td>0.0015 &mu;s</td><td>0.0011 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.550 &mu;s</td><td>0.0020 &mu;s</td><td>0.0016 &mu;s</td><td>1.45x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.859 &mu;s</td><td>0.0024 &mu;s</td><td>0.0018 &mu;s</td><td>1.63x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.171 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.24x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.095 &mu;s</td><td>0.0008 &mu;s</td><td>0.0006 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.112 &mu;s</td><td>0.0074 &mu;s</td><td>0.0069 &mu;s</td><td>1.20x slower</td><td>0.01x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>1.971 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.846 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.62x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.377 &mu;s</td><td>0.0012 &mu;s</td><td>0.0011 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>1.911 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.095 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>5</td><td>2.144 &mu;s</td><td>0.0067 &mu;s</td><td>0.0063 &mu;s</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>1.746 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>1.838 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.017 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>1.889 &mu;s</td><td>0.0044 &mu;s</td><td>0.0041 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.362 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.381 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.374 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.391 &mu;s</td><td>0.0080 &mu;s</td><td>0.0075 &mu;s</td><td>1.37x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>1.878 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.544 &mu;s</td><td>0.0101 &mu;s</td><td>0.0095 &mu;s</td><td>1.46x slower</td><td>0.01x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.870 &mu;s</td><td>0.0022 &mu;s</td><td>0.0020 &mu;s</td><td>1.64x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.154 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.095 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.095 &mu;s</td><td>0.0014 &mu;s</td><td>0.0012 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>1.955 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.832 &mu;s</td><td>0.0025 &mu;s</td><td>0.0023 &mu;s</td><td>1.62x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.354 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>1.901 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.089 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>16</td><td>2.147 &mu;s</td><td>0.0027 &mu;s</td><td>0.0024 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>1.755 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>1.849 &mu;s</td><td>0.0023 &mu;s</td><td>0.0021 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.032 &mu;s</td><td>0.0011 &mu;s</td><td>0.0009 &mu;s</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>1.897 &mu;s</td><td>0.0017 &mu;s</td><td>0.0016 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.373 &mu;s</td><td>0.0011 &mu;s</td><td>0.0008 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.383 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.384 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.396 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.37x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>1.889 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.546 &mu;s</td><td>0.0041 &mu;s</td><td>0.0037 &mu;s</td><td>1.45x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.875 &mu;s</td><td>0.0037 &mu;s</td><td>0.0034 &mu;s</td><td>1.64x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.161 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.096 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.106 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>1.962 &mu;s</td><td>0.0003 &mu;s</td><td>0.0002 &mu;s</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.838 &mu;s</td><td>0.0022 &mu;s</td><td>0.0020 &mu;s</td><td>1.62x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.362 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>1.913 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.092 &mu;s</td><td>0.0027 &mu;s</td><td>0.0021 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>32</td><td>2.137 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1.775 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1.868 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.046 &mu;s</td><td>0.0031 &mu;s</td><td>0.0029 &mu;s</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1.917 &mu;s</td><td>0.0002 &mu;s</td><td>0.0001 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.389 &mu;s</td><td>0.0009 &mu;s</td><td>0.0007 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.404 &mu;s</td><td>0.0024 &mu;s</td><td>0.0023 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.401 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.413 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1.912 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.572 &mu;s</td><td>0.0026 &mu;s</td><td>0.0024 &mu;s</td><td>1.45x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.865 &mu;s</td><td>0.0026 &mu;s</td><td>0.0023 &mu;s</td><td>1.61x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.181 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.093 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.127 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1.983 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.859 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.61x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.387 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>1.932 &mu;s</td><td>0.0002 &mu;s</td><td>0.0001 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.094 &mu;s</td><td>0.0030 &mu;s</td><td>0.0028 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>64</td><td>2.137 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>1.824 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>1.915 &mu;s</td><td>0.0015 &mu;s</td><td>0.0013 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.095 &mu;s</td><td>0.0032 &mu;s</td><td>0.0030 &mu;s</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>1.962 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.442 &mu;s</td><td>0.0026 &mu;s</td><td>0.0023 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.449 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.449 &mu;s</td><td>0.0019 &mu;s</td><td>0.0017 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.460 &mu;s</td><td>0.0011 &mu;s</td><td>0.0009 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>1.970 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.618 &mu;s</td><td>0.0022 &mu;s</td><td>0.0021 &mu;s</td><td>1.43x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.924 &mu;s</td><td>0.0026 &mu;s</td><td>0.0024 &mu;s</td><td>1.60x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.308 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.26x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.175 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.253 &mu;s</td><td>0.0026 &mu;s</td><td>0.0024 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.029 &mu;s</td><td>0.0003 &mu;s</td><td>0.0002 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.906 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.59x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.436 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>1.979 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.172 &mu;s</td><td>0.0027 &mu;s</td><td>0.0025 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>128</td><td>2.225 &mu;s</td><td>0.0016 &mu;s</td><td>0.0014 &mu;s</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>1.916 &mu;s</td><td>0.0017 &mu;s</td><td>0.0016 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.007 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.190 &mu;s</td><td>0.0043 &mu;s</td><td>0.0040 &mu;s</td><td>1.14x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.052 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.533 &mu;s</td><td>0.0025 &mu;s</td><td>0.0023 &mu;s</td><td>1.32x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.544 &mu;s</td><td>0.0008 &mu;s</td><td>0.0006 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.539 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.550 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.047 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.709 &mu;s</td><td>0.0035 &mu;s</td><td>0.0031 &mu;s</td><td>1.41x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>3.010 &mu;s</td><td>0.0015 &mu;s</td><td>0.0013 &mu;s</td><td>1.57x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.477 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.29x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.253 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.424 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.26x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.121 &mu;s</td><td>0.0007 &mu;s</td><td>0.0007 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.996 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.56x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.524 &mu;s</td><td>0.0032 &mu;s</td><td>0.0030 &mu;s</td><td>1.32x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.073 &mu;s</td><td>0.0014 &mu;s</td><td>0.0013 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.255 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>256</td><td>2.297 &mu;s</td><td>0.0031 &mu;s</td><td>0.0029 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.459 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.553 &mu;s</td><td>0.0022 &mu;s</td><td>0.0021 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.734 &mu;s</td><td>0.0030 &mu;s</td><td>0.0028 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.598 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.081 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.086 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.083 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.096 &mu;s</td><td>0.0011 &mu;s</td><td>0.0010 &mu;s</td><td>1.26x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.595 &mu;s</td><td>0.0022 &mu;s</td><td>0.0021 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.263 &mu;s</td><td>0.0032 &mu;s</td><td>0.0029 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.515 &mu;s</td><td>0.0013 &mu;s</td><td>0.0010 &mu;s</td><td>1.43x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.506 &mu;s</td><td>0.0009 &mu;s</td><td>0.0007 &mu;s</td><td>1.43x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.738 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.446 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.40x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.672 &mu;s</td><td>0.0010 &mu;s</td><td>0.0008 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.544 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.44x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>3.071 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.613 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.740 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>1024</td><td>2.775 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2.827 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2.924 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.102 &mu;s</td><td>0.0012 &mu;s</td><td>0.0010 &mu;s</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2.969 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.449 &mu;s</td><td>0.0011 &mu;s</td><td>0.0010 &mu;s</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.453 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.457 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.471 &mu;s</td><td>0.0032 &mu;s</td><td>0.0028 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2.965 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.620 &mu;s</td><td>0.0014 &mu;s</td><td>0.0011 &mu;s</td><td>1.28x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.826 &mu;s</td><td>0.0020 &mu;s</td><td>0.0015 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>4.228 &mu;s</td><td>0.0042 &mu;s</td><td>0.0039 &mu;s</td><td>1.50x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.061 &mu;s</td><td>0.0022 &mu;s</td><td>0.0020 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>4.149 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.47x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.045 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.914 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.38x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.437 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.22x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>2.983 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.057 &mu;s</td><td>0.0031 &mu;s</td><td>0.0029 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>1536</td><td>3.105 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.192 &mu;s</td><td>0.0021 &mu;s</td><td>0.0020 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.287 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.469 &mu;s</td><td>0.0021 &mu;s</td><td>0.0018 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.336 &mu;s</td><td>0.0020 &mu;s</td><td>0.0019 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.814 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.824 &mu;s</td><td>0.0008 &mu;s</td><td>0.0008 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.819 &mu;s</td><td>0.0013 &mu;s</td><td>0.0011 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.834 &mu;s</td><td>0.0014 &mu;s</td><td>0.0013 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.327 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.995 &mu;s</td><td>0.0020 &mu;s</td><td>0.0018 &mu;s</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>4.150 &mu;s</td><td>0.0029 &mu;s</td><td>0.0026 &mu;s</td><td>1.30x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>4.882 &mu;s</td><td>0.0011 &mu;s</td><td>0.0010 &mu;s</td><td>1.53x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.376 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>4.845 &mu;s</td><td>0.0012 &mu;s</td><td>0.0010 &mu;s</td><td>1.52x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.402 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>4.281 &mu;s</td><td>0.0041 &mu;s</td><td>0.0038 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.808 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.347 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.371 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>2048</td><td>3.423 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.395 &mu;s</td><td>0.0031 &mu;s</td><td>0.0029 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.505 &mu;s</td><td>0.0050 &mu;s</td><td>0.0044 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.702 &mu;s</td><td>0.0108 &mu;s</td><td>0.0101 &mu;s</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.521 &mu;s</td><td>0.0038 &mu;s</td><td>0.0033 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>14.036 &mu;s</td><td>0.0019 &mu;s</td><td>0.0016 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>14.048 &mu;s</td><td>0.0023 &mu;s</td><td>0.0021 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>14.078 &mu;s</td><td>0.0066 &mu;s</td><td>0.0062 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>14.067 &mu;s</td><td>0.0038 &mu;s</td><td>0.0034 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.565 &mu;s</td><td>0.0190 &mu;s</td><td>0.0178 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>14.253 &mu;s</td><td>0.0073 &mu;s</td><td>0.0061 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.256 &mu;s</td><td>0.0079 &mu;s</td><td>0.0070 &mu;s</td><td>1.01x faster</td><td>0.00x</td>
+</tr><tr><td>CTX_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>24.087 &mu;s</td><td>0.0208 &mu;s</td><td>0.0195 &mu;s</td><td>1.80x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>12.320 &mu;s</td><td>0.0048 &mu;s</td><td>0.0043 &mu;s</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>24.087 &mu;s</td><td>0.0139 &mu;s</td><td>0.0130 &mu;s</td><td>1.80x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.614 &mu;s</td><td>0.0072 &mu;s</td><td>0.0067 &mu;s</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>14.496 &mu;s</td><td>0.0015 &mu;s</td><td>0.0013 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>14.023 &mu;s</td><td>0.0033 &mu;s</td><td>0.0029 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>13.542 &mu;s</td><td>0.0029 &mu;s</td><td>0.0027 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>12.329 &mu;s</td><td>0.0032 &mu;s</td><td>0.0028 &mu;s</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Decrypt</td><td>Decryption</td><td>1536</td><td>16384</td><td>12.418 &mu;s</td><td>0.0112 &mu;s</td><td>0.0104 &mu;s</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1.707 &mu;s</td><td>0.0028 &mu;s</td><td>0.0027 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1.805 &mu;s</td><td>0.0014 &mu;s</td><td>0.0013 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1.960 &mu;s</td><td>0.0035 &mu;s</td><td>0.0033 &mu;s</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1.810 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.276 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.287 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.284 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.306 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1.799 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.479 &mu;s</td><td>0.0021 &mu;s</td><td>0.0019 &mu;s</td><td>1.45x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.790 &mu;s</td><td>0.0045 &mu;s</td><td>0.0042 &mu;s</td><td>1.63x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.030 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.033 &mu;s</td><td>0.0006 &mu;s</td><td>0.0004 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.003 &mu;s</td><td>0.0021 &mu;s</td><td>0.0019 &mu;s</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1.903 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.779 &mu;s</td><td>0.0026 &mu;s</td><td>0.0024 &mu;s</td><td>1.63x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.302 &mu;s</td><td>0.0025 &mu;s</td><td>0.0023 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>1.852 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.051 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>0</td><td>2.025 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>1.723 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>1.828 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>1.974 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>1.828 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.291 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.302 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.307 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.319 &mu;s</td><td>0.0031 &mu;s</td><td>0.0029 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>1.835 &mu;s</td><td>0.0017 &mu;s</td><td>0.0016 &mu;s</td><td>1.07x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.480 &mu;s</td><td>0.0010 &mu;s</td><td>0.0008 &mu;s</td><td>1.44x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.774 &mu;s</td><td>0.0037 &mu;s</td><td>0.0035 &mu;s</td><td>1.61x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.046 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.030 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.022 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>1.943 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.819 &mu;s</td><td>0.0025 &mu;s</td><td>0.0023 &mu;s</td><td>1.64x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.334 &mu;s</td><td>0.0006 &mu;s</td><td>0.0004 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>1.872 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.052 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>5</td><td>2.033 &mu;s</td><td>0.0026 &mu;s</td><td>0.0025 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>1.714 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>1.810 &mu;s</td><td>0.0003 &mu;s</td><td>0.0002 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>1.967 &mu;s</td><td>0.0009 &mu;s</td><td>0.0007 &mu;s</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>1.820 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.287 &mu;s</td><td>0.0022 &mu;s</td><td>0.0021 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.296 &mu;s</td><td>0.0020 &mu;s</td><td>0.0018 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.299 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.307 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>1.813 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.492 &mu;s</td><td>0.0011 &mu;s</td><td>0.0009 &mu;s</td><td>1.45x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.784 &mu;s</td><td>0.0062 &mu;s</td><td>0.0058 &mu;s</td><td>1.62x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.042 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.032 &mu;s</td><td>0.0030 &mu;s</td><td>0.0028 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.015 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>1.915 &mu;s</td><td>0.0006 &mu;s</td><td>0.0004 &mu;s</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.797 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.63x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.314 &mu;s</td><td>0.0022 &mu;s</td><td>0.0021 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>1.866 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.054 &mu;s</td><td>0.0028 &mu;s</td><td>0.0027 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>16</td><td>2.033 &mu;s</td><td>0.0022 &mu;s</td><td>0.0020 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>1.725 &mu;s</td><td>0.0002 &mu;s</td><td>0.0001 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>1.819 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>1.980 &mu;s</td><td>0.0021 &mu;s</td><td>0.0016 &mu;s</td><td>1.15x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>1.831 &mu;s</td><td>0.0002 &mu;s</td><td>0.0001 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.296 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.305 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.306 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.319 &mu;s</td><td>0.0007 &mu;s</td><td>0.0005 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>1.823 &mu;s</td><td>0.0008 &mu;s</td><td>0.0006 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.485 &mu;s</td><td>0.0021 &mu;s</td><td>0.0016 &mu;s</td><td>1.44x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.825 &mu;s</td><td>0.0116 &mu;s</td><td>0.0109 &mu;s</td><td>1.64x slower</td><td>0.01x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.051 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.032 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.027 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>1.936 &mu;s</td><td>0.0071 &mu;s</td><td>0.0066 &mu;s</td><td>1.12x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.806 &mu;s</td><td>0.0081 &mu;s</td><td>0.0075 &mu;s</td><td>1.63x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.327 &mu;s</td><td>0.0031 &mu;s</td><td>0.0027 &mu;s</td><td>1.35x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>1.875 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.053 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>32</td><td>2.036 &mu;s</td><td>0.0062 &mu;s</td><td>0.0058 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1.753 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1.847 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1.999 &mu;s</td><td>0.0017 &mu;s</td><td>0.0013 &mu;s</td><td>1.14x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1.853 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.323 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.329 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.336 &mu;s</td><td>0.0071 &mu;s</td><td>0.0066 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.340 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1.853 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.506 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.43x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.767 &mu;s</td><td>0.0014 &mu;s</td><td>0.0011 &mu;s</td><td>1.58x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.073 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.036 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.054 &mu;s</td><td>0.0070 &mu;s</td><td>0.0066 &mu;s</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1.949 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.821 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.61x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.353 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>1.903 &mu;s</td><td>0.0048 &mu;s</td><td>0.0045 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.057 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.17x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>64</td><td>2.029 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>1.794 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>1.890 &mu;s</td><td>0.0012 &mu;s</td><td>0.0009 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.051 &mu;s</td><td>0.0010 &mu;s</td><td>0.0008 &mu;s</td><td>1.14x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>1.893 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.368 &mu;s</td><td>0.0006 &mu;s</td><td>0.0004 &mu;s</td><td>1.32x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.379 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.376 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.32x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.390 &mu;s</td><td>0.0012 &mu;s</td><td>0.0011 &mu;s</td><td>1.33x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>1.893 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.565 &mu;s</td><td>0.0030 &mu;s</td><td>0.0028 &mu;s</td><td>1.43x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.865 &mu;s</td><td>0.0019 &mu;s</td><td>0.0017 &mu;s</td><td>1.60x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.203 &mu;s</td><td>0.0014 &mu;s</td><td>0.0011 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.113 &mu;s</td><td>0.0025 &mu;s</td><td>0.0023 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.179 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.21x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>1.991 &mu;s</td><td>0.0004 &mu;s</td><td>0.0004 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.870 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.60x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.400 &mu;s</td><td>0.0018 &mu;s</td><td>0.0016 &mu;s</td><td>1.34x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>1.943 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.134 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.19x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>128</td><td>2.111 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>1.887 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>1.982 &mu;s</td><td>0.0004 &mu;s</td><td>0.0003 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.135 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.13x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>1.982 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.455 &mu;s</td><td>0.0017 &mu;s</td><td>0.0014 &mu;s</td><td>1.30x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.465 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.31x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.466 &mu;s</td><td>0.0011 &mu;s</td><td>0.0010 &mu;s</td><td>1.31x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.479 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.31x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>1.981 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.641 &mu;s</td><td>0.0035 &mu;s</td><td>0.0033 &mu;s</td><td>1.40x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.935 &mu;s</td><td>0.0046 &mu;s</td><td>0.0043 &mu;s</td><td>1.55x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.371 &mu;s</td><td>0.0023 &mu;s</td><td>0.0021 &mu;s</td><td>1.26x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.189 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.347 &mu;s</td><td>0.0025 &mu;s</td><td>0.0023 &mu;s</td><td>1.24x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.085 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.958 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.57x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.488 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.32x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.032 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.220 &mu;s</td><td>0.0006 &mu;s</td><td>0.0005 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>256</td><td>2.194 &mu;s</td><td>0.0022 &mu;s</td><td>0.0021 &mu;s</td><td>1.16x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.435 &mu;s</td><td>0.0001 &mu;s</td><td>0.0001 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.535 &mu;s</td><td>0.0080 &mu;s</td><td>0.0075 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.686 &mu;s</td><td>0.0025 &mu;s</td><td>0.0021 &mu;s</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.530 &mu;s</td><td>0.0003 &mu;s</td><td>0.0002 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.003 &mu;s</td><td>0.0007 &mu;s</td><td>0.0005 &mu;s</td><td>1.23x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.011 &mu;s</td><td>0.0005 &mu;s</td><td>0.0005 &mu;s</td><td>1.24x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.012 &mu;s</td><td>0.0015 &mu;s</td><td>0.0014 &mu;s</td><td>1.24x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.031 &mu;s</td><td>0.0105 &mu;s</td><td>0.0098 &mu;s</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.543 &mu;s</td><td>0.0076 &mu;s</td><td>0.0071 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.198 &mu;s</td><td>0.0016 &mu;s</td><td>0.0014 &mu;s</td><td>1.31x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.439 &mu;s</td><td>0.0099 &mu;s</td><td>0.0088 &mu;s</td><td>1.41x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.396 &mu;s</td><td>0.0007 &mu;s</td><td>0.0007 &mu;s</td><td>1.39x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.670 &mu;s</td><td>0.0023 &mu;s</td><td>0.0018 &mu;s</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.374 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.39x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.630 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.508 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.44x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>3.032 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.25x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.587 &mu;s</td><td>0.0212 &mu;s</td><td>0.0177 &mu;s</td><td>1.06x slower</td><td>0.01x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.707 &mu;s</td><td>0.0014 &mu;s</td><td>0.0013 &mu;s</td><td>1.11x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>1024</td><td>2.671 &mu;s</td><td>0.0011 &mu;s</td><td>0.0009 &mu;s</td><td>1.10x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2.842 &mu;s</td><td>0.0012 &mu;s</td><td>0.0010 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2.899 &mu;s</td><td>0.0021 &mu;s</td><td>0.0020 &mu;s</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.103 &mu;s</td><td>0.0017 &mu;s</td><td>0.0016 &mu;s</td><td>1.09x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2.938 &mu;s</td><td>0.0002 &mu;s</td><td>0.0002 &mu;s</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.420 &mu;s</td><td>0.0080 &mu;s</td><td>0.0071 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.428 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.21x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.425 &mu;s</td><td>0.0014 &mu;s</td><td>0.0012 &mu;s</td><td>1.21x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.435 &mu;s</td><td>0.0024 &mu;s</td><td>0.0019 &mu;s</td><td>1.21x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2.917 &mu;s</td><td>0.0086 &mu;s</td><td>0.0080 &mu;s</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.607 &mu;s</td><td>0.0023 &mu;s</td><td>0.0020 &mu;s</td><td>1.27x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.808 &mu;s</td><td>0.0203 &mu;s</td><td>0.0190 &mu;s</td><td>1.34x slower</td><td>0.01x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>4.133 &mu;s</td><td>0.0039 &mu;s</td><td>0.0031 &mu;s</td><td>1.45x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2.997 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>4.107 &mu;s</td><td>0.0012 &mu;s</td><td>0.0010 &mu;s</td><td>1.45x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.009 &mu;s</td><td>0.0100 &mu;s</td><td>0.0093 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.877 &mu;s</td><td>0.0012 &mu;s</td><td>0.0010 &mu;s</td><td>1.36x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.402 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.20x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>2.999 &mu;s</td><td>0.0084 &mu;s</td><td>0.0079 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.026 &mu;s</td><td>0.0090 &mu;s</td><td>0.0084 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>1536</td><td>3.015 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.218 &mu;s</td><td>0.0095 &mu;s</td><td>0.0089 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.261 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.466 &mu;s</td><td>0.0025 &mu;s</td><td>0.0021 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.306 &mu;s</td><td>0.0003 &mu;s</td><td>0.0003 &mu;s</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.793 &mu;s</td><td>0.0119 &mu;s</td><td>0.0111 &mu;s</td><td>1.18x slower</td><td>0.01x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.796 &mu;s</td><td>0.0038 &mu;s</td><td>0.0035 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.790 &mu;s</td><td>0.0006 &mu;s</td><td>0.0006 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.798 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.259 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.980 &mu;s</td><td>0.0033 &mu;s</td><td>0.0028 &mu;s</td><td>1.24x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>4.100 &mu;s</td><td>0.0019 &mu;s</td><td>0.0016 &mu;s</td><td>1.27x slower</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>4.814 &mu;s</td><td>0.0009 &mu;s</td><td>0.0008 &mu;s</td><td>1.50x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.312 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>4.791 &mu;s</td><td>0.0008 &mu;s</td><td>0.0007 &mu;s</td><td>1.49x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.364 &mu;s</td><td>0.0007 &mu;s</td><td>0.0006 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>4.246 &mu;s</td><td>0.0008 &mu;s</td><td>0.0006 &mu;s</td><td>1.32x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.793 &mu;s</td><td>0.0018 &mu;s</td><td>0.0015 &mu;s</td><td>1.18x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.358 &mu;s</td><td>0.0010 &mu;s</td><td>0.0009 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.336 &mu;s</td><td>0.0010 &mu;s</td><td>0.0008 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>2048</td><td>3.313 &mu;s</td><td>0.0005 &mu;s</td><td>0.0004 &mu;s</td><td>1.03x slower</td><td>0.00x</td>
+</tr><tr><td>ChaCha20Poly1305_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.416 &mu;s</td><td>0.0020 &mu;s</td><td>0.0016 &mu;s</td><td>baseline</td><td></td>
+</tr><tr><td>ChaChaPoly_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.471 &mu;s</td><td>0.0048 &mu;s</td><td>0.0043 &mu;s</td><td>1.00x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFix_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.694 &mu;s</td><td>0.0045 &mu;s</td><td>0.0040 &mu;s</td><td>1.02x slower</td><td>0.00x</td>
+</tr><tr><td>PaddingFixNonLibrary_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.499 &mu;s</td><td>0.0038 &mu;s</td><td>0.0035 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyI_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>14.016 &mu;s</td><td>0.0051 &mu;s</td><td>0.0045 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyII_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>14.032 &mu;s</td><td>0.0040 &mu;s</td><td>0.0036 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIII_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>14.029 &mu;s</td><td>0.0050 &mu;s</td><td>0.0042 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>CommitKeyIV_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>14.040 &mu;s</td><td>0.0033 &mu;s</td><td>0.0029 &mu;s</td><td>1.05x slower</td><td>0.00x</td>
+</tr><tr><td>VaillantTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.488 &mu;s</td><td>0.0029 &mu;s</td><td>0.0026 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>14.236 &mu;s</td><td>0.0049 &mu;s</td><td>0.0044 &mu;s</td><td>1.06x slower</td><td>0.00x</td>
+</tr><tr><td>HtE_UtC_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.154 &mu;s</td><td>0.0076 &mu;s</td><td>0.0067 &mu;s</td><td>1.02x faster</td><td>0.00x</td>
+</tr><tr><td>CTX_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>23.979 &mu;s</td><td>0.0053 &mu;s</td><td>0.0047 &mu;s</td><td>1.79x slower</td><td>0.00x</td>
+</tr><tr><td>LibsodiumTransform_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>12.418 &mu;s</td><td>0.0012 &mu;s</td><td>0.0011 &mu;s</td><td>1.08x faster</td><td>0.00x</td>
+</tr><tr><td>ContextHashing_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>23.958 &mu;s</td><td>0.0046 &mu;s</td><td>0.0039 &mu;s</td><td>1.79x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1HChaCha_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.579 &mu;s</td><td>0.0045 &mu;s</td><td>0.0040 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC128_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>14.487 &mu;s</td><td>0.0145 &mu;s</td><td>0.0136 &mu;s</td><td>1.08x slower</td><td>0.00x</td>
+</tr><tr><td>CCPC1ChaChaMAC256_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.984 &mu;s</td><td>0.0020 &mu;s</td><td>0.0018 &mu;s</td><td>1.04x slower</td><td>0.00x</td>
+</tr><tr><td>DtC_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>13.552 &mu;s</td><td>0.0021 &mu;s</td><td>0.0020 &mu;s</td><td>1.01x slower</td><td>0.00x</td>
+</tr><tr><td>CommitAll_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>12.293 &mu;s</td><td>0.0039 &mu;s</td><td>0.0034 &mu;s</td><td>1.09x faster</td><td>0.00x</td>
+</tr><tr><td>CTXPlus_Encrypt</td><td>Encryption</td><td>1536</td><td>16384</td><td>12.267 &mu;s</td><td>0.0039 &mu;s</td><td>0.0032 &mu;s</td><td>1.09x faster</td><td>0.00x</td>
+</tr></tbody></table>
+</body>
+</html>
